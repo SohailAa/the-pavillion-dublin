@@ -398,19 +398,95 @@
       color: #6ee7b7;
       font-weight: 600;
     }
-    .iso-svg-wrap {
+    .hero-visual-frame {
       width: 100%;
       background: #080d14;
       border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 14px;
-      margin-bottom: 18px;
+      border: 1px solid var(--border-gold);
+      overflow: hidden;
+      margin-bottom: 16px;
       position: relative;
+      aspect-ratio: 16 / 10;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.65);
     }
-    .iso-svg-wrap svg {
+    .hero-visual-frame img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+    }
+    .hero-visual-frame:hover img {
+      transform: scale(1.03);
+    }
+    .hero-visual-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,11,16,0.18) 0%, rgba(7,11,16,0.05) 45%, rgba(7,11,16,0.88) 100%);
+      pointer-events: none;
+    }
+    .hero-hotspot {
+      position: absolute;
+      background: rgba(11, 17, 26, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .hero-hotspot:hover {
+      transform: translateY(-2px) scale(1.03);
+      border-color: var(--gold-light);
+      background: rgba(20, 30, 46, 0.94);
+    }
+    .hotspot-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold);
+    }
+    .hero-caption-bar {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      z-index: 2;
+    }
+    .hero-switcher-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .hero-switch-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .hero-switch-btn.active {
+      background: var(--gold-muted);
+      border-color: var(--gold);
+      color: var(--gold-light);
     }
     .showcase-metrics {
       display: grid;
@@ -434,6 +510,121 @@
     .sm-box span {
       font-size: 11px;
       color: var(--text-muted);
+    }
+
+    /* BLUPRNT Networking Event Series Section */
+    .bluprnt-section {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(56, 189, 248, 0.14), transparent 42%),
+        radial-gradient(circle at 84% 78%, rgba(212, 175, 55, 0.14), transparent 45%),
+        linear-gradient(180deg, #070c14 0%, #0b1322 50%, #070b10 100%);
+      border-top: 1px solid rgba(56, 189, 248, 0.25);
+      border-bottom: 1px solid var(--border-gold);
+    }
+    .bluprnt-hero-card {
+      background: linear-gradient(145deg, rgba(16, 26, 44, 0.92) 0%, rgba(9, 14, 24, 0.96) 100%);
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65);
+      margin-bottom: 36px;
+    }
+    .bluprnt-top-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 38px;
+      align-items: center;
+    }
+    .bluprnt-wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #7dd3fc;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .bluprnt-img-wrap {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      position: relative;
+      aspect-ratio: 16 / 10;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+    .bluprnt-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .bluprnt-editions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .edition-card {
+      background: rgba(13, 20, 32, 0.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+    .edition-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--cyan);
+    }
+    .edition-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 11.5px;
+    }
+    .edition-code {
+      color: var(--cyan);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .edition-cadence {
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .edition-card h4 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .edition-card p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .edition-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
     }
 
     /* Key Numbers Strip */
@@ -1271,12 +1462,13 @@
   <!-- Top Announcement Ribbon -->
   <div class="top-ribbon">
     <div class="top-ribbon-left">
-      <span class="ribbon-badge">Charter Pre-Registration</span>
-      <span><strong>The Pavillion · Dublin:</strong> 6400 Sierra Ct, Suite E · 96,000 SF Athletic, Spa, Culinary &amp; Founders Sanctuary</span>
+      <span class="ribbon-badge">BLUPRNT SERIES + CHARTER</span>
+      <span><strong>The Pavillion · Dublin:</strong> 6400 Sierra Ct · Home of the <strong>BLUPRNT</strong> Founder &amp; Investor Networking Series</span>
     </div>
     <div class="top-ribbon-right">
-      <a href="./Dublin-3D-Interactive-Tour.html">Launch Full-Screen 3D Tour &rarr;</a>
-      <a href="./Dublin-Financial-Projections-and-Lease-Coverage.pdf">Investor &amp; Owner Financial Package (PDF)</a>
+      <a href="#bluprnt">Explore BLUPRNT Events &rarr;</a>
+      <a href="./Dublin-3D-Interactive-Tour.html">Launch 3D Tour &rarr;</a>
+      <a href="./Dublin-Financial-Projections-and-Lease-Coverage.pdf">Financial Package (PDF)</a>
     </div>
   </div>
 
@@ -1291,15 +1483,15 @@
     </a>
     <nav class="nav-links" aria-label="Primary Navigation">
       <a href="#pillars">Six Pillars</a>
-      <a href="#blueprint">Interactive Blueprint</a>
+      <a href="#bluprnt" style="color:var(--gold-light);font-weight:700;">BLUPRNT Series</a>
       <a href="#founders">Founders Club</a>
+      <a href="#blueprint">Interactive Blueprint</a>
       <a href="#culinary">Indian Fusion Dining</a>
       <a href="#memberships">Memberships</a>
-      <a href="#booking">Reserve &amp; Simulate</a>
       <a href="#tour3d">3D Tour</a>
     </nav>
     <div class="nav-actions">
-      <a href="./Dublin-3D-Interactive-Tour.html" class="btn btn-emerald">3D Facility Tour</a>
+      <a href="#bluprnt" class="btn btn-emerald">BLUPRNT Pass</a>
       <button type="button" class="btn btn-gold" onclick="openInquiryModal('Charter Founder Inquiry')">Apply for Membership</button>
     </div>
   </header>
@@ -1312,17 +1504,17 @@
           <div>
             <div class="hero-pills">
               <span class="pill pill-gold">6400 Sierra Ct · Dublin, CA</span>
-              <span class="pill pill-emerald">100% Alcohol-Free &amp; Smoke-Free Sanctuary</span>
-              <span class="pill">Next Door to K1 Speed</span>
+              <span class="pill" style="background:rgba(56,189,248,0.14);border-color:rgba(56,189,248,0.45);color:#7dd3fc;">Home of BLUPRNT Networking</span>
+              <span class="pill pill-emerald">100% Alcohol-Free &amp; Smoke-Free</span>
             </div>
             <h1>Where Elite Athletics, Thermal Recovery &amp; <em>Visionary Founders</em> Converge.</h1>
             <p class="hero-lead">
-              Spanning 96,000 square feet in the heart of the Tri-Valley, <strong>The Pavillion</strong> unites tournament pickleball, pro cricket &amp; baseball biomechanics, a 12,000 SF thermal recovery spa, fine Indian fusion dining, and an exclusive Level-2 Founders Club under one roof.
+              Spanning 96,000 square feet in the heart of the Tri-Valley, <strong>The Pavillion</strong> unites tournament pickleball, pro cricket &amp; baseball biomechanics, a 12,000 SF thermal recovery spa, fine Indian fusion dining, and our Level-2 Founders Club hosting the signature <strong>BLUPRNT</strong> networking series.
             </p>
             <div class="hero-cta-row">
               <button type="button" class="btn btn-gold" onclick="openInquiryModal('Charter Founder Membership ($350/mo)')">Request Charter Invitation</button>
-              <a href="#tour3d" class="btn btn-outline" onclick="enableEmbeddedTour()">Explore Interactive 3D Preview</a>
-              <a href="#blueprint" class="btn btn-outline">Inspect 96,000 SF Masterplan</a>
+              <a href="#bluprnt" class="btn btn-outline" style="border-color:rgba(56,189,248,0.5);color:#bae6fd;">Explore BLUPRNT Networking Series</a>
+              <a href="#tour3d" class="btn btn-outline" onclick="enableEmbeddedTour()">3D Facility Preview</a>
             </div>
             <div class="universal-amenities-bar">
               <div class="universal-title">Included for Every Member &amp; Visitor</div>
@@ -1336,80 +1528,49 @@
             </div>
           </div>
 
-          <!-- Architectural Visual Card -->
+          <!-- Enhanced HD Architectural & BLUPRNT Visual Showcase -->
           <div class="hero-showcase">
             <div class="showcase-header">
               <div>
-                <div class="showcase-title">6400 Sierra Court · Suite E</div>
-                <div style="font-size:12px;color:var(--text-muted);">Master Architectural Program · Ground + Level 2</div>
+                <div class="showcase-title" id="heroCardTitle">The Pavillion · Architectural Cutaway</div>
+                <div style="font-size:12px;color:var(--text-muted);" id="heroCardSub">6400 Sierra Court, Suite E · 96,000 SF Luxury Sanctuary</div>
               </div>
-              <span class="showcase-tag">96,000 SF Total</span>
+              <span class="showcase-tag" id="heroCardTag">HD Concept Render</span>
             </div>
 
-            <div class="iso-svg-wrap">
-              <svg viewBox="0 0 560 320" role="img" aria-label="The Pavillion 6400 Sierra Ct Architectural Layout Diagram">
-                <defs>
-                  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#f3dc8a" stop-opacity="0.35"/>
-                    <stop offset="100%" stop-color="#d4af37" stop-opacity="0.12"/>
-                  </linearGradient>
-                  <linearGradient id="emeraldGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
-                    <stop offset="100%" stop-color="#059669" stop-opacity="0.12"/>
-                  </linearGradient>
-                </defs>
-                <!-- Site Context Background -->
-                <rect x="8" y="8" width="544" height="304" rx="10" fill="#070c12" stroke="rgba(255,255,255,0.08)" />
-                <!-- Neighbor West: K1 Speed & CrossFit -->
-                <rect x="22" y="26" width="120" height="72" rx="4" fill="#161f2c" stroke="rgba(255,255,255,0.12)" />
-                <text x="82" y="64" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-weight="600">CROSSFIT CSA (NW)</text>
-                <rect x="22" y="102" width="120" height="156" rx="4" fill="rgba(239,68,68,0.16)" stroke="#ef4444" stroke-width="1.2" />
-                <text x="82" y="172" fill="#fca5a5" font-size="11" text-anchor="middle" font-weight="700">K1 SPEED</text>
-                <text x="82" y="186" fill="#fda4af" font-size="8.5" text-anchor="middle">Next Door · Suite B</text>
-                <text x="82" y="199" fill="#94a3b8" font-size="8" text-anchor="middle">Cross-Marketing Partner</text>
+            <div class="hero-switcher-tabs" role="tablist" aria-label="Hero Visual Switcher">
+              <button type="button" class="hero-switch-btn active" id="heroBtn1" onclick="switchHeroVisual(1)">01 · The Sanctuary Cutaway (HD)</button>
+              <button type="button" class="hero-switch-btn" id="heroBtn2" onclick="switchHeroVisual(2)">02 · BLUPRNT Networking Salon (HD)</button>
+            </div>
 
-                <!-- THE PAVILLION (Suite E Center) -->
-                <rect x="148" y="26" width="276" height="232" rx="6" fill="#0f1722" stroke="#d4af37" stroke-width="2" />
-                <!-- Cricket & Baseball NW of Suite E -->
-                <rect x="154" y="32" width="102" height="142" rx="4" fill="url(#emeraldGrad)" stroke="#10b981" />
-                <text x="205" y="96" fill="#ecfdf5" font-size="10.5" text-anchor="middle" font-weight="700">CRICKET &amp; BASEBALL</text>
-                <text x="205" y="110" fill="#6ee7b7" font-size="8.5" text-anchor="middle">12 Pro Lanes · 18,000 SF</text>
+            <div class="hero-visual-frame">
+              <img
+                id="heroMainImg"
+                src="./assets/pavillion-hero-hd.jpg"
+                alt="The Pavillion 96,000 SF Luxury Architectural Cutaway showing Level-2 Founders Club, Zero-Proof Botanical Terrace, Pickleball Courts, and Cricket/Baseball Tunnels"
+                fetchpriority="high"
+              />
+              <div class="hero-visual-gradient"></div>
 
-                <!-- Strength & Conditioning NE -->
-                <rect x="260" y="32" width="158" height="48" rx="4" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" />
-                <text x="339" y="55" fill="#e0f2fe" font-size="10" text-anchor="middle" font-weight="700">STRENGTH &amp; CONDITIONING</text>
-                <text x="339" y="68" fill="#7dd3fc" font-size="8.5" text-anchor="middle">10,000 SF Performance Lab</text>
+              <!-- Interactive Hotspots on Default View -->
+              <div id="heroHotspots">
+                <a href="#bluprnt" class="hero-hotspot" style="top:22%;left:52%;" title="Explore Level-2 Founders Club & BLUPRNT Series">
+                  <span class="hotspot-dot"></span> L2 Founders Club &amp; BLUPRNT Salon
+                </a>
+                <a href="#culinary" class="hero-hotspot" style="top:60%;left:8%;" title="Explore Zero-Proof Elixir Bar & Botanical Patio">
+                  <span class="hotspot-dot" style="background:var(--emerald);box-shadow:0 0 8px var(--emerald);"></span> Zero-Proof Terrace &amp; Dining
+                </a>
+                <a href="#pillars" class="hero-hotspot" style="top:64%;right:6%;" title="Explore 8 Pickleball Courts & 12 Biomechanics Tunnels">
+                  <span class="hotspot-dot" style="background:var(--cyan);box-shadow:0 0 8px var(--cyan);"></span> Courts &amp; Biomechanics Cages
+                </a>
+              </div>
 
-                <!-- Pickleball 8 Courts East-Center -->
-                <rect x="260" y="84" width="158" height="90" rx="4" fill="rgba(16,185,129,0.22)" stroke="#34d399" />
-                <text x="339" y="125" fill="#ecfdf5" font-size="10.5" text-anchor="middle" font-weight="700">8 PICKLEBALL COURTS</text>
-                <text x="339" y="139" fill="#a7f3d0" font-size="8.5" text-anchor="middle">+ Elevated Lounge · 22,000 SF</text>
-
-                <!-- Front South Band: Restaurant, Atrium Lobby, Spa + Level 2 Founders Club Overlay -->
-                <rect x="154" y="178" width="84" height="74" rx="4" fill="url(#goldGrad)" stroke="#d4af37" />
-                <text x="196" y="207" fill="#fef08a" font-size="9.5" text-anchor="middle" font-weight="700">INDIAN FUSION</text>
-                <text x="196" y="219" fill="#fde68a" font-size="8" text-anchor="middle">9,000 SF + L2</text>
-                <text x="196" y="231" fill="#f3dc8a" font-size="8.5" text-anchor="middle" font-weight="700">FOUNDERS CLUB</text>
-
-                <rect x="242" y="178" width="76" height="74" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" />
-                <text x="280" y="212" fill="#f8fafc" font-size="9.5" text-anchor="middle" font-weight="700">GRAND ATRIUM</text>
-                <text x="280" y="225" fill="#cbd5e1" font-size="8" text-anchor="middle">Café · Lockers · 15k SF</text>
-
-                <rect x="322" y="178" width="96" height="74" rx="4" fill="rgba(45,212,191,0.16)" stroke="#2dd4bf" />
-                <text x="370" y="212" fill="#ccfbf1" font-size="9.5" text-anchor="middle" font-weight="700">THERMAL SPA</text>
-                <text x="370" y="225" fill="#99f6e4" font-size="8" text-anchor="middle">Recovery · 12,000 SF</text>
-
-                <!-- Neighbor East: Pace Supply -->
-                <rect x="430" y="26" width="108" height="232" rx="4" fill="#161f2c" stroke="rgba(255,255,255,0.12)" />
-                <text x="484" y="142" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-weight="600">PACE SUPPLY (E)</text>
-
-                <!-- Patio & Valet South Frontage -->
-                <rect x="158" y="256" width="74" height="22" rx="3" fill="rgba(212,175,55,0.28)" stroke="#d4af37" />
-                <text x="195" y="270" fill="#fef08a" font-size="8" text-anchor="middle" font-weight="600">SMOKE-FREE PATIO</text>
-                <rect x="242" y="256" width="84" height="22" rx="3" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" />
-                <text x="284" y="270" fill="#bae6fd" font-size="8" text-anchor="middle" font-weight="600">VALET CANOPY</text>
-                <text x="284" y="298" fill="#94a3b8" font-size="9" text-anchor="middle" letter-spacing="2">SIERRA COURT FRONTAGE &amp; 398 PARKING STALLS &darr;</text>
-              </svg>
+              <div class="hero-caption-bar">
+                <div>
+                  <span style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--gold-light);font-weight:700;display:block;" id="heroCaptionEyebrow">Two-Level Architectural Concept</span>
+                  <span style="font-size:13px;color:var(--text-main);font-weight:500;" id="heroCaptionText">Level-2 Founders Sanctuary overlooking championship courts, cages &amp; botanical terrace</span>
+                </div>
+              </div>
             </div>
 
             <div class="showcase-metrics">
@@ -1422,8 +1583,8 @@
                 <span>Combined Fitness &amp; Thermal Spa</span>
               </div>
               <div class="sm-box">
-                <strong>Level 2</strong>
-                <span>10,000 SF Private Founders Club</span>
+                <strong>BLUPRNT</strong>
+                <span>L2 Founders Club &amp; Deal Series</span>
               </div>
             </div>
           </div>
@@ -1785,6 +1946,129 @@
       </div>
     </section>
 
+    <!-- BLUPRNT Flagship Networking Event Series Section -->
+    <section id="bluprnt" class="bluprnt-section">
+      <div class="container">
+        <div class="bluprnt-hero-card">
+          <div class="bluprnt-top-grid">
+            <div>
+              <div class="bluprnt-wordmark">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);"></span>
+                BLUPRNT // AT THE PAVILLION DUBLIN
+              </div>
+              <h2 class="section-title" style="margin-bottom:14px;">
+                BLUPRNT: Where Capital, Code &amp; <em style="color:var(--gold-light);font-style:italic;">Championship Culture</em> Meet.
+              </h2>
+              <p class="section-desc" style="margin-bottom:22px;">
+                <strong>BLUPRNT</strong> is The Pavillion’s signature networking, dealmaking, and founder salon series hosted inside our 10,000 SF Level-2 Founders Club and Indian Fusion Private Dining Sanctuary. Built for Silicon Valley &amp; Tri-Valley entrepreneurs, venture GPs, angel allocators, and operators who prefer high-clarity, 100% zero-proof connection over noisy hotel bars.
+              </p>
+
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px;">
+                <div class="sm-box" style="border-color:rgba(56,189,248,0.35);">
+                  <strong style="color:#7dd3fc;">24+ / Yr</strong>
+                  <span>Curated Founder &amp; GP Salons</span>
+                </div>
+                <div class="sm-box" style="border-color:var(--border-gold);">
+                  <strong>100 + VIPs</strong>
+                  <span>Charter Founders &amp; Visiting VCs</span>
+                </div>
+                <div class="sm-box" style="border-color:rgba(16,185,129,0.35);">
+                  <strong style="color:#6ee7b7;">$400k+</strong>
+                  <span>Sponsor-Backed Event Ecosystem</span>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button type="button" class="btn btn-gold" onclick="openInquiryModal('BLUPRNT Series — VIP Guest Pass ($175 / Charter Included)')">Request BLUPRNT Guest Pass</button>
+                <button type="button" class="btn btn-outline" style="border-color:var(--cyan);color:#bae6fd;" onclick="openInquiryModal('BLUPRNT Series — Apply to Pitch on Stage')">Apply to Pitch at BLUPRNT</button>
+                <button type="button" class="btn btn-outline" onclick="openInquiryModal('BLUPRNT Series — Title & Table Sponsorship Inquiry')">Sponsor a BLUPRNT Edition</button>
+              </div>
+            </div>
+
+            <div>
+              <div class="bluprnt-img-wrap">
+                <img
+                  src="./assets/bluprnt-networking-hd.jpg"
+                  alt="BLUPRNT Evening Networking Salon inside The Pavillion Level-2 Founders Club overlooking illuminated indoor pickleball courts"
+                  loading="lazy"
+                />
+                <div class="hero-visual-gradient"></div>
+                <div class="hero-caption-bar">
+                  <div>
+                    <span style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:#7dd3fc;font-weight:700;display:block;">BLUPRNT // EVENING SALON</span>
+                    <span style="font-size:13px;color:var(--text-main);">Level-2 Founders Lounge overlooking Center Court · Zero-proof saffron elixirs &amp; Indian fusion canapés</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Signature BLUPRNT Editions -->
+          <div class="bluprnt-editions-grid">
+            <article class="edition-card">
+              <div>
+                <div class="edition-meta">
+                  <span class="edition-code">BLUPRNT // 01 · CAPITAL &amp; AI</span>
+                  <span class="edition-cadence">Monthly · First Thursday</span>
+                </div>
+                <h4>AI &amp; DeepTech Founders + Venture GP Table</h4>
+                <p>An intimate 40-seat executive Indian fusion tasting dinner and fireside keynote pairing Bay Area Seed-to-Series B founders with active Sand Hill &amp; East Bay venture partners.</p>
+              </div>
+              <div class="edition-footer">
+                <span style="color:var(--gold-light);font-weight:600;">Included for Charter · $175 Visiting Pass</span>
+                <button type="button" class="pillar-link" onclick="openInquiryModal('BLUPRNT // 01: AI & DeepTech Founders + GP Dinner RSVP')">Request Seat &rarr;</button>
+              </div>
+            </article>
+
+            <article class="edition-card">
+              <div>
+                <div class="edition-meta">
+                  <span class="edition-code">BLUPRNT // 02 · ATHLETIC DEALMAKING</span>
+                  <span class="edition-cadence">Bi-Weekly · Saturdays</span>
+                </div>
+                <h4>Sweat, Plunge &amp; Pitch</h4>
+                <p>Morning doubles pickleball &amp; pro cricket/baseball cage mixers, followed by a 45-minute cedar sauna &amp; cold plunge contrast circuit, concluding with 5 curated startup pitches upstairs.</p>
+              </div>
+              <div class="edition-footer">
+                <span style="color:var(--gold-light);font-weight:600;">Included for Charter · $145 Guest Pass</span>
+                <button type="button" class="pillar-link" onclick="openInquiryModal('BLUPRNT // 02: Sweat, Plunge & Pitch RSVP')">Join Session &rarr;</button>
+              </div>
+            </article>
+
+            <article class="edition-card">
+              <div>
+                <div class="edition-meta">
+                  <span class="edition-code">BLUPRNT // 03 · PRIVATE WEALTH</span>
+                  <span class="edition-cadence">Quarterly Summit</span>
+                </div>
+                <h4>Tri-Valley &amp; Silicon Valley Family Office Forum</h4>
+                <p>Closed-door roundtable for family offices, commercial real estate principals, and private equity operators across the Level-2 boardrooms and non-alcoholic botanical garden terrace.</p>
+              </div>
+              <div class="edition-footer">
+                <span style="color:var(--gold-light);font-weight:600;">By Charter Invitation &amp; Table Sponsors</span>
+                <button type="button" class="pillar-link" onclick="openInquiryModal('BLUPRNT // 03: Family Office & Operator Forum Inquiry')">Request Accreditation &rarr;</button>
+              </div>
+            </article>
+
+            <article class="edition-card">
+              <div>
+                <div class="edition-meta">
+                  <span class="edition-code">BLUPRNT // 04 · MEDIA &amp; DEMO NIGHT</span>
+                  <span class="edition-cadence">Monthly · Third Wednesday</span>
+                </div>
+                <h4>BLUPRNT Live Podcast &amp; Founder Showcase</h4>
+                <p>Live multi-camera recording inside The Pavillion’s Level-2 Broadcast Studio with headline tech operators, followed by product demos and zero-proof botanical mixology overlooking the courts.</p>
+              </div>
+              <div class="edition-footer">
+                <span style="color:var(--gold-light);font-weight:600;">Sponsor Tables from $5,000 · Open to Members</span>
+                <button type="button" class="pillar-link" onclick="openInquiryModal('BLUPRNT // 04: Live Podcast & Demo Night Inquiry')">RSVP / Sponsor &rarr;</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Founders Club Spotlight -->
     <section id="founders">
       <div class="container">
@@ -2097,7 +2381,8 @@
             <div class="sim-field">
               <label for="simExperience">1. Choose Experience</label>
               <select id="simExperience" onchange="updateBookingSim()">
-                <option value="pickleball">Pickleball Championship Court ($50/hr)</option>
+                <option value="bluprnt">BLUPRNT Networking Evening Pass ($175)</option>
+                <option value="pickleball" selected>Pickleball Championship Court ($50/hr)</option>
                 <option value="cricket">Cricket / Baseball Pro Tunnel ($50/hr)</option>
                 <option value="spa">Thermal Spa Day Pass + Bodywork ($115)</option>
                 <option value="founders">Level-2 Founders Boardroom ($150/hr)</option>
@@ -2531,12 +2816,53 @@
       updateBookingSim();
     }
 
+    function switchHeroVisual(mode) {
+      const btn1 = document.getElementById('heroBtn1');
+      const btn2 = document.getElementById('heroBtn2');
+      const img = document.getElementById('heroMainImg');
+      const title = document.getElementById('heroCardTitle');
+      const sub = document.getElementById('heroCardSub');
+      const tag = document.getElementById('heroCardTag');
+      const eyebrow = document.getElementById('heroCaptionEyebrow');
+      const text = document.getElementById('heroCaptionText');
+      const hotspots = document.getElementById('heroHotspots');
+
+      btn1.classList.toggle('active', mode === 1);
+      btn2.classList.toggle('active', mode === 2);
+
+      if (mode === 1) {
+        img.src = './assets/pavillion-hero-hd.jpg';
+        img.alt = 'The Pavillion 96,000 SF Luxury Architectural Cutaway';
+        title.textContent = 'The Pavillion · Architectural Cutaway';
+        sub.textContent = '6400 Sierra Court, Suite E · 96,000 SF Luxury Sanctuary';
+        tag.textContent = 'HD Concept Render';
+        eyebrow.textContent = 'Two-Level Architectural Concept';
+        text.textContent = 'Level-2 Founders Sanctuary overlooking championship courts, cages & botanical terrace';
+        hotspots.style.display = 'block';
+      } else {
+        img.src = './assets/bluprnt-networking-hd.jpg';
+        img.alt = 'BLUPRNT Founder & Venture Investor Salon inside The Pavillion Level-2 Lounge';
+        title.textContent = 'BLUPRNT · Founder & GP Salon';
+        sub.textContent = 'Level-2 Founders Club Overlooking Championship Pickleball Courts';
+        tag.textContent = 'BLUPRNT Series';
+        eyebrow.textContent = 'BLUPRNT // Flagship Dealmaking Series';
+        text.textContent = 'Curated Silicon Valley & Tri-Valley founder dinners, live pitches & zero-proof mixology';
+        hotspots.style.display = 'none';
+      }
+    }
+
     function updateBookingSim() {
       const exp = document.getElementById('simExperience').value;
       const guests = Number(document.getElementById('simGuests').value);
       const addOn = Number(document.getElementById('simAddOn').value);
 
       const catalog = {
+        bluprnt: {
+          status: 'VIP Accreditation · Level-2 Founders Lounge & Pitch Salon',
+          title: `BLUPRNT Networking & GP Tasting Salon · ${activeSlotText} (${guests} Guests)`,
+          perks: 'Includes Indian fusion tasting reception, zero-proof botanical bar, keynote & valet.',
+          base: 175 * guests
+        },
         pickleball: {
           status: 'Instant Confirmation · Championship Court #3 (Center Court View)',
           title: `Pickleball Championship Court · ${activeSlotText} (${guests} Players)`,
