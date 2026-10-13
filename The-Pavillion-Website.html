@@ -1,0 +1,2625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE PAVILLION · Dublin, CA — Luxury Athletics, Thermal Spa, Founders Club &amp; Culinary Sanctuary</title>
+  <meta name="description" content="The Pavillion at 6400 Sierra Ct, Dublin, CA — A 96,000 SF luxury athletic, wellness, Indian fusion culinary, and private entrepreneur sanctuary by Precision Developers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep: #070b10;
+      --bg-surface: #0e151f;
+      --bg-card: #131c29;
+      --bg-elevated: #192536;
+      --gold: #d4af37;
+      --gold-light: #f3dc8a;
+      --gold-muted: rgba(212, 175, 55, 0.16);
+      --emerald: #10b981;
+      --emerald-muted: rgba(16, 185, 129, 0.14);
+      --cyan: #38bdf8;
+      --crimson: #ef4444;
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-gold: rgba(212, 175, 55, 0.35);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-luxury: 0 24px 60px rgba(0, 0, 0, 0.55);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    body {
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(212, 175, 55, 0.08), transparent 35%),
+        radial-gradient(circle at 85% 18%, rgba(16, 185, 129, 0.07), transparent 40%),
+        var(--bg-deep);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Top Announcement Ribbon */
+    .top-ribbon {
+      background: linear-gradient(90deg, #0b131e 0%, #162436 50%, #0b131e 100%);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 9px 24px;
+      font-size: 12.5px;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .top-ribbon-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ribbon-badge {
+      background: var(--gold);
+      color: #070b10;
+      font-weight: 700;
+      font-size: 10.5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .top-ribbon-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 12px;
+    }
+    .top-ribbon-right a {
+      color: var(--gold-light);
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .top-ribbon-right a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+
+    /* Sticky Header */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 16, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-crest {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.22), rgba(212,175,55,0.05));
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.18);
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .nav-links a {
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 11px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #e2c15a 0%, #c59b27 100%);
+      color: #070b10;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.28);
+    }
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.42);
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-main);
+      border-color: var(--border-gold);
+    }
+    .btn-outline:hover {
+      background: var(--gold-muted);
+      border-color: var(--gold);
+    }
+    .btn-emerald {
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .btn-emerald:hover {
+      background: rgba(16, 185, 129, 0.26);
+    }
+
+    /* Container & Section Layout */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    section {
+      padding: 96px 0;
+      position: relative;
+      scroll-margin-top: 84px;
+    }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.2vw, 52px);
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+    .section-desc {
+      font-size: 16.5px;
+      color: var(--text-secondary);
+      max-width: 720px;
+      font-weight: 300;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 72px 0 84px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .pill-gold {
+      background: var(--gold-muted);
+      border-color: var(--border-gold);
+      color: var(--gold-light);
+    }
+    .pill-emerald {
+      background: var(--emerald-muted);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(42px, 5.4vw, 68px);
+      font-weight: 600;
+      line-height: 1.06;
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+    .hero-lead {
+      font-size: 17.5px;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+      max-width: 630px;
+      font-weight: 300;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .universal-amenities-bar {
+      background: rgba(19, 28, 41, 0.85);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .universal-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .universal-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+    .universal-items span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .universal-items span::before {
+      content: "✦";
+      color: var(--gold);
+    }
+
+    /* Hero Right: Architectural Visual Showcase Card */
+    .hero-showcase {
+      background: linear-gradient(160deg, #152232 0%, #0c131d 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+    }
+    .showcase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .showcase-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+    .showcase-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      font-weight: 600;
+    }
+    .iso-svg-wrap {
+      width: 100%;
+      background: #080d14;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 14px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .iso-svg-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .showcase-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .sm-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 12px;
+      text-align: center;
+    }
+    .sm-box strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 23px;
+      color: var(--gold-light);
+      line-height: 1.1;
+    }
+    .sm-box span {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Key Numbers Strip */
+    .kpi-strip {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      padding: 34px 0;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
+    }
+    .kpi-item {
+      border-left: 2px solid var(--gold);
+      padding-left: 16px;
+    }
+    .kpi-item .num {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+    .kpi-item .lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Six Pillars Explorer */
+    .pillars-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 34px 0 28px;
+    }
+    .pillar-tab {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pillar-tab:hover,
+    .pillar-tab.active {
+      background: var(--gold-muted);
+      color: var(--gold-light);
+      border-color: var(--gold);
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-luxury);
+    }
+    .pillar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .pillar-num {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--gold-muted);
+      border: 1px solid var(--border-gold);
+    }
+    .pillar-sf {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    .pillar-card h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+    .pillar-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+    .pillar-features {
+      list-style: none;
+      margin-bottom: 22px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .pillar-features li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pillar-features li::before {
+      content: "✓";
+      color: var(--emerald);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pillar-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+    }
+    .pillar-price {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+    .pillar-link {
+      color: var(--text-main);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 12.5px;
+    }
+    .pillar-link:hover {
+      color: var(--gold);
+    }
+
+    /* Interactive Floor Plan & K1 Speed Synergy Section */
+    .blueprint-section {
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-deep) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .blueprint-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 32px;
+      margin-top: 36px;
+      align-items: start;
+    }
+    .blueprint-stage {
+      background: #080d14;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-luxury);
+    }
+    .level-switcher {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .level-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .lvl-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lvl-btn.active {
+      background: var(--gold);
+      color: #070b10;
+      border-color: var(--gold);
+    }
+    .zone-svg-container svg {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      background: #060a0f;
+    }
+    .svg-zone {
+      cursor: pointer;
+      transition: opacity 0.2s, filter 0.2s;
+    }
+    .svg-zone:hover {
+      filter: brightness(1.25);
+    }
+    .zone-inspector {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: sticky;
+      top: 96px;
+    }
+    .zi-badge {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--gold-muted);
+      color: var(--gold-light);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .zone-inspector h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .zi-sf {
+      font-size: 13.5px;
+      color: var(--emerald);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .zone-inspector p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+    .zi-list {
+      list-style: none;
+      margin-bottom: 22px;
+    }
+    .zi-list li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .k1-callout {
+      margin-top: 22px;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.14), rgba(19, 28, 41, 0.9));
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+    .k1-callout h4 {
+      font-size: 14px;
+      color: #fca5a5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .k1-callout p {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    /* Founders Club Spotlight */
+    .founders-spotlight {
+      background:
+        radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.14), transparent 45%),
+        linear-gradient(135deg, #101824 0%, #090d14 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 52px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 44px;
+      align-items: center;
+      box-shadow: var(--shadow-luxury);
+    }
+    .founders-perks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 26px 0 32px;
+    }
+    .fp-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+    .fp-item h4 {
+      font-size: 14.5px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .fp-item p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+    .founders-card-stack {
+      background: #070b10;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+    }
+    .vip-card {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 55%, #2a2112 100%);
+      border: 1px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 22px;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .vip-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .vip-chip {
+      width: 38px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #f3dc8a, #b8860b);
+    }
+    .vip-tier {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+    .vip-name {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--text-main);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .vip-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Memberships & Interactive Calculator */
+    .membership-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 38px;
+    }
+    .tier-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .tier-card.featured {
+      background: linear-gradient(165deg, #192536 0%, #101824 100%);
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+    }
+    .tier-ribbon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--gold);
+      color: #070b10;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tier-cat {
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .tier-card h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .tier-price {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .tier-price span {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+    .tier-desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+    .tier-list {
+      list-style: none;
+      margin-bottom: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .tier-list li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+    .tier-list li::before {
+      content: "✦";
+      color: var(--gold);
+    }
+
+    /* Interactive Package Builder */
+    .builder-box {
+      margin-top: 42px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .builder-checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .check-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .check-card input {
+      accent-color: var(--gold);
+      width: 17px;
+      height: 17px;
+      margin-right: 10px;
+    }
+    .check-card.selected {
+      border-color: var(--gold);
+      background: var(--gold-muted);
+    }
+    .builder-summary {
+      background: #080d14;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+    }
+    .builder-total {
+      font-family: var(--font-serif);
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.05;
+      margin: 8px 0;
+    }
+
+    /* Culinary & Non-Alcoholic Patio Section */
+    .culinary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 36px;
+    }
+    .menu-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item h4 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--gold-light);
+    }
+    .menu-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .menu-price {
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    /* Interactive Booking & Experience Simulator */
+    .booking-sim {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-top: 36px;
+    }
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .sim-field label {
+      display: block;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .sim-field select,
+    .sim-field input {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: var(--radius-sm);
+      background: #080d14;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 13.5px;
+    }
+    .sim-slots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .slot-pill {
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .slot-pill.active {
+      background: var(--emerald-muted);
+      border-color: var(--emerald);
+      color: #6ee7b7;
+      font-weight: 600;
+    }
+    .sim-result-bar {
+      background: #080d14;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* 3D Interactive Tour Embed Card */
+    .tour-banner {
+      background: linear-gradient(135deg, #0f2027 0%, #142834 50%, #1c2c24 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow-luxury);
+    }
+    .tour-iframe-wrap {
+      margin-top: 26px;
+      width: 100%;
+      height: 540px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      background: #05080c;
+      display: none;
+    }
+    .tour-iframe-wrap.active {
+      display: block;
+    }
+    .tour-iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* City of Dublin & Community Stewardship */
+    .stewardship-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 34px;
+    }
+    .steward-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+    }
+    .steward-card h4 {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .steward-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: #05080c;
+      border-top: 1px solid var(--border);
+      padding: 64px 0 40px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 44px;
+    }
+    .footer-col h4 {
+      color: var(--text-main);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 14px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+    .footer-col ul a:hover {
+      color: var(--gold-light);
+    }
+    .footer-bottom {
+      padding-top: 26px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 12px;
+    }
+
+    /* Native Modal Dialog with closedby="any" */
+    dialog {
+      margin: auto;
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1.5px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 0;
+      max-width: 560px;
+      width: calc(100% - 32px);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
+    }
+    dialog::backdrop {
+      background-color: rgba(4, 7, 11, 0.78);
+      backdrop-filter: blur(6px);
+    }
+    .dialog-inner {
+      padding: 32px;
+    }
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .dialog-close {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .form-grid label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .form-grid input,
+    .form-grid select,
+    .form-grid textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: var(--radius-sm);
+      background: #080d14;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .toast-confirm {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--emerald-muted);
+      border: 1px solid var(--emerald);
+      color: #6ee7b7;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .blueprint-layout,
+      .founders-spotlight,
+      .culinary-grid,
+      .builder-box {
+        grid-template-columns: 1fr;
+      }
+      .pillars-grid,
+      .membership-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .sim-controls,
+      .stewardship-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+    @media (max-width: 640px) {
+      .pillars-grid,
+      .membership-layout,
+      .kpi-grid,
+      .sim-controls,
+      .stewardship-grid,
+      .footer-grid,
+      .builder-checks,
+      .founders-perks {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        padding: 14px 18px;
+      }
+      .founders-spotlight {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Ribbon -->
+  <div class="top-ribbon">
+    <div class="top-ribbon-left">
+      <span class="ribbon-badge">Charter Pre-Registration</span>
+      <span><strong>The Pavillion · Dublin:</strong> 6400 Sierra Ct, Suite E · 96,000 SF Athletic, Spa, Culinary &amp; Founders Sanctuary</span>
+    </div>
+    <div class="top-ribbon-right">
+      <a href="./Dublin-3D-Interactive-Tour.html">Launch Full-Screen 3D Tour &rarr;</a>
+      <a href="./Dublin-Financial-Projections-and-Lease-Coverage.pdf">Investor &amp; Owner Financial Package (PDF)</a>
+    </div>
+  </div>
+
+  <!-- Sticky Navigation -->
+  <header class="navbar">
+    <a href="#top" class="brand">
+      <div class="brand-crest">P</div>
+      <div class="brand-text">
+        <span class="brand-title">THE PAVILLION</span>
+        <span class="brand-sub">Dublin · California</span>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Primary Navigation">
+      <a href="#pillars">Six Pillars</a>
+      <a href="#blueprint">Interactive Blueprint</a>
+      <a href="#founders">Founders Club</a>
+      <a href="#culinary">Indian Fusion Dining</a>
+      <a href="#memberships">Memberships</a>
+      <a href="#booking">Reserve &amp; Simulate</a>
+      <a href="#tour3d">3D Tour</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="./Dublin-3D-Interactive-Tour.html" class="btn btn-emerald">3D Facility Tour</a>
+      <button type="button" class="btn btn-gold" onclick="openInquiryModal('Charter Founder Inquiry')">Apply for Membership</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-pills">
+              <span class="pill pill-gold">6400 Sierra Ct · Dublin, CA</span>
+              <span class="pill pill-emerald">100% Alcohol-Free &amp; Smoke-Free Sanctuary</span>
+              <span class="pill">Next Door to K1 Speed</span>
+            </div>
+            <h1>Where Elite Athletics, Thermal Recovery &amp; <em>Visionary Founders</em> Converge.</h1>
+            <p class="hero-lead">
+              Spanning 96,000 square feet in the heart of the Tri-Valley, <strong>The Pavillion</strong> unites tournament pickleball, pro cricket &amp; baseball biomechanics, a 12,000 SF thermal recovery spa, fine Indian fusion dining, and an exclusive Level-2 Founders Club under one roof.
+            </p>
+            <div class="hero-cta-row">
+              <button type="button" class="btn btn-gold" onclick="openInquiryModal('Charter Founder Membership ($350/mo)')">Request Charter Invitation</button>
+              <a href="#tour3d" class="btn btn-outline" onclick="enableEmbeddedTour()">Explore Interactive 3D Preview</a>
+              <a href="#blueprint" class="btn btn-outline">Inspect 96,000 SF Masterplan</a>
+            </div>
+            <div class="universal-amenities-bar">
+              <div class="universal-title">Included for Every Member &amp; Visitor</div>
+              <div class="universal-items">
+                <span>Social Lounges</span>
+                <span>Courtside Viewing Galleries</span>
+                <span>Complimentary Recovery Rooms</span>
+                <span>High-Speed Wi-Fi</span>
+                <span>Front Valet &amp; Drop-Off</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Architectural Visual Card -->
+          <div class="hero-showcase">
+            <div class="showcase-header">
+              <div>
+                <div class="showcase-title">6400 Sierra Court · Suite E</div>
+                <div style="font-size:12px;color:var(--text-muted);">Master Architectural Program · Ground + Level 2</div>
+              </div>
+              <span class="showcase-tag">96,000 SF Total</span>
+            </div>
+
+            <div class="iso-svg-wrap">
+              <svg viewBox="0 0 560 320" role="img" aria-label="The Pavillion 6400 Sierra Ct Architectural Layout Diagram">
+                <defs>
+                  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#f3dc8a" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#d4af37" stop-opacity="0.12"/>
+                  </linearGradient>
+                  <linearGradient id="emeraldGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
+                    <stop offset="100%" stop-color="#059669" stop-opacity="0.12"/>
+                  </linearGradient>
+                </defs>
+                <!-- Site Context Background -->
+                <rect x="8" y="8" width="544" height="304" rx="10" fill="#070c12" stroke="rgba(255,255,255,0.08)" />
+                <!-- Neighbor West: K1 Speed & CrossFit -->
+                <rect x="22" y="26" width="120" height="72" rx="4" fill="#161f2c" stroke="rgba(255,255,255,0.12)" />
+                <text x="82" y="64" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-weight="600">CROSSFIT CSA (NW)</text>
+                <rect x="22" y="102" width="120" height="156" rx="4" fill="rgba(239,68,68,0.16)" stroke="#ef4444" stroke-width="1.2" />
+                <text x="82" y="172" fill="#fca5a5" font-size="11" text-anchor="middle" font-weight="700">K1 SPEED</text>
+                <text x="82" y="186" fill="#fda4af" font-size="8.5" text-anchor="middle">Next Door · Suite B</text>
+                <text x="82" y="199" fill="#94a3b8" font-size="8" text-anchor="middle">Cross-Marketing Partner</text>
+
+                <!-- THE PAVILLION (Suite E Center) -->
+                <rect x="148" y="26" width="276" height="232" rx="6" fill="#0f1722" stroke="#d4af37" stroke-width="2" />
+                <!-- Cricket & Baseball NW of Suite E -->
+                <rect x="154" y="32" width="102" height="142" rx="4" fill="url(#emeraldGrad)" stroke="#10b981" />
+                <text x="205" y="96" fill="#ecfdf5" font-size="10.5" text-anchor="middle" font-weight="700">CRICKET &amp; BASEBALL</text>
+                <text x="205" y="110" fill="#6ee7b7" font-size="8.5" text-anchor="middle">12 Pro Lanes · 18,000 SF</text>
+
+                <!-- Strength & Conditioning NE -->
+                <rect x="260" y="32" width="158" height="48" rx="4" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" />
+                <text x="339" y="55" fill="#e0f2fe" font-size="10" text-anchor="middle" font-weight="700">STRENGTH &amp; CONDITIONING</text>
+                <text x="339" y="68" fill="#7dd3fc" font-size="8.5" text-anchor="middle">10,000 SF Performance Lab</text>
+
+                <!-- Pickleball 8 Courts East-Center -->
+                <rect x="260" y="84" width="158" height="90" rx="4" fill="rgba(16,185,129,0.22)" stroke="#34d399" />
+                <text x="339" y="125" fill="#ecfdf5" font-size="10.5" text-anchor="middle" font-weight="700">8 PICKLEBALL COURTS</text>
+                <text x="339" y="139" fill="#a7f3d0" font-size="8.5" text-anchor="middle">+ Elevated Lounge · 22,000 SF</text>
+
+                <!-- Front South Band: Restaurant, Atrium Lobby, Spa + Level 2 Founders Club Overlay -->
+                <rect x="154" y="178" width="84" height="74" rx="4" fill="url(#goldGrad)" stroke="#d4af37" />
+                <text x="196" y="207" fill="#fef08a" font-size="9.5" text-anchor="middle" font-weight="700">INDIAN FUSION</text>
+                <text x="196" y="219" fill="#fde68a" font-size="8" text-anchor="middle">9,000 SF + L2</text>
+                <text x="196" y="231" fill="#f3dc8a" font-size="8.5" text-anchor="middle" font-weight="700">FOUNDERS CLUB</text>
+
+                <rect x="242" y="178" width="76" height="74" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" />
+                <text x="280" y="212" fill="#f8fafc" font-size="9.5" text-anchor="middle" font-weight="700">GRAND ATRIUM</text>
+                <text x="280" y="225" fill="#cbd5e1" font-size="8" text-anchor="middle">Café · Lockers · 15k SF</text>
+
+                <rect x="322" y="178" width="96" height="74" rx="4" fill="rgba(45,212,191,0.16)" stroke="#2dd4bf" />
+                <text x="370" y="212" fill="#ccfbf1" font-size="9.5" text-anchor="middle" font-weight="700">THERMAL SPA</text>
+                <text x="370" y="225" fill="#99f6e4" font-size="8" text-anchor="middle">Recovery · 12,000 SF</text>
+
+                <!-- Neighbor East: Pace Supply -->
+                <rect x="430" y="26" width="108" height="232" rx="4" fill="#161f2c" stroke="rgba(255,255,255,0.12)" />
+                <text x="484" y="142" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-weight="600">PACE SUPPLY (E)</text>
+
+                <!-- Patio & Valet South Frontage -->
+                <rect x="158" y="256" width="74" height="22" rx="3" fill="rgba(212,175,55,0.28)" stroke="#d4af37" />
+                <text x="195" y="270" fill="#fef08a" font-size="8" text-anchor="middle" font-weight="600">SMOKE-FREE PATIO</text>
+                <rect x="242" y="256" width="84" height="22" rx="3" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" />
+                <text x="284" y="270" fill="#bae6fd" font-size="8" text-anchor="middle" font-weight="600">VALET CANOPY</text>
+                <text x="284" y="298" fill="#94a3b8" font-size="9" text-anchor="middle" letter-spacing="2">SIERRA COURT FRONTAGE &amp; 398 PARKING STALLS &darr;</text>
+              </svg>
+            </div>
+
+            <div class="showcase-metrics">
+              <div class="sm-box">
+                <strong>8 + 12</strong>
+                <span>Pickleball Courts &amp; Batting Cages</span>
+              </div>
+              <div class="sm-box">
+                <strong>22,000 SF</strong>
+                <span>Combined Fitness &amp; Thermal Spa</span>
+              </div>
+              <div class="sm-box">
+                <strong>Level 2</strong>
+                <span>10,000 SF Private Founders Club</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Metrics Strip -->
+    <div class="kpi-strip">
+      <div class="container">
+        <div class="kpi-grid">
+          <div class="kpi-item">
+            <div class="num">96,000</div>
+            <div class="lbl">Square Feet of Luxury Athletic &amp; Social Space</div>
+          </div>
+          <div class="kpi-item">
+            <div class="num">18,000 SF</div>
+            <div class="lbl">Indoor Cricket &amp; Baseball Biomechanics Academy</div>
+          </div>
+          <div class="kpi-item">
+            <div class="num">22,000 SF</div>
+            <div class="lbl">8 Championship Pickleball Courts + Viewing Lounge</div>
+          </div>
+          <div class="kpi-item">
+            <div class="num">12,000 SF</div>
+            <div class="lbl">Saunas, Steam, Cold Plunge &amp; Recovery Suites</div>
+          </div>
+          <div class="kpi-item">
+            <div class="num">10,000 SF</div>
+            <div class="lbl">Founders Club · Investor &amp; Entrepreneur Sanctuary</div>
+          </div>
+          <div class="kpi-item">
+            <div class="num">9,000 SF</div>
+            <div class="lbl">Fine Indian Fusion Dining &amp; Non-Alcoholic Patio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Six Pillars Explorer -->
+    <section id="pillars">
+      <div class="container">
+        <div class="section-eyebrow">Architectural Program</div>
+        <h2 class="section-title">Six Integrated Destinations Under One Roof</h2>
+        <p class="section-desc">
+          Designed from the ground up to serve elite athletes, wellness seekers, families, and Tri-Valley &amp; Silicon Valley founders—without a single drop of alcohol or tobacco on the premises.
+        </p>
+
+        <div class="pillars-controls" role="tablist" aria-label="Filter Program Pillars">
+          <button type="button" class="pillar-tab active" onclick="filterPillars('all', this)">All 6 Pillars (96,000 SF)</button>
+          <button type="button" class="pillar-tab" onclick="filterPillars('athletics', this)">Court &amp; Field Athletics (40,000 SF)</button>
+          <button type="button" class="pillar-tab" onclick="filterPillars('wellness', this)">Fitness, Thermal Spa &amp; Recovery (22,000 SF)</button>
+          <button type="button" class="pillar-tab" onclick="filterPillars('hospitality', this)">Founders Club &amp; Culinary (34,000 SF incl. Atrium)</button>
+        </div>
+
+        <div class="pillars-grid" id="pillarsGrid">
+          <!-- Pillar 1 -->
+          <article class="pillar-card" data-category="athletics">
+            <div>
+              <div class="pillar-top">
+                <span class="pillar-num">PILLAR 01</span>
+                <span class="pillar-sf">18,000 SF · Ground NW</span>
+              </div>
+              <h3>Cricket &amp; Baseball Academy</h3>
+              <p>Twelve full-length, climate-controlled indoor tunnels engineered for year-round East Bay cricket leagues and youth/varsity baseball &amp; softball progression.</p>
+              <ul class="pillar-features">
+                <li>9 international-length cricket lanes + 3 baseball/softball cages</li>
+                <li>Programmable pace/spin bowling &amp; pro pitching machines</li>
+                <li>High-speed video biomechanics &amp; ball-tracking kiosks</li>
+                <li>Dedicated warm-up turf bay &amp; parent bleacher viewing</li>
+              </ul>
+            </div>
+            <div class="pillar-footer">
+              <span class="pillar-price">$50/hr Lane · $230/mo Academy</span>
+              <button type="button" class="pillar-link" onclick="jumpToBooking('cricket')">Reserve Lane &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Pillar 2 -->
+          <article class="pillar-card" data-category="athletics">
+            <div>
+              <div class="pillar-top">
+                <span class="pillar-num">PILLAR 02</span>
+                <span class="pillar-sf">22,000 SF · Ground + L2 Balcony</span>
+              </div>
+              <h3>8 Championship Pickleball Courts</h3>
+              <p>Eight cushioned tournament-grade indoor courts with acoustic wall treatments, pro indirect LED lighting, and an elevated 2,000 SF Level-2 Courtside Viewing Lounge.</p>
+              <ul class="pillar-features">
+                <li>Column-line divider curtains &amp; generous championship run-offs</li>
+                <li>Elevated glass balcony overlooking Center Court</li>
+                <li>DUPR-rated leagues, corporate buyouts &amp; youth clinics</li>
+                <li>Priority 14-day booking for Pickleball Club members</li>
+              </ul>
+            </div>
+            <div class="pillar-footer">
+              <span class="pillar-price">$79/mo Club · $50/hr Court</span>
+              <button type="button" class="pillar-link" onclick="jumpToBooking('pickleball')">Book Court &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Pillar 3 -->
+          <article class="pillar-card" data-category="wellness">
+            <div>
+              <div class="pillar-top">
+                <span class="pillar-num">PILLAR 03</span>
+                <span class="pillar-sf">10,000 SF · Ground NE</span>
+              </div>
+              <h3>Strength &amp; Conditioning Lab</h3>
+              <p>A high-performance athletic training floor pairing Olympic lifting platforms, functional turf sled lanes, and metabolic conditioning with sports science coaching.</p>
+              <ul class="pillar-features">
+                <li>Custom power racks, competition bumper plates &amp; dumbbells</li>
+                <li>40-yard sprint &amp; weighted sled turf track</li>
+                <li>Functional rig, rowers, ski-ergs &amp; curved treadmills</li>
+                <li>Personal training, small-group pods &amp; team conditioning</li>
+              </ul>
+            </div>
+            <div class="pillar-footer">
+              <span class="pillar-price">$99/mo Membership</span>
+              <button type="button" class="pillar-link" onclick="openInquiryModal('Strength & Conditioning Membership ($99/mo)')">Join Lab &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Pillar 4 -->
+          <article class="pillar-card" data-category="wellness">
+            <div>
+              <div class="pillar-top">
+                <span class="pillar-num">PILLAR 04</span>
+                <span class="pillar-sf">12,000 SF · Ground SE</span>
+              </div>
+              <h3>Thermal Spa &amp; Recovery Suites</h3>
+              <p>A serene Nordic-meets-Californian contrast hydrotherapy and sports recovery sanctuary designed to restore body and focus after competition or executive travel.</p>
+              <ul class="pillar-features">
+                <li>Complimentary recovery room access included for all visitors</li>
+                <li>Cedar dry saunas, eucalyptus steam rooms &amp; cold plunge pools</li>
+                <li>Compression boots, percussion therapy &amp; red-light suites</li>
+                <li>Private massage, sports bodywork &amp; aesthetic treatment rooms</li>
+              </ul>
+            </div>
+            <div class="pillar-footer">
+              <span class="pillar-price">$89/mo Add-On · $45 Day Pass</span>
+              <button type="button" class="pillar-link" onclick="jumpToBooking('spa')">Book Treatment &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Pillar 5 -->
+          <article class="pillar-card" data-category="hospitality">
+            <div>
+              <div class="pillar-top">
+                <span class="pillar-num">PILLAR 05</span>
+                <span class="pillar-sf">10,000 SF · Existing Level 2</span>
+              </div>
+              <h3>The Founders Club</h3>
+              <p>An upper-level private sanctuary for Tri-Valley &amp; Silicon Valley entrepreneurs, venture investors, and executives to meet, build, and host high-trust gatherings.</p>
+              <ul class="pillar-features">
+                <li>Private and semi-private executive lounges &amp; boardrooms</li>
+                <li>Venture pitch room, acoustic phone booths &amp; podcast studio</li>
+                <li>Overlooks the cricket/baseball cages and grand atrium below</li>
+                <li>Curated monthly founder dinners, demo nights &amp; family offices</li>
+              </ul>
+            </div>
+            <div class="pillar-footer">
+              <span class="pillar-price">$350/mo Charter · $125/mo Assoc.</span>
+              <button type="button" class="pillar-link" onclick="jumpToBooking('founders')">Reserve Suite &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Pillar 6 -->
+          <article class="pillar-card" data-category="hospitality">
+            <div>
+              <div class="pillar-top">
+                <span class="pillar-num">PILLAR 06</span>
+                <span class="pillar-sf">9,000 SF + 15,000 SF Atrium/Patio</span>
+              </div>
+              <h3>Indian Fusion Restaurant &amp; Patio</h3>
+              <p>Destination fine dining celebrating contemporary Indian fusion cuisine, paired with private dining suites, an artisanal juice/chai bar, and a smoke-free botanical patio.</p>
+              <ul class="pillar-features">
+                <li>Modern Indian regional tasting menus &amp; wood-fired tandoor</li>
+                <li>Zero-proof botanical mocktails, artisanal chai &amp; cold-pressed elixirs</li>
+                <li>Outdoor non-alcoholic, non-tobacco garden patio &amp; valet arrival</li>
+                <li>Private executive dining &amp; corporate catering for 10 to 200 guests</li>
+              </ul>
+            </div>
+            <div class="pillar-footer">
+              <span class="pillar-price">~$44 Avg Check · Private Dining</span>
+              <button type="button" class="pillar-link" onclick="jumpToBooking('dining')">Reserve Table &rarr;</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Architectural Blueprint & K1 Speed Synergy -->
+    <section id="blueprint" class="blueprint-section">
+      <div class="container">
+        <div class="section-eyebrow">6400 Sierra Ct · Suite E Footprint</div>
+        <h2 class="section-title">Interactive Facility Blueprint &amp; Neighbor Synergy</h2>
+        <p class="section-desc">
+          Click any zone on the architectural plan below to inspect square footage, capacity, and revenue-backed programming across the 249' &times; 323' Suite E shell and its existing 20,500 SF second floor.
+        </p>
+
+        <div class="blueprint-layout">
+          <div class="blueprint-stage">
+            <div class="level-switcher">
+              <div class="level-btns">
+                <button type="button" class="lvl-btn active" id="btnLvl1" onclick="switchBlueprintLevel(1)">Ground Floor (~80,400 SF Shell)</button>
+                <button type="button" class="lvl-btn" id="btnLvl2" onclick="switchBlueprintLevel(2)">Level 2 Mezzanine (~20,500 SF Existing)</button>
+              </div>
+              <span style="font-size:12px;color:var(--text-muted);">Click any colored room to inspect details &rarr;</span>
+            </div>
+
+            <!-- Interactive SVG Floorplan -->
+            <div class="zone-svg-container">
+              <svg id="floorplanSvg" viewBox="0 0 720 440" aria-label="Interactive Floor Plan of The Pavillion">
+                <!-- Site Asphalt -->
+                <rect x="10" y="10" width="700" height="420" rx="12" fill="#060a0f" stroke="rgba(255,255,255,0.08)" />
+                <text x="360" y="28" fill="#64748b" font-size="10" text-anchor="middle" letter-spacing="2">NORTH TRUCK COURT &amp; OVERFLOW PARKING</text>
+
+                <!-- West Neighbors: CrossFit & K1 Speed -->
+                <g class="svg-zone" onclick="selectZone('k1')">
+                  <rect x="28" y="42" width="150" height="90" rx="4" fill="#131c28" stroke="#334155" />
+                  <text x="103" y="88" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">CrossFit CSA</text>
+                  <text x="103" y="103" fill="#64748b" font-size="9" text-anchor="middle">Suite A · NW Neighbor</text>
+
+                  <rect x="28" y="136" width="150" height="214" rx="4" fill="rgba(239,68,68,0.18)" stroke="#ef4444" stroke-width="1.8" />
+                  <text x="103" y="226" fill="#fca5a5" font-size="14" text-anchor="middle" font-weight="700">K1 SPEED</text>
+                  <text x="103" y="244" fill="#fecaca" font-size="10" text-anchor="middle">Suite B · Indoor Karting</text>
+                  <text x="103" y="262" fill="#94a3b8" font-size="9" text-anchor="middle">(Click for Partner Packages)</text>
+                </g>
+
+                <!-- East Neighbor: Pace Supply -->
+                <rect x="546" y="42" width="146" height="308" rx="4" fill="#131c28" stroke="#334155" />
+                <text x="619" y="196" fill="#94a3b8" font-size="11.5" text-anchor="middle" font-weight="600">Pace Supply</text>
+                <text x="619" y="212" fill="#64748b" font-size="9.5" text-anchor="middle">Suite G · East Neighbor</text>
+
+                <!-- Suite E Shell Outline -->
+                <rect x="184" y="42" width="356" height="308" rx="6" fill="#0b121b" stroke="#d4af37" stroke-width="2.2" />
+
+                <!-- GROUND FLOOR LAYER -->
+                <g id="svgLayerGround">
+                  <!-- Cricket & Baseball -->
+                  <g class="svg-zone" onclick="selectZone('cricket')">
+                    <rect x="190" y="48" width="128" height="192" rx="4" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="254" y="132" fill="#ecfdf5" font-size="13" text-anchor="middle" font-weight="700">CRICKET &amp; BASEBALL</text>
+                    <text x="254" y="150" fill="#6ee7b7" font-size="10.5" text-anchor="middle">18,000 SF · 12 Pro Lanes</text>
+                    <text x="254" y="166" fill="#a7f3d0" font-size="9" text-anchor="middle">9 Cricket + 3 Baseball + Turf</text>
+                  </g>
+
+                  <!-- Strength & Conditioning -->
+                  <g class="svg-zone" onclick="selectZone('fitness')">
+                    <rect x="322" y="48" width="212" height="68" rx="4" fill="rgba(56,189,248,0.18)" stroke="#38bdf8" stroke-width="1.5" />
+                    <text x="428" y="80" fill="#e0f2fe" font-size="12.5" text-anchor="middle" font-weight="700">STRENGTH &amp; CONDITIONING</text>
+                    <text x="428" y="96" fill="#7dd3fc" font-size="10" text-anchor="middle">10,000 SF · Racks, 40-Yd Sled Turf &amp; Rig</text>
+                  </g>
+
+                  <!-- Pickleball 8 Courts -->
+                  <g class="svg-zone" onclick="selectZone('pickleball')">
+                    <rect x="322" y="120" width="212" height="120" rx="4" fill="rgba(52,211,153,0.22)" stroke="#34d399" stroke-width="1.5" />
+                    <text x="428" y="175" fill="#ecfdf5" font-size="13" text-anchor="middle" font-weight="700">8 PICKLEBALL COURTS</text>
+                    <text x="428" y="193" fill="#a7f3d0" font-size="10.5" text-anchor="middle">20,000 SF Ground + 2,000 SF L2 Lounge</text>
+                  </g>
+
+                  <!-- Indian Fusion Restaurant -->
+                  <g class="svg-zone" onclick="selectZone('restaurant')">
+                    <rect x="190" y="244" width="108" height="100" rx="4" fill="rgba(212,175,55,0.22)" stroke="#d4af37" stroke-width="1.5" />
+                    <text x="244" y="288" fill="#fef08a" font-size="12" text-anchor="middle" font-weight="700">INDIAN FUSION</text>
+                    <text x="244" y="303" fill="#fde68a" font-size="10" text-anchor="middle">RESTAURANT</text>
+                    <text x="244" y="319" fill="#f3dc8a" font-size="9" text-anchor="middle">9,000 SF · Private Dining</text>
+                  </g>
+
+                  <!-- Lobby, Cafe, Lockers -->
+                  <g class="svg-zone" onclick="selectZone('lobby')">
+                    <rect x="302" y="244" width="104" height="100" rx="4" fill="rgba(255,255,255,0.09)" stroke="#cbd5e1" stroke-width="1.5" />
+                    <text x="354" y="288" fill="#f8fafc" font-size="12" text-anchor="middle" font-weight="700">GRAND ATRIUM</text>
+                    <text x="354" y="303" fill="#cbd5e1" font-size="10" text-anchor="middle">Café · Juice Bar · Lockers</text>
+                    <text x="354" y="319" fill="#94a3b8" font-size="9" text-anchor="middle">15,000 SF Common</text>
+                  </g>
+
+                  <!-- Thermal Spa & Recovery -->
+                  <g class="svg-zone" onclick="selectZone('spa')">
+                    <rect x="410" y="244" width="124" height="100" rx="4" fill="rgba(45,212,191,0.2)" stroke="#2dd4bf" stroke-width="1.5" />
+                    <text x="472" y="288" fill="#ccfbf1" font-size="12" text-anchor="middle" font-weight="700">SPA &amp; RECOVERY</text>
+                    <text x="472" y="303" fill="#99f6e4" font-size="10" text-anchor="middle">Sauna · Steam · Plunge</text>
+                    <text x="472" y="319" fill="#5eead4" font-size="9" text-anchor="middle">12,000 SF Sanctuary</text>
+                  </g>
+                </g>
+
+                <!-- LEVEL 2 LAYER (Hidden until toggled) -->
+                <g id="svgLayerLevel2" style="display:none;">
+                  <rect x="190" y="48" width="344" height="172" rx="4" fill="rgba(15,23,42,0.75)" stroke="rgba(255,255,255,0.12)" stroke-dasharray="4 4" />
+                  <text x="362" y="135" fill="#64748b" font-size="12" text-anchor="middle">DOUBLE-HEIGHT 30' CLEAR ATHLETIC BAY BELOW (CRICKET, PICKLEBALL &amp; GYM)</text>
+
+                  <!-- Courtside Viewing Lounge Overlooking Pickleball & Cricket -->
+                  <g class="svg-zone" onclick="selectZone('lounge')">
+                    <rect x="302" y="222" width="128" height="32" rx="4" fill="rgba(16,185,129,0.32)" stroke="#10b981" stroke-width="1.8" />
+                    <text x="366" y="242" fill="#ecfdf5" font-size="11" text-anchor="middle" font-weight="700">L2 COURTSIDE VIEWING LOUNGE (2,000 SF)</text>
+                  </g>
+
+                  <!-- Founders Club Level 2 -->
+                  <g class="svg-zone" onclick="selectZone('founders')">
+                    <rect x="190" y="222" width="110" height="122" rx="4" fill="rgba(212,175,55,0.3)" stroke="#d4af37" stroke-width="2" />
+                    <text x="245" y="268" fill="#fef08a" font-size="13" text-anchor="middle" font-weight="700">FOUNDERS CLUB</text>
+                    <text x="245" y="285" fill="#fde68a" font-size="10" text-anchor="middle">10,000 SF Level 2</text>
+                    <text x="245" y="301" fill="#f3dc8a" font-size="9" text-anchor="middle">Boardrooms · Pitch Theater</text>
+                    <text x="245" y="316" fill="#f3dc8a" font-size="9" text-anchor="middle">Podcast Studio · Investor Lounge</text>
+                  </g>
+
+                  <!-- Atrium Void & Executive Suites -->
+                  <rect x="302" y="256" width="104" height="88" rx="4" fill="rgba(7,11,16,0.9)" stroke="#475569" stroke-dasharray="3 3" />
+                  <text x="354" y="300" fill="#94a3b8" font-size="10" text-anchor="middle">OPEN ATRIUM OVERLOOK</text>
+
+                  <g class="svg-zone" onclick="selectZone('founders')">
+                    <rect x="408" y="256" width="42" height="88" rx="4" fill="rgba(212,175,55,0.2)" stroke="#d4af37" />
+                    <text x="429" y="302" fill="#fde68a" font-size="9.5" text-anchor="middle" transform="rotate(-90 429 302)">EXEC MEETING SUITES</text>
+                  </g>
+                </g>
+
+                <!-- South Frontage: Non-Alcoholic Patio & Valet -->
+                <g class="svg-zone" onclick="selectZone('patio')">
+                  <rect x="192" y="356" width="104" height="30" rx="4" fill="rgba(212,175,55,0.28)" stroke="#d4af37" />
+                  <text x="244" y="375" fill="#fef08a" font-size="9.5" text-anchor="middle" font-weight="700">NON-ALCOHOLIC PATIO</text>
+                </g>
+                <g class="svg-zone" onclick="selectZone('lobby')">
+                  <rect x="304" y="356" width="104" height="30" rx="4" fill="rgba(56,189,248,0.24)" stroke="#38bdf8" />
+                  <text x="356" y="375" fill="#bae6fd" font-size="9.5" text-anchor="middle" font-weight="700">VALET DROP-OFF CANOPY</text>
+                </g>
+
+                <text x="360" y="412" fill="#94a3b8" font-size="10.5" text-anchor="middle" letter-spacing="2">6400 SIERRA COURT · DUBLIN, CA · 398 ON-SITE PARKING STALLS</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Zone Inspector Panel -->
+          <aside class="zone-inspector" id="zoneInspector" aria-live="polite">
+            <span class="zi-badge" id="ziBadge">PILLAR 05 · LEVEL 2</span>
+            <h3 id="ziTitle">The Founders Club</h3>
+            <div class="zi-sf" id="ziSf">10,000 SF · Reusing Existing 2nd-Floor Mezzanine</div>
+            <p id="ziDesc">
+              Perched on the existing second floor overlooking the high-bay cricket lanes and grand atrium, The Founders Club is a private enclave for 100 Charter Founders and 220 Associate entrepreneurs, VCs, and executives.
+            </p>
+            <ul class="zi-list" id="ziMetrics">
+              <li><span>Charter Founder Membership</span><strong>$350 / mo (100 seats)</strong></li>
+              <li><span>Associate Membership</span><strong>$125 / mo (220 seats)</strong></li>
+              <li><span>Private Boardrooms &amp; Pitch Suite</span><strong>AV-Equipped + Catering</strong></li>
+              <li><span>Stabilized Annual Segment Revenue</span><strong>$1,590,000 / yr</strong></li>
+            </ul>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-gold" onclick="openInquiryModal('Zone Inquiry: ' + document.getElementById('ziTitle').textContent)">Inquire About This Space</button>
+              <a href="./Dublin-3D-Interactive-Tour.html" class="btn btn-outline">View in 3D Tour</a>
+            </div>
+
+            <div class="k1-callout">
+              <h4>🏁 Next-Door Synergy: K1 Speed (Suite B)</h4>
+              <p>
+                Directly adjoining our west wall is <strong>K1 Speed Indoor Karting</strong>. The Pavillion is designed to cross-market corporate Grand Prix + Indian Fusion Private Dining + Pickleball/Cricket Tournament packages for Bay Area tech teams.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founders Club Spotlight -->
+    <section id="founders">
+      <div class="container">
+        <div class="founders-spotlight">
+          <div>
+            <div class="section-eyebrow">Private Dealmaking &amp; Executive Network</div>
+            <h2 class="section-title">A Third Place Built for Founders, Angels &amp; Operators</h2>
+            <p class="section-desc">
+              Replace noisy coffee shops and alcohol-heavy hotel bars with a high-trust sanctuary where you can pitch a term sheet at 10 AM, play two games of pickleball or hit 60 balls in the cricket tunnel at noon, sauna and cold-plunge at 1 PM, and host an investor dinner at 7 PM.
+            </p>
+
+            <div class="founders-perks">
+              <div class="fp-item">
+                <h4>Venture Pitch &amp; Boardrooms</h4>
+                <p>4K laser projection, spatial conference audio, whiteglove Indian fusion table service, and NDA-ready acoustic privacy.</p>
+              </div>
+              <div class="fp-item">
+                <h4>Founder Dinners &amp; Demo Nights</h4>
+                <p>Monthly curated tables with East Bay &amp; Silicon Valley GPs, family offices, and series-stage founders.</p>
+              </div>
+              <div class="fp-item">
+                <h4>Broadcast &amp; Podcast Studio</h4>
+                <p>Turnkey multi-cam 4K studio for founder podcasts, investor updates, and keynote live streams.</p>
+              </div>
+              <div class="fp-item">
+                <h4>Full Athletic &amp; Recovery Privileges</h4>
+                <p>Charter Founders move seamlessly between boardroom strategy, courtside lounges, and thermal contrast therapy.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-gold" onclick="openInquiryModal('Charter Founder Application ($350/mo)')">Apply for 1 of 100 Charter Seats</button>
+              <button type="button" class="btn btn-outline" onclick="openInquiryModal('Corporate Offsite & Boardroom Buyout')">Book Corporate Offsite</button>
+            </div>
+          </div>
+
+          <div class="founders-card-stack">
+            <div class="vip-card">
+              <div class="vip-card-top">
+                <div class="vip-chip"></div>
+                <span class="vip-tier">Charter Founder · 001 / 100</span>
+              </div>
+              <div class="vip-name">THE PAVILLION · DUBLIN</div>
+              <div style="font-size:12px;color:var(--gold-light);margin-bottom:20px;">Level 2 Private Sanctuary · 6400 Sierra Court</div>
+              <div class="vip-meta">
+                <span>ALL-ACCESS LOUNGE &amp; RECOVERY</span>
+                <span>PRECISION DEVELOPERS</span>
+              </div>
+            </div>
+
+            <div style="display:grid;gap:12px;">
+              <div style="display:flex;justify-content:space-between;padding:12px 14px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);font-size:13px;">
+                <span style="color:var(--text-secondary);">Charter Founder Allocation</span>
+                <strong style="color:var(--gold-light);">100 Members @ $350/mo</strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:12px 14px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);font-size:13px;">
+                <span style="color:var(--text-secondary);">Associate Network Allocation</span>
+                <strong style="color:var(--text-main);">220 Members @ $125/mo</strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:12px 14px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);font-size:13px;">
+                <span style="color:var(--text-secondary);">Day Pass / Visiting Investor Access</span>
+                <strong style="color:var(--emerald);">Available by Member Invite</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Culinary & Non-Alcoholic Patio Section -->
+    <section id="culinary" style="background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="container">
+        <div class="culinary-grid">
+          <div>
+            <div class="section-eyebrow">9,000 SF Culinary Destination + Garden Patio</div>
+            <h2 class="section-title">Modern Indian Fusion &amp; Zero-Proof Botanical Mixology</h2>
+            <p class="section-desc" style="margin-bottom:22px;">
+              Anchored at the south entrance of The Pavillion, our 9,000 SF flagship restaurant elevates regional Indian artistry with California seasonal produce—complemented by a 100% alcohol-free, smoke-free outdoor terrace and a daytime wellness café.
+            </p>
+            <ul class="pillar-features" style="border-top:none;padding-top:0;">
+              <li><span><strong>Executive Private Dining:</strong> Glass-enclosed tasting rooms for board dinners, family celebrations, and post-tournament banquets.</span></li>
+              <li><span><strong>Zero-Proof Botanical Bar:</strong> House-distilled hydrosols, saffron-cardamom elixirs, cold-pressed recovery juices, and single-estate Darjeeling &amp; masala chai.</span></li>
+              <li><span><strong>Non-Alcoholic, Smoke-Free Patio:</strong> Lush outdoor lounge seating with acoustic landscaping and direct valet arrival.</span></li>
+            </ul>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;">
+              <button type="button" class="btn btn-gold" onclick="jumpToBooking('dining')">Reserve Chef's Table</button>
+              <button type="button" class="btn btn-outline" onclick="openInquiryModal('Private Dining & Event Catering Inquiry')">Inquire Private Dining</button>
+            </div>
+          </div>
+
+          <div class="menu-preview">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+              <div>
+                <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);font-weight:700;">Sample Tasting Preview</span>
+                <h3 style="font-family:var(--font-serif);font-size:26px;">The Pavillion Table</h3>
+              </div>
+              <span class="pill pill-emerald">100% Halal &amp; Veg Friendly</span>
+            </div>
+
+            <div class="menu-item">
+              <div>
+                <h4>Smoked Malabar Black Cod &amp; Moilee Velouté</h4>
+                <p>Crisp curry leaf, heirloom fingerling potato, coconut-turmeric emulsion</p>
+              </div>
+              <span class="menu-price">$38</span>
+            </div>
+            <div class="menu-item">
+              <div>
+                <h4>24-Hour Wood-Fired Tandoori Lamb Chop</h4>
+                <p>Kashmiri chili glaze, charred pistachio mint chutney, black garlic naan</p>
+              </div>
+              <span class="menu-price">$46</span>
+            </div>
+            <div class="menu-item">
+              <div>
+                <h4>Truffle &amp; Wild Morel Dum Biryani</h4>
+                <p>Aged basmati sealed in saffron pastry, burrata raita, crispy shallots</p>
+              </div>
+              <span class="menu-price">$34</span>
+            </div>
+            <div class="menu-item">
+              <div>
+                <h4>Saffron Rosewater &amp; Smoked Cardamom Elixir (Zero-Proof)</h4>
+                <p>Botanical distillate, sparkling mountain spring water, 24k gold leaf</p>
+              </div>
+              <span class="menu-price">$16</span>
+            </div>
+            <div class="menu-item">
+              <div>
+                <h4>Post-Match Recovery Cold-Pressed Flight</h4>
+                <p>Tart cherry, raw ginger, turmeric root, Himalayan pink salt &amp; coconut water</p>
+              </div>
+              <span class="menu-price">$12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memberships & Custom Bundle Calculator -->
+    <section id="memberships">
+      <div class="container">
+        <div class="section-eyebrow">Membership Tiers &amp; Pricing</div>
+        <h2 class="section-title">Flexible Memberships Tailored to Your Rhythm</h2>
+        <p class="section-desc">
+          Choose a dedicated athletic or networking tier, or combine privileges below using our interactive membership configurator. Every tier includes universal access to social lounges, viewing areas, recovery rooms, and high-speed Wi-Fi.
+        </p>
+
+        <div class="membership-layout">
+          <!-- Tier 1: Pickleball -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-cat">Court Athletics</div>
+              <h3>Pickleball Club</h3>
+              <div class="tier-price">$79 <span>/ month</span></div>
+              <p class="tier-desc">Priority court access across 8 tournament indoor courts plus elevated viewing lounge privileges.</p>
+              <ul class="tier-list">
+                <li>14-day advance court reservations &amp; member court rates</li>
+                <li>Access to Level-2 Courtside Viewing Lounge</li>
+                <li>DUPR league nights, ladders &amp; member mixers</li>
+                <li>Complimentary recovery room, lounges &amp; Wi-Fi</li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" onclick="openInquiryModal('Pickleball Club Membership ($79/mo)')">Select Pickleball Club</button>
+          </div>
+
+          <!-- Tier 2: Strength & Conditioning -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-cat">Athletic Performance</div>
+              <h3>Fitness &amp; Strength</h3>
+              <div class="tier-price">$99 <span>/ month</span></div>
+              <p class="tier-desc">Unlimited access to the 10,000 SF Strength &amp; Conditioning Lab, turf sprint lanes, and locker suites.</p>
+              <ul class="tier-list">
+                <li>Full 10,000 SF Olympic lifting, turf sled &amp; cardio floor</li>
+                <li>Complimentary recovery room access after every workout</li>
+                <li>Quarterly movement &amp; performance baseline assessment</li>
+                <li>Preferred pricing on small-group &amp; 1-on-1 coaching</li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" onclick="openInquiryModal('Fitness & Strength Membership ($99/mo)')">Select Fitness &amp; Strength</button>
+          </div>
+
+          <!-- Tier 3: Thermal Spa Add-On -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-cat">Contrast Hydrotherapy</div>
+              <h3>Spa &amp; Recovery Club</h3>
+              <div class="tier-price">$89 <span>/ mo add-on</span></div>
+              <p class="tier-desc">Unlimited thermal circuit access across our 12,000 SF sauna, eucalyptus steam, and cold plunge sanctuary.</p>
+              <ul class="tier-list">
+                <li>Unlimited dry cedar sauna, steam &amp; cold plunge circuit</li>
+                <li>Normatec compression, percussion &amp; red-light suites</li>
+                <li>15% member privilege on 60/90-min bodywork ($115 avg)</li>
+                <li>Single day passes also available at $45/visit</li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" onclick="openInquiryModal('Spa & Recovery Membership ($89/mo)')">Select Spa &amp; Recovery</button>
+          </div>
+
+          <!-- Tier 4: Cricket & Baseball Academy -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-cat">Youth &amp; Elite Progression</div>
+              <h3>Cricket &amp; Baseball Academy</h3>
+              <div class="tier-price">$230 <span>/ month</span></div>
+              <p class="tier-desc">Structured weekly coaching, video biomechanics tracking, and off-peak cage practice across 12 lanes.</p>
+              <ul class="tier-list">
+                <li>Weekly small-group academy sessions with pro coaches</li>
+                <li>Automated bowling &amp; pitching machine privileges</li>
+                <li>High-speed video swing &amp; bowling action breakdown</li>
+                <li>Parent access to viewing galleries, lounges &amp; Wi-Fi</li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" onclick="openInquiryModal('Cricket & Baseball Academy ($230/mo)')">Enroll in Academy</button>
+          </div>
+
+          <!-- Tier 5: Associate Founder -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-cat">Level-2 Executive Network</div>
+              <h3>Founders Club · Associate</h3>
+              <div class="tier-price">$125 <span>/ month</span></div>
+              <p class="tier-desc">Designed for rising founders, remote executives, and professionals seeking an inspiring daily workspace.</p>
+              <ul class="tier-list">
+                <li>Weekday &amp; evening access to Level-2 Founders Lounges</li>
+                <li>Invitations to monthly entrepreneur mixers &amp; speaker salons</li>
+                <li>Member rates on private boardrooms &amp; podcast studio</li>
+                <li>Complimentary recovery rooms, café lounge &amp; Wi-Fi</li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" onclick="openInquiryModal('Founders Club Associate ($125/mo)')">Apply as Associate</button>
+          </div>
+
+          <!-- Tier 6: Charter Founder (Featured) -->
+          <div class="tier-card featured">
+            <span class="tier-ribbon">Limited to 100 Seats</span>
+            <div>
+              <div class="tier-cat">All-Access Executive Sanctuary</div>
+              <h3>Founders Club · Charter</h3>
+              <div class="tier-price">$350 <span>/ month</span></div>
+              <p class="tier-desc">Our pinnacle membership uniting private Level-2 boardroom privileges, investor dinners, and athletic access.</p>
+              <ul class="tier-list">
+                <li>Full 7-day access to private Level-2 Founders Sanctuary</li>
+                <li>Monthly boardroom credit + priority pitch night seating</li>
+                <li>VIP dining reservations &amp; private chef's tasting invites</li>
+                <li>Priority valet drop-off + guest passes for visiting investors</li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-gold" onclick="openInquiryModal('Founders Club Charter Membership ($350/mo)')">Apply for Charter Seat</button>
+          </div>
+        </div>
+
+        <!-- Interactive Custom Bundle Builder -->
+        <div class="builder-box">
+          <div>
+            <span style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--gold);font-weight:700;">Interactive Membership Configurator</span>
+            <h3 style="font-family:var(--font-serif);font-size:28px;margin:4px 0 8px;">Build Your Custom Pavillion Pass</h3>
+            <p style="font-size:13.5px;color:var(--text-secondary);">Select the privileges you want to combine. Multi-pillar members receive automatic priority booking across the entire 96,000 SF facility.</p>
+
+            <div class="builder-checks" id="builderChecks">
+              <label class="check-card selected">
+                <span><input type="checkbox" value="99" data-name="Fitness & Strength ($99)" checked onchange="updateBundle()" /> Fitness &amp; Strength Lab</span>
+                <strong>$99/mo</strong>
+              </label>
+              <label class="check-card selected">
+                <span><input type="checkbox" value="89" data-name="Thermal Spa Add-On ($89)" checked onchange="updateBundle()" /> Thermal Spa &amp; Plunge</span>
+                <strong>$89/mo</strong>
+              </label>
+              <label class="check-card">
+                <span><input type="checkbox" value="79" data-name="Pickleball Club ($79)" onchange="updateBundle()" /> Pickleball Club (8 Courts)</span>
+                <strong>$79/mo</strong>
+              </label>
+              <label class="check-card">
+                <span><input type="checkbox" value="230" data-name="Cricket/Baseball Academy ($230)" onchange="updateBundle()" /> Cricket/Baseball Academy</span>
+                <strong>$230/mo</strong>
+              </label>
+              <label class="check-card">
+                <span><input type="checkbox" value="125" data-name="Founders Associate ($125)" onchange="updateBundle()" /> Founders Club Associate</span>
+                <strong>$125/mo</strong>
+              </label>
+              <label class="check-card">
+                <span><input type="checkbox" value="350" data-name="Charter Founder ($350)" onchange="updateBundle()" /> Founders Club Charter</span>
+                <strong>$350/mo</strong>
+              </label>
+            </div>
+          </div>
+
+          <div class="builder-summary">
+            <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.14em;color:var(--text-muted);">Estimated Monthly Investment</div>
+            <div class="builder-total" id="bundleTotal">$188<span style="font-size:16px;color:var(--text-muted);font-family:var(--font-sans);">/mo</span></div>
+            <div style="font-size:12.5px;color:var(--emerald);margin-bottom:16px;" id="bundleSummaryText">2 Pillars Selected + Universal Lounge &amp; Recovery Access</div>
+            <button type="button" class="btn btn-gold" style="width:100%;" onclick="lockInCustomBundle()">Lock In Custom Charter Rate</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Court, Cage, Spa & Boardroom Reservation Simulator -->
+    <section id="booking" style="background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="container">
+        <div class="section-eyebrow">Live Experience Preview</div>
+        <h2 class="section-title">Instant Court, Cage, Spa &amp; Boardroom Booking Preview</h2>
+        <p class="section-desc">
+          Test how members and guests book across all six pillars of The Pavillion—from a $50/hr championship pickleball court or cricket bowling machine tunnel to a $115 restorative massage or an executive boardroom.
+        </p>
+
+        <div class="booking-sim">
+          <div class="sim-controls">
+            <div class="sim-field">
+              <label for="simExperience">1. Choose Experience</label>
+              <select id="simExperience" onchange="updateBookingSim()">
+                <option value="pickleball">Pickleball Championship Court ($50/hr)</option>
+                <option value="cricket">Cricket / Baseball Pro Tunnel ($50/hr)</option>
+                <option value="spa">Thermal Spa Day Pass + Bodywork ($115)</option>
+                <option value="founders">Level-2 Founders Boardroom ($150/hr)</option>
+                <option value="dining">Indian Fusion Chef's Table (~$44/guest)</option>
+                <option value="k1combo">Pavillion + K1 Speed Corporate Package</option>
+              </select>
+            </div>
+            <div class="sim-field">
+              <label for="simDate">2. Preferred Day</label>
+              <input type="date" id="simDate" value="2026-10-17" onchange="updateBookingSim()" />
+            </div>
+            <div class="sim-field">
+              <label for="simGuests">3. Players / Guests</label>
+              <select id="simGuests" onchange="updateBookingSim()">
+                <option value="2">2 Guests / Players</option>
+                <option value="4" selected>4 Guests / Players</option>
+                <option value="8">8 Guests / Team Pod</option>
+                <option value="16">16 Guests / Executive Group</option>
+              </select>
+            </div>
+            <div class="sim-field">
+              <label for="simAddOn">4. Post-Session Enhancement</label>
+              <select id="simAddOn" onchange="updateBookingSim()">
+                <option value="0">Complimentary Recovery Room (Included)</option>
+                <option value="45">+ Thermal Spa Circuit Pass (+$45)</option>
+                <option value="34">+ Zero-Proof Elixir &amp; Tasting Platter (+$34)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Available Time Windows</div>
+          <div class="sim-slots" id="simSlots">
+            <button type="button" class="slot-pill" onclick="pickSlot(this)">07:30 AM · Morning Peak</button>
+            <button type="button" class="slot-pill" onclick="pickSlot(this)">10:00 AM · Founder &amp; Club Session</button>
+            <button type="button" class="slot-pill active" onclick="pickSlot(this)">12:30 PM · Midday Express</button>
+            <button type="button" class="slot-pill" onclick="pickSlot(this)">04:00 PM · Youth Academy &amp; Open Play</button>
+            <button type="button" class="slot-pill" onclick="pickSlot(this)">06:30 PM · Prime Evening Club</button>
+            <button type="button" class="slot-pill" onclick="pickSlot(this)">08:30 PM · Late Night Sanctuary</button>
+          </div>
+
+          <div class="sim-result-bar">
+            <div>
+              <div style="font-size:12px;color:var(--emerald);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;" id="simStatus">Instant Confirmation · Court #3 (Center Court View)</div>
+              <div style="font-family:var(--font-serif);font-size:24px;color:var(--text-main);" id="simSummaryTitle">Pickleball Championship Court · 12:30 PM (4 Players)</div>
+              <div style="font-size:13px;color:var(--text-secondary);" id="simPerksLine">Includes complimentary recovery room access, courtside viewing lounge, and valet drop-off.</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px;">
+              <div style="text-align:right;">
+                <span style="font-size:11px;color:var(--text-muted);display:block;">Estimated Session Total</span>
+                <strong style="font-family:var(--font-serif);font-size:34px;color:var(--gold-light);" id="simPriceOutput">$50</strong>
+              </div>
+              <button type="button" class="btn btn-gold" onclick="confirmSimulatedBooking()">Pre-Reserve Slot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Interactive Facility Tour Section -->
+    <section id="tour3d">
+      <div class="container">
+        <div class="tour-banner">
+          <div class="section-eyebrow" style="justify-content:center;">Three.js Architectural Digital Twin</div>
+          <h2 class="section-title">Walk Through The Pavillion in Interactive 3D</h2>
+          <p class="section-desc" style="margin:0 auto 26px;">
+            Explore all 14 guided stops across our 96,000 SF Dublin site—including the 12 cricket &amp; baseball tunnels, 8 pickleball courts, Level-2 Founders Club, thermal spa, Indian fusion restaurant, valet canopy, and K1 Speed next door.
+          </p>
+          <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-gold" id="btnToggleEmbedTour" onclick="toggleEmbeddedTour()">Load Interactive 3D Tour Inline</button>
+            <a href="./Dublin-3D-Interactive-Tour.html" target="_blank" rel="noopener" class="btn btn-outline">Open Full-Screen 3D Tour &nearr;</a>
+          </div>
+
+          <div class="tour-iframe-wrap" id="tourIframeWrap">
+            <iframe id="tourIframe" title="The Pavillion 3D Interactive Facility Tour"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- City of Dublin & Community Stewardship -->
+    <section id="community" style="padding-top:20px;">
+      <div class="container">
+        <div class="section-eyebrow">Precision Developers · City of Dublin Stewardship</div>
+        <h2 class="section-title">Designed for Community Wellness &amp; Civic Excellence</h2>
+        <p class="section-desc">
+          Submitted by Precision Developers to the City of Dublin Planning and Permitting Team, The Pavillion is engineered to be a flagship civic, economic, and family-safe asset for the Tri-Valley.
+        </p>
+
+        <div class="stewardship-grid">
+          <div class="steward-card">
+            <h4>100% Alcohol &amp; Tobacco Free</h4>
+            <p>A deliberate luxury positioning focused on athletic excellence, family safety, restorative health, and clear-minded executive networking—zero bar noise or late-night alcohol impacts.</p>
+          </div>
+          <div class="steward-card">
+            <h4>Youth Clinics &amp; Community Access</h4>
+            <p>Dedicated after-school cricket, baseball, and pickleball youth clinics, summer camps, wellness workshops, and scheduled community open hours.</p>
+          </div>
+          <div class="steward-card">
+            <h4>Acoustic &amp; Traffic Engineering</h4>
+            <p>Full interior acoustic baffling, strict quiet-hours compliance, ADA universal design, and a dedicated front valet &amp; traffic management plan across 398 site parking stalls.</p>
+          </div>
+          <div class="steward-card">
+            <h4>All-Equity Capitalization</h4>
+            <p>Backed by a $20.81M all-equity funding plan (zero bank debt) with $16.35M in luxury tenant improvements, creating local coaching, hospitality, and culinary careers in Dublin.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom:14px;">
+            <div class="brand-crest">P</div>
+            <div class="brand-text">
+              <span class="brand-title">THE PAVILLION</span>
+              <span class="brand-sub">Dublin · California</span>
+            </div>
+          </div>
+          <p style="margin-bottom:14px;">
+            A 96,000 SF luxury commercial sports, thermal recovery, culinary, and entrepreneur sanctuary at 6400 Sierra Court, Suite E, Dublin, CA 94568.
+          </p>
+          <p style="color:var(--gold-light);font-size:12.5px;">
+            Developed by <strong>Precision Developers</strong><br />
+            Shaqib, Executive Principal · <a href="tel:4152257232">415-225-7232</a> · <a href="mailto:Shaqib@PrecisionDevelopers.com">Shaqib@PrecisionDevelopers.com</a>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Six Pillars (96,000 SF)</h4>
+          <ul>
+            <li><a href="#pillars">Cricket &amp; Baseball Academy (18,000 SF)</a></li>
+            <li><a href="#pillars">8 Pickleball Courts + Lounge (22,000 SF)</a></li>
+            <li><a href="#pillars">Strength &amp; Conditioning Lab (10,000 SF)</a></li>
+            <li><a href="#pillars">Thermal Spa &amp; Recovery (12,000 SF)</a></li>
+            <li><a href="#founders">Level-2 Founders Club (10,000 SF)</a></li>
+            <li><a href="#culinary">Indian Fusion Restaurant (9,000 SF)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Project Documentation</h4>
+          <ul>
+            <li><a href="./Dublin-3D-Interactive-Tour.html">Interactive 3D Facility Tour</a></li>
+            <li><a href="./Dublin-Financial-Projections-and-Lease-Coverage.pdf">Financial Projections &amp; P&amp;L (PDF)</a></li>
+            <li><a href="./Dublin-Financial-Projections-and-Lease-Coverage.html">Web Financial Package</a></li>
+            <li><a href="./dublin_model_annual.csv">10-Year Annual Model (CSV)</a></li>
+            <li><a href="./dublin_model_monthly.csv">120-Month Cash Flow (CSV)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Private Previews &amp; Charter Inquiries</h4>
+          <p style="margin-bottom:14px;">
+            Interested in a Charter Founder seat, corporate partnership, or reviewing our landlord &amp; City of Dublin submission package?
+          </p>
+          <button type="button" class="btn btn-gold" style="width:100%;" onclick="openInquiryModal('Executive & Charter Preview Request')">Schedule Private Consultation</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Precision Developers · The Pavillion at 6400 Sierra Ct, Dublin, CA 94568. All rights reserved.</span>
+        <span>100% Alcohol-Free &amp; Smoke-Free Destination · Concept Preview &amp; Marketing Prototype</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Native Modal Dialog with closedby="any" and light-dismiss fallback -->
+  <dialog id="inquiryDialog" closedby="any" aria-labelledby="dialogHeading">
+    <div class="dialog-inner">
+      <div class="dialog-header">
+        <div>
+          <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--gold);font-weight:700;">The Pavillion · Dublin</span>
+          <h3 id="dialogHeading" style="font-family:var(--font-serif);font-size:28px;margin-top:2px;">Request Charter Invitation</h3>
+        </div>
+        <button type="button" class="dialog-close" aria-label="Close modal" onclick="document.getElementById('inquiryDialog').close()">&times;</button>
+      </div>
+
+      <form id="inquiryForm" onsubmit="submitInquiryForm(event)">
+        <div class="form-grid">
+          <div>
+            <label for="inqInterest">Selected Interest / Tier</label>
+            <input type="text" id="inqInterest" name="interest" value="Charter Founder Membership ($350/mo)" required />
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label for="inqName">Full Name</label>
+              <input type="text" id="inqName" name="name" placeholder="e.g., Aarav Patel" required />
+            </div>
+            <div>
+              <label for="inqPhone">Phone Number</label>
+              <input type="tel" id="inqPhone" name="phone" placeholder="(925) 555-0190" required />
+            </div>
+          </div>
+          <div>
+            <label for="inqEmail">Work or Personal Email</label>
+            <input type="email" id="inqEmail" name="email" placeholder="name@company.com" required />
+          </div>
+          <div>
+            <label for="inqNotes">Notes (Company, Sports Interests, or Event Needs)</label>
+            <textarea id="inqNotes" rows="3" placeholder="Tell us about your interest in Founders Club, Pickleball, Cricket/Baseball, Spa, or Corporate Events..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;margin-top:4px;">Submit Priority Registration</button>
+        </div>
+        <div class="toast-confirm" id="formToast">
+          Thank you! Your priority inquiry for <strong>The Pavillion (6400 Sierra Ct, Dublin)</strong> has been logged for Shaqib &amp; the Precision Developers team.
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <script>
+    // Mandatory Fallback for browsers without <dialog closedby="any"> support
+    const inquiryDialog = document.getElementById('inquiryDialog');
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      inquiryDialog.addEventListener('click', (event) => {
+        if (event.target !== inquiryDialog) return;
+        const rect = inquiryDialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        inquiryDialog.close();
+      });
+    }
+
+    function openInquiryModal(topic) {
+      document.getElementById('inqInterest').value = topic || 'Charter Founder Membership ($350/mo)';
+      document.getElementById('formToast').style.display = 'none';
+      inquiryDialog.showModal();
+    }
+
+    function submitInquiryForm(e) {
+      e.preventDefault();
+      document.getElementById('formToast').style.display = 'block';
+    }
+
+    // Pillar Filter
+    function filterPillars(cat, btn) {
+      document.querySelectorAll('.pillar-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.pillar-card').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Interactive Blueprint Zone Data
+    const ZONE_DATA = {
+      cricket: {
+        badge: 'PILLAR 01 · GROUND NW',
+        title: 'Cricket & Baseball Academy',
+        sf: '18,000 SF · 30\' Clear High-Bay Shell',
+        desc: 'Twelve professional indoor netted tunnels aligned to the existing 40\' structural column grid, with an integrated coaching, video biomechanics, and warm-up turf strip overlooked by the Level-2 Founders Club.',
+        metrics: [
+          ['Tunnel Configuration', '9 Cricket + 3 Baseball/Softball'],
+          ['Hourly Lane Rental', '$50 / hour (33% modeled util.)'],
+          ['Academy Enrollment', '140 Students @ $230 / mo'],
+          ['Stabilized Annual Revenue', '$1,544,200 / yr']
+        ]
+      },
+      pickleball: {
+        badge: 'PILLAR 02 · GROUND EAST-CENTER',
+        title: '8 Championship Pickleball Courts',
+        sf: '20,000 SF Ground + 2,000 SF L2 Viewing Lounge',
+        desc: 'Eight tournament-spaced cushion courts with pro indirect LED lighting, acoustic wall panels, and column-line divider curtains, crowned by an elevated second-floor viewing gallery.',
+        metrics: [
+          ['Court Count', '8 Cushion-Surface Indoor Courts'],
+          ['Club Membership', '260 Members @ $79 / mo'],
+          ['Court Booking Rate', '$50 / hr blended (42% util.)'],
+          ['Stabilized Annual Revenue', '$1,334,744 / yr']
+        ]
+      },
+      fitness: {
+        badge: 'PILLAR 03 · GROUND NE',
+        title: 'Strength & Conditioning Lab',
+        sf: '10,000 SF · High-Performance Training Floor',
+        desc: 'Equipped with custom power racks, a 40-yard sprint and weighted sled turf lane, functional training rig, and cardio row for members, academy athletes, and corporate teams.',
+        metrics: [
+          ['Monthly Membership', '550 Members @ $99 / mo'],
+          ['Personal & Group Training', '$300,000 / yr modeled'],
+          ['Included Amenities', 'Lockers + Free Recovery Rooms'],
+          ['Stabilized Annual Revenue', '$953,400 / yr']
+        ]
+      },
+      spa: {
+        badge: 'PILLAR 04 · GROUND SE',
+        title: 'Thermal Spa & Recovery Sanctuary',
+        sf: '12,000 SF · Contrast Hydrotherapy & Bodywork',
+        desc: 'Features dry cedar saunas, eucalyptus steam rooms, cold plunge pools, Normatec compression & red-light recovery lounges (free recovery room access for all visitors), and private treatment suites.',
+        metrics: [
+          ['Spa Club Add-On', '300 Members @ $89 / mo'],
+          ['Day Passes & Treatments', '$45 Day Pass · $115 Bodywork'],
+          ['Corporate Wellness Packages', '$120,000 / yr'],
+          ['Stabilized Annual Revenue', '$1,223,900 / yr']
+        ]
+      },
+      founders: {
+        badge: 'PILLAR 05 · EXISTING LEVEL 2',
+        title: 'The Founders Club',
+        sf: '10,000 SF · Upper-Level Private Sanctuary',
+        desc: 'Reuses Suite E\'s existing second floor with grand stair and elevator access. Includes executive lounges, boardrooms, a venture pitch theater, and a soundproof podcast studio.',
+        metrics: [
+          ['Charter Founder Members', '100 Members @ $350 / mo'],
+          ['Associate Members', '220 Members @ $125 / mo'],
+          ['Boardrooms & Curated Events', '$700,000 / yr combined'],
+          ['Stabilized Annual Revenue', '$1,590,000 / yr']
+        ]
+      },
+      lounge: {
+        badge: 'PILLAR 02 · LEVEL 2 BALCONY',
+        title: 'Elevated Courtside Viewing Lounge',
+        sf: '2,000 SF · Overlooking Pickleball & Cricket',
+        desc: 'A glass-balustrade mezzanine gallery connecting the Founders Club to the athletic bays, offering zero-proof craft beverages, tournament viewing, and social seating for all visitors.',
+        metrics: [
+          ['Access Policy', 'Complimentary for All Visitors'],
+          ['Views', '8 Pickleball Courts + 12 Cages'],
+          ['Beverage Service', 'Craft Mocktails, Chai & Cold-Press'],
+          ['Events', 'Tournament Finals & VIP Hosting']
+        ]
+      },
+      restaurant: {
+        badge: 'PILLAR 06 · GROUND SW FRONTAGE',
+        title: 'High-End Indian Fusion Restaurant',
+        sf: '9,000 SF · Dining Room, Chef\'s Table & Private Suites',
+        desc: 'Contemporary Indian fusion dining room with wood-fired tandoor, executive private dining rooms, and full catering for Founders Club dinners, tournaments, and Tri-Valley families.',
+        metrics: [
+          ['Projected Daily Volume', '115 Covers / Day @ $44 Check'],
+          ['Private Dining & Catering', '$250,000 / yr'],
+          ['Alcohol Policy', '100% Alcohol-Free Zero-Proof Program'],
+          ['Stabilized Annual Revenue', '$2,046,300 / yr']
+        ]
+      },
+      lobby: {
+        badge: 'ARRIVAL & COMMON · GROUND SOUTH',
+        title: 'Grand Atrium, Café, Lockers & Valet',
+        sf: '15,000 SF · Reception, Artisanal Café & Locker Suites',
+        desc: 'Double-height reception atrium with grand staircase to Level 2, artisanal non-alcoholic café & juice bar (150 tickets/day @ $8.50), resort-grade locker rooms, and front valet canopy.',
+        metrics: [
+          ['Café & Juice Bar Revenue', '$452,625 / yr'],
+          ['Universal Visitor Perks', 'Free Wi-Fi, Lounges & Recovery'],
+          ['Site Parking', '398 Total Stalls + Front Valet'],
+          ['Address', '6400 Sierra Ct, Suite E, Dublin']
+        ]
+      },
+      patio: {
+        badge: 'OUTDOOR SANCTUARY · SOUTH FRONTAGE',
+        title: 'Non-Alcoholic, Smoke-Free Botanical Patio',
+        sf: 'Outdoor Garden Terrace · Fronting Sierra Court',
+        desc: 'Lush al-fresco dining and social terrace strictly designated non-alcoholic and non-tobacco, designed for calm morning chai, founder lunches, and family evening dining.',
+        metrics: [
+          ['Policy', '100% Alcohol-Free & Smoke-Free'],
+          ['Acoustics', 'Quiet-Hours Compliant Landscaping'],
+          ['Service', 'Full Indian Fusion & Café Menu'],
+          ['Adjacent To', 'Dedicated Valet Drop-Off Canopy']
+        ]
+      },
+      k1: {
+        badge: 'NEXT-DOOR NEIGHBOR · SUITE B (WEST)',
+        title: 'K1 Speed Indoor Electric Karting',
+        sf: 'Adjacent Suite B · Cross-Marketing Opportunity',
+        desc: 'Directly west of The Pavillion inside the 6400 Sierra Court building sits K1 Speed. We highlight cross-marketing packages pairing electric karting with our Indian fusion dining, pickleball courts, and Founders Club offsites.',
+        metrics: [
+          ['Location', '6400 Sierra Ct, Suite B (West Wall)'],
+          ['Corporate Combo Idea', 'Karting + Private Dining + Pickleball'],
+          ['Youth & Team Packages', 'Dual-Venue Birthday & Team Camps'],
+          ['Partnership Status', 'Proposed Cross-Marketing Concept']
+        ]
+      }
+    };
+
+    function switchBlueprintLevel(lvl) {
+      document.getElementById('btnLvl1').classList.toggle('active', lvl === 1);
+      document.getElementById('btnLvl2').classList.toggle('active', lvl === 2);
+      document.getElementById('svgLayerGround').style.display = lvl === 1 ? 'block' : 'none';
+      document.getElementById('svgLayerLevel2').style.display = lvl === 2 ? 'block' : 'none';
+      selectZone(lvl === 1 ? 'pickleball' : 'founders');
+    }
+
+    function selectZone(key) {
+      const d = ZONE_DATA[key];
+      if (!d) return;
+      document.getElementById('ziBadge').textContent = d.badge;
+      document.getElementById('ziTitle').textContent = d.title;
+      document.getElementById('ziSf').textContent = d.sf;
+      document.getElementById('ziDesc').textContent = d.desc;
+      const ul = document.getElementById('ziMetrics');
+      ul.innerHTML = d.metrics.map(([k, v]) => `<li><span>${k}</span><strong>${v}</strong></li>`).join('');
+    }
+
+    // Custom Membership Bundle Calculator
+    function updateBundle() {
+      const checks = document.querySelectorAll('#builderChecks input[type="checkbox"]');
+      let total = 0;
+      let count = 0;
+      checks.forEach(c => {
+        c.closest('.check-card').classList.toggle('selected', c.checked);
+        if (c.checked) {
+          total += Number(c.value);
+          count++;
+        }
+      });
+      document.getElementById('bundleTotal').innerHTML = `$${total}<span style="font-size:16px;color:var(--text-muted);font-family:var(--font-sans);">/mo</span>`;
+      document.getElementById('bundleSummaryText').textContent = count > 0
+        ? `${count} Pillar${count > 1 ? 's' : ''} Selected + Complimentary Lounge, Viewing & Recovery Access`
+        : 'Select at least one pillar above to calculate your custom rate';
+    }
+
+    function lockInCustomBundle() {
+      const selected = Array.from(document.querySelectorAll('#builderChecks input[type="checkbox"]:checked'))
+        .map(c => c.dataset.name);
+      const total = document.getElementById('bundleTotal').textContent;
+      openInquiryModal(`Custom Bundle (${total}): ${selected.join(' + ') || 'General Inquiry'}`);
+    }
+
+    // Interactive Booking Simulator
+    let activeSlotText = '12:30 PM · Midday Express';
+    function pickSlot(btn) {
+      document.querySelectorAll('.slot-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeSlotText = btn.textContent.split('·')[0].trim();
+      updateBookingSim();
+    }
+
+    function updateBookingSim() {
+      const exp = document.getElementById('simExperience').value;
+      const guests = Number(document.getElementById('simGuests').value);
+      const addOn = Number(document.getElementById('simAddOn').value);
+
+      const catalog = {
+        pickleball: {
+          status: 'Instant Confirmation · Championship Court #3 (Center Court View)',
+          title: `Pickleball Championship Court · ${activeSlotText} (${guests} Players)`,
+          perks: 'Includes complimentary recovery room access, L2 viewing lounge, and valet drop-off.',
+          base: 50
+        },
+        cricket: {
+          status: 'Instant Confirmation · Pro Biomechanics Tunnel #5 (Bowling Machine Ready)',
+          title: `Cricket / Baseball Pro Tunnel · ${activeSlotText} (${guests} Players)`,
+          perks: 'Includes high-speed video replay kiosk, automated machine, and recovery room access.',
+          base: 50
+        },
+        spa: {
+          status: 'Instant Confirmation · Thermal Sanctuary + Private Treatment Suite',
+          title: `Thermal Spa & 60-Min Sports Bodywork · ${activeSlotText} (${guests} Guests)`,
+          perks: 'Full cedar sauna, eucalyptus steam, cold plunge circuit & private massage suite.',
+          base: 115 * guests
+        },
+        founders: {
+          status: 'Priority Hold · Level-2 Venture Boardroom & Pitch Suite',
+          title: `Founders Club Executive Boardroom · ${activeSlotText} (${guests} Attendees)`,
+          perks: 'Includes 4K projection, spatial audio, Indian fusion chai/refreshments & valet.',
+          base: 150
+        },
+        dining: {
+          status: 'Chef\'s Table Priority Seating · Main Dining Room or Smoke-Free Patio',
+          title: `Indian Fusion Tasting Reservation · ${activeSlotText} (${guests} Guests)`,
+          perks: 'Zero-proof botanical pairings available · 100% alcohol-free & smoke-free sanctuary.',
+          base: 44 * guests
+        },
+        k1combo: {
+          status: 'Dual-Venue Corporate Experience · Suite E + Suite B Next Door',
+          title: `Pavillion Pickleball/Cricket + Indian Fusion + K1 Speed · ${activeSlotText} (${guests} Guests)`,
+          perks: 'Cross-marketed offsite package combining courts, private dining & next-door karting.',
+          base: 95 * guests
+        }
+      };
+
+      const item = catalog[exp];
+      const total = item.base + (addOn * (exp === 'pickleball' || exp === 'cricket' || exp === 'founders' ? 1 : guests));
+      document.getElementById('simStatus').textContent = item.status;
+      document.getElementById('simSummaryTitle').textContent = item.title;
+      document.getElementById('simPerksLine').textContent = item.perks;
+      document.getElementById('simPriceOutput').textContent = `$${total.toLocaleString()}`;
+    }
+
+    function jumpToBooking(expKey) {
+      const sel = document.getElementById('simExperience');
+      sel.value = expKey;
+      updateBookingSim();
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function confirmSimulatedBooking() {
+      const summary = document.getElementById('simSummaryTitle').textContent;
+      const price = document.getElementById('simPriceOutput').textContent;
+      openInquiryModal(`Pre-Reservation Hold: ${summary} (${price})`);
+    }
+
+    // Inline 3D Tour Loader
+    function enableEmbeddedTour() {
+      const wrap = document.getElementById('tourIframeWrap');
+      const iframe = document.getElementById('tourIframe');
+      const btn = document.getElementById('btnToggleEmbedTour');
+      if (!wrap.classList.contains('active')) {
+        iframe.src = './Dublin-3D-Interactive-Tour.html';
+        wrap.classList.add('active');
+        btn.textContent = 'Hide Inline 3D Tour';
+      }
+    }
+
+    function toggleEmbeddedTour() {
+      const wrap = document.getElementById('tourIframeWrap');
+      const iframe = document.getElementById('tourIframe');
+      const btn = document.getElementById('btnToggleEmbedTour');
+      if (wrap.classList.contains('active')) {
+        wrap.classList.remove('active');
+        iframe.src = '';
+        btn.textContent = 'Load Interactive 3D Tour Inline';
+      } else {
+        enableEmbeddedTour();
+      }
+    }
+  </script>
+</body>
+</html>

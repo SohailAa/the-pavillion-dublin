@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dublin — Interactive 3D Facility Tour · 6400 Sierra Ct (Suite E)</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<style>
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; overflow:hidden; background:#0b1220; font-family:'Segoe UI', system-ui, Arial, sans-serif; color:#e5e7eb; }
+  #c { position:absolute; inset:0; }
+  .panel { background:rgba(15,23,42,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.12); border-radius:12px; box-shadow:0 18px 40px -18px rgba(0,0,0,.8); }
+  button { font:inherit; cursor:pointer; }
+  .btn { background:rgba(30,41,59,.85); color:#e2e8f0; border:1px solid rgba(255,255,255,.14); border-radius:8px; padding:6px 10px; font-size:12px; font-weight:600; white-space:nowrap; transition:all .15s; }
+  .btn:hover { border-color:#38bdf8; color:#fff; }
+  .btn.on { background:#0e7490; border-color:#22d3ee; color:#fff; }
+  #brand { position:absolute; top:12px; left:12px; padding:9px 13px; z-index:5; }
+  #brand h1 { margin:0; font-size:16px; letter-spacing:.06em; color:#fff; }
+  #brand p { margin:2px 0 0; font-size:11px; color:#94a3b8; }
+  #toolbar { position:absolute; top:12px; right:12px; padding:6px; display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; max-width:calc(100vw - 360px); z-index:5; }
+  .sep { width:1px; background:rgba(255,255,255,.15); margin:2px; }
+  #zones { position:absolute; top:80px; left:12px; width:262px; padding:10px; z-index:5; max-height:calc(100vh - 300px); overflow:auto; transition:transform .3s, opacity .3s; }
+  #zones.hide { transform:translateX(-115%); opacity:0; pointer-events:none; }
+  #zones h3 { margin:2px 0 6px; font-size:10.5px; letter-spacing:.12em; color:#94a3b8; text-transform:uppercase; }
+  .zrow { display:flex; align-items:center; gap:8px; padding:5px 7px; border-radius:8px; cursor:pointer; font-size:12.5px; }
+  .zrow:hover { background:rgba(56,189,248,.12); }
+  .zrow .sw { width:11px; height:11px; border-radius:3px; flex:none; }
+  .zrow .sf { margin-left:auto; color:#94a3b8; font-size:11px; font-variant-numeric:tabular-nums; }
+  .zrow.nb { color:#fca5a5; }
+  .amen { margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,.1); font-size:11px; color:#a5f3fc; line-height:1.5; }
+  .note { margin-top:6px; font-size:10px; color:#64748b; line-height:1.45; }
+  #card { position:absolute; left:50%; bottom:14px; transform:translateX(-50%); width:min(640px, calc(100vw - 320px)); padding:14px 16px; z-index:6; display:none; }
+  #card .top { display:flex; align-items:baseline; gap:10px; padding-right:18px; }
+  #card h2 { margin:0; font-size:17px; color:#fff; }
+  #card .meta { font-size:11px; color:#67e8f9; font-weight:600; }
+  #card .step { margin-left:auto; font-size:11px; color:#94a3b8; }
+  #card p { margin:6px 0; font-size:12.5px; color:#cbd5e1; line-height:1.45; }
+  #card ul { margin:4px 0 0 16px; padding:0; font-size:12.5px; line-height:1.5; }
+  #card .rev { margin-top:6px; font-size:12px; color:#fde68a; }
+  #card .nav { display:flex; gap:6px; margin-top:10px; }
+  #card .x { position:absolute; top:8px; right:10px; background:none; border:none; color:#94a3b8; font-size:16px; }
+  #mini { position:absolute; right:12px; bottom:14px; padding:8px; z-index:5; }
+  #mini canvas { display:block; border-radius:6px; cursor:crosshair; }
+  #mini .cap { font-size:10px; color:#94a3b8; margin-top:4px; display:flex; justify-content:space-between; }
+  #help { position:absolute; left:12px; bottom:14px; padding:9px 12px; font-size:11px; color:#cbd5e1; z-index:5; line-height:1.55; max-width:262px; }
+  #help b { color:#fff; }
+  .lbl { position:absolute; transform:translate(-50%,-100%); pointer-events:none; white-space:nowrap; z-index:3; }
+  .lbl.zone { background:rgba(2,6,23,.78); border:1px solid rgba(103,232,249,.55); color:#fff; font-size:12px; font-weight:700; padding:3px 8px; border-radius:6px; }
+  .lbl.zone small { display:block; font-weight:500; color:#67e8f9; font-size:10px; }
+  .lbl.nb { background:rgba(127,29,29,.88); border:1px solid #f87171; color:#fff; font-size:12px; font-weight:700; padding:3px 8px; border-radius:6px; }
+  .lbl.nb small { display:block; font-weight:500; color:#fecaca; font-size:10px; }
+  .lbl.nb2 { background:rgba(30,41,59,.8); border:1px solid rgba(255,255,255,.25); color:#e2e8f0; font-size:11px; font-weight:600; padding:2px 7px; border-radius:6px; }
+  .lbl.sub { background:rgba(15,23,42,.7); color:#e2e8f0; font-size:10.5px; padding:2px 6px; border-radius:5px; border:1px solid rgba(255,255,255,.15); }
+  #walkhint { position:absolute; top:72px; left:50%; transform:translateX(-50%); padding:7px 12px; font-size:12px; z-index:6; display:none; }
+  #cross { position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border:2px solid rgba(255,255,255,.7); border-radius:50%; z-index:4; display:none; pointer-events:none; }
+  #loading { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:14px; color:#94a3b8; z-index:10; background:#0b1220; }
+</style>
+</head>
+<body>
+<div id="loading">Loading 3D model…</div>
+<div id="c"></div>
+<div id="cross"></div>
+
+<div id="brand" class="panel">
+  <h1>DUBLIN</h1>
+  <p>Interactive 3D tour · 6400 Sierra Ct, Suite E · 96,000 SF concept</p>
+</div>
+
+<div id="toolbar" class="panel">
+  <button class="btn on" id="bOrbit" onclick="setMode('orbit')">🛰️ Orbit</button>
+  <button class="btn" id="bTour" onclick="startTour()">▶ Guided tour</button>
+  <button class="btn" id="bWalk" onclick="setMode('walk')">🚶 Walk</button>
+  <div class="sep"></div>
+  <button class="btn on" id="bL2" onclick="toggleL2()">🏢 Upper floor</button>
+  <button class="btn on" id="bCut" onclick="toggleCut()">✂️ Cutaway</button>
+  <button class="btn" id="bRoof" onclick="toggleRoof()">🏠 Roof</button>
+  <button class="btn on" id="bLbl" onclick="toggleLabels()">🏷️ Labels</button>
+  <button class="btn" id="bNight" onclick="toggleNight()">🌙 Night</button>
+  <button class="btn on" id="bList" onclick="toggleList()">☰ Zones</button>
+  <button class="btn" onclick="toggleFS()">⛶</button>
+</div>
+
+<div id="zones" class="panel">
+  <h3>Ground floor</h3><div id="zl0"></div>
+  <h3 style="margin-top:8px">Upper floor (existing 2nd floor)</h3><div id="zl1"></div>
+  <h3 style="margin-top:8px">Site & neighbors</h3><div id="zl2"></div>
+  <div class="amen"><b>Included for every visitor:</b><br>Lounges · Viewing areas · Recovery rooms · Free Wi-Fi<br><span style="color:#94a3b8">No alcohol on site · Smoke-free patio</span></div>
+  <div class="note">Shell, column grid, neighbors and parking follow the 2016 Hopkins &amp; Wall drawings (Suite E ≈ 249′ × 323′ ground floor + ≈20,500 SF existing second floor). Program SF shown per the financial model. Concept massing for discussion, not a construction drawing.</div>
+</div>
+
+<div id="card" class="panel">
+  <button class="x" onclick="closeCard()">✕</button>
+  <div class="top"><h2 id="cT"></h2><span class="meta" id="cM"></span><span class="step" id="cS"></span></div>
+  <p id="cP"></p>
+  <ul id="cB"></ul>
+  <div class="rev" id="cR"></div>
+  <div class="nav" id="cNav">
+    <button class="btn" onclick="tourStep(-1)">◀ Prev</button>
+    <button class="btn" id="bPlay" onclick="togglePlay()">⏸ Pause</button>
+    <button class="btn" onclick="tourStep(1)">Next ▶</button>
+    <button class="btn" style="margin-left:auto" onclick="endTour()">Exit tour</button>
+  </div>
+</div>
+
+<div id="walkhint" class="panel"><b>Walk mode</b> — W A S D / arrows to move · drag to look · Shift to run · grand stair in the lobby goes up · click the map to jump · Esc to exit</div>
+
+<div id="help" class="panel">
+  <b>Orbit:</b> drag to rotate · right-drag to pan · scroll to zoom<br>
+  <b>Click</b> any area for details · click the <b>map</b> to fly there<br>
+  <b>Upper floor</b> hides level 2 to see the restaurant, lobby &amp; spa below
+</div>
+
+<div id="mini" class="panel"><canvas id="map" width="260" height="206"></canvas><div class="cap"><span>Site plan · N ↑</span><span>Sierra Ct ↓</span></div></div>
+
+<script>
+// =====================================================================
+//  DUBLIN — 3D concept model of 6400 Sierra Ct, Suite E (former AMP Printing)
+//  Units: feet.  +x = east, +z = south (toward Sierra Ct).  y = up.
+//  Building (per 2016 site plan A-004.1, 1"=40'):  ≈566' x 323' multi-tenant
+//    CrossFit CSA (Suite A, NW) | K1 Speed (Suite B, SW) | Suite E (ours) | Pace Supply (Suite G, E)
+//  Suite E ≈ 249' x 323' ground floor + ≈170' x 121' existing 2nd floor (front-west), A-101.1
+// =====================================================================
+const SX0 = -124.5, SX1 = 124.5, SZ0 = -161.5, SZ1 = 161.5, H = 30, L2Y = 14;
+const COLX = [-75.3, -35.7, 3.8, 43.3, 82.9], COLZ = [-120.9, -80.9, -40.9, -0.9, 39.1];
+
+const container = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ antialias:true, preserveDrawingBuffer:true, logarithmicDepthBuffer:true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const SKY_DAY = new THREE.Color(0xbcd6ee), SKY_NIGHT = new THREE.Color(0x0a1022);
+scene.background = SKY_DAY.clone(); scene.fog = new THREE.Fog(0xbcd6ee, 1200, 2800);
+const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 1, 6000);
+const HOME = { p:[-60, 620, 640], t:[-40, 0, 10] };
+camera.position.set(...HOME.p);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(...HOME.t); controls.enableDamping = true; controls.dampingFactor = 0.08;
+controls.maxPolarAngle = Math.PI * 0.495; controls.minDistance = 15; controls.maxDistance = 1800;
+
+const hemi = new THREE.HemisphereLight(0xe0efff, 0x5b6470, 0.75); scene.add(hemi);
+const amb = new THREE.AmbientLight(0xffffff, 0.18); scene.add(amb);
+const sun = new THREE.DirectionalLight(0xfff4e0, 1.05);
+sun.position.set(300, 560, 380); sun.target.position.set(-40, 0, 0);
+sun.castShadow = true; sun.shadow.mapSize.set(4096, 4096);
+Object.assign(sun.shadow.camera, { left:-620, right:620, top:620, bottom:-620, near:10, far:2000 });
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.5;
+scene.add(sun); scene.add(sun.target);
+
+const world = new THREE.Group(); scene.add(world);
+const L2 = new THREE.Group(); world.add(L2);
+let PARENT = world, WLIM = 14;
+
+// ---------- helpers ----------
+const G = { box:new THREE.BoxGeometry(1,1,1), cyl:new THREE.CylinderGeometry(0.5,0.5,1,20), sph:new THREE.SphereGeometry(0.5,18,12), cone:new THREE.ConeGeometry(0.5,1,20), plane:new THREE.PlaneGeometry(1,1) };
+const MC = {};
+function M(color, o) { o = o || {}; const k = color + JSON.stringify(o); if (!MC[k]) MC[k] = new THREE.MeshStandardMaterial(Object.assign({ color, roughness:0.78, metalness:0.04 }, o)); return MC[k]; }
+const GLASS = M(0xa5d8ec, { transparent:true, opacity:0.26, roughness:0.05, metalness:0.3, depthWrite:false });
+const NET = M(0x0f172a, { transparent:true, opacity:0.2, side:THREE.DoubleSide, depthWrite:false });
+const CURTAIN = M(0x111827, { transparent:true, opacity:0.32, side:THREE.DoubleSide, depthWrite:false });
+const WHITE = M(0xffffff, { roughness:0.5 });
+const emissives = [];
+function EM(color, intensity) { const m = new THREE.MeshStandardMaterial({ color, emissive:color, emissiveIntensity:intensity || 0.6, roughness:0.4 }); m.userData.base = intensity || 0.6; emissives.push(m); return m; }
+function B(x, y0, z, w, h, d, mat, o) {
+  o = o || {}; const m = new THREE.Mesh(G.box, typeof mat === 'number' ? M(mat) : mat);
+  m.scale.set(w, h, d); m.position.set(x, y0 + h/2, z); m.castShadow = o.cast !== false; m.receiveShadow = true; (o.parent || PARENT).add(m); return m;
+}
+function BR(x1, z1, x2, z2, y0, h, mat, o) { return B((x1+x2)/2, y0, (z1+z2)/2, Math.abs(x2-x1), h, Math.abs(z2-z1), mat, o); }
+function C(x, y0, z, r, h, mat, o) { o = o || {}; const m = new THREE.Mesh(G.cyl, typeof mat === 'number' ? M(mat) : mat); m.scale.set(r*2, h, r*2); m.position.set(x, y0 + h/2, z); m.castShadow = o.cast !== false; m.receiveShadow = true; (o.parent || PARENT).add(m); return m; }
+function S(x, y, z, r, mat, o) { o = o || {}; const m = new THREE.Mesh(G.sph, typeof mat === 'number' ? M(mat) : mat); m.scale.set(r*2, r*2, r*2); m.position.set(x, y, z); m.castShadow = o.cast !== false; (o.parent || PARENT).add(m); return m; }
+function floorRect(x1, z1, x2, z2, y, color) { const m = new THREE.Mesh(G.plane, typeof color === 'number' ? M(color) : color); m.rotation.x = -Math.PI/2; m.scale.set(Math.abs(x2-x1), Math.abs(z2-z1), 1); m.position.set((x1+x2)/2, y, (z1+z2)/2); m.receiveShadow = true; PARENT.add(m); return m; }
+function textTexture(lines, w, h, opt) {
+  opt = opt || {}; const c = document.createElement('canvas'); c.width = 1024; c.height = Math.max(64, Math.round(1024 * h / w));
+  const g = c.getContext('2d'); g.fillStyle = opt.bg || '#0f172a'; g.fillRect(0, 0, c.width, c.height);
+  const arr = Array.isArray(lines) ? lines : [lines]; const lh = c.height / arr.length;
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+  arr.forEach((t, i) => {
+    let size = lh * (i === 0 ? 0.6 : 0.42); const wt = i === 0 ? '800 ' : '500 ';
+    g.font = wt + size + 'px Segoe UI, Arial';
+    while (g.measureText(t).width > c.width * 0.9 && size > 8) { size -= 2; g.font = wt + size + 'px Segoe UI, Arial'; }
+    g.fillStyle = i === 0 ? (opt.fg || '#ffffff') : (opt.sub || '#94a3b8'); g.fillText(t, c.width/2, lh * (i + 0.5));
+  });
+  const tex = new THREE.CanvasTexture(c); tex.encoding = THREE.sRGBEncoding; tex.anisotropy = 8; return tex;
+}
+function sign(lines, x, y, z, w, h, rotY, opt) {
+  const mat = new THREE.MeshBasicMaterial({ map:textTexture(lines, w, h, opt), toneMapped:false });
+  const m = new THREE.Mesh(G.plane, mat); m.scale.set(w, h, 1); m.position.set(x, y, z); m.rotation.y = rotY || 0; PARENT.add(m); return m;
+}
+// walls registry (cutaway + walk collision)
+const walls = [];
+function wallBox(x1, z1, x2, z2, y0, h, mat, o) {
+  o = o || {}; const t = o.t || 0.8; const horiz = Math.abs(x2-x1) >= Math.abs(z2-z1);
+  const w = horiz ? Math.abs(x2-x1) : t, d = horiz ? t : Math.abs(z2-z1), cx = (x1+x2)/2, cz = (z1+z2)/2;
+  const m = B(cx, y0, cz, w, h, d, mat, { cast: mat !== GLASS && o.cast !== false });
+  walls.push({ m, y0, h, cx, cz, w, d, lim: o.ext ? 4 : WLIM, collide: o.collide !== false, l2: PARENT === L2 }); return m;
+}
+function wallLine(x1, z1, x2, z2, y0, h, mat, gaps, o) {
+  const horiz = Math.abs(x2-x1) >= Math.abs(z2-z1);
+  const a0 = horiz ? Math.min(x1,x2) : Math.min(z1,z2), a1 = horiz ? Math.max(x1,x2) : Math.max(z1,z2);
+  const gs = (gaps || []).slice().sort((p,q) => p[0]-q[0]); let s = a0; const segs = [];
+  gs.forEach(([ga, gb]) => { if (ga > s) segs.push([s, ga]); s = Math.max(s, gb); }); if (s < a1) segs.push([s, a1]);
+  segs.forEach(([p, q]) => horiz ? wallBox(p, z1, q, z1, y0, h, mat, o) : wallBox(x1, p, x1, q, y0, h, mat, o));
+}
+function room(x1, z1, x2, z2, h, mat, o) {
+  o = o || {}; const gl = o.glass || ''; const y0 = o.y0 || 0; const gp = s => (o.door === s && o.gap) ? [o.gap] : [];
+  wallLine(x1, z1, x2, z1, y0, h, gl.includes('n') ? GLASS : mat, gp('n'));
+  wallLine(x1, z2, x2, z2, y0, h, gl.includes('s') ? GLASS : mat, gp('s'));
+  wallLine(x1, z1, x1, z2, y0, h, gl.includes('w') ? GLASS : mat, gp('w'));
+  wallLine(x2, z1, x2, z2, y0, h, gl.includes('e') ? GLASS : mat, gp('e'));
+}
+function table(x, z, w, d, color, y0) { y0 = y0 || 0; B(x, y0 + 2.4, z, w, 0.18, d, color || 0x3f2a1d, { cast:false }); B(x, y0, z, 0.4, 2.4, 0.4, 0x1f2937, { cast:false }); }
+function chair(x, z, color, y0) { y0 = y0 || 0; B(x, y0, z, 1.5, 1.5, 1.5, color || 0x1f2937, { cast:false }); }
+function sofa(x, z, w, color, y0, back) { y0 = y0 || 0; const c = color || 0x475569; B(x, y0, z, w, 1.4, 2.6, c, { cast:false }); B(x, y0, z + (back || 1.1), w, 2.6, 0.6, c, { cast:false }); }
+function fourTop(x, z, col, chairCol, y0) { table(x, z, 3.5, 3.5, col, y0); chair(x - 2.6, z, chairCol, y0); chair(x + 2.6, z, chairCol, y0); chair(x, z - 2.6, chairCol, y0); chair(x, z + 2.6, chairCol, y0); }
+const SHIRTS = [0x0ea5e9, 0xef4444, 0x22c55e, 0xf59e0b, 0xa855f7, 0xf8fafc, 0x14b8a6, 0xec4899, 0x1e293b]; let pc = 0;
+function person(x, z, y0, col) { y0 = y0 || 0; const c = col || SHIRTS[(pc++) % SHIRTS.length]; B(x, y0, z, 1.1, 2.7, 0.7, 0x1f2937, { cast:false }); C(x, y0 + 2.7, z, 0.62, 2.1, c, { cast:false }); S(x, y0 + 5.25, z, 0.45, 0xd6a77a, { cast:false }); }
+
+// ---------- zones ----------
+const ZONES = [
+  { id:'cricket', lvl:0, name:'Cricket & Baseball Academy', sf:18000, rects:[[SX0,SZ0,-35.7,40.5]], color:0x2f6b40, cam:{p:[-80,100,95], t:[-80,0,-70]}, lab:[-80,34,-60] },
+  { id:'pickleball', lvl:0, name:'Pickleball · 8 Courts', sf:20000, rects:[[-35.7,-99,SX1,40.5]], color:0x2c6a4b, cam:{p:[44,115,115], t:[44,0,-30]}, lab:[44,34,-30] },
+  { id:'fitness', lvl:0, name:'Strength & Conditioning', sf:10000, rects:[[-35.7,SZ0,SX1,-99]], color:0x262b33, cam:{p:[44,90,-30], t:[44,0,-132]}, lab:[44,34,-130] },
+  { id:'restaurant', lvl:0, front:true, name:'Indian Fusion Restaurant', sf:9000, rects:[[SX0,40.5,-50,SZ1]], color:0x6b4a33, cam:{p:[-87,72,250], t:[-87,0,100]}, lab:[-87,10,100] },
+  { id:'lobby', lvl:0, front:true, name:'Lobby, Café & Lockers', sf:15000, rects:[[-50,40.5,25,SZ1]], color:0xe4dfd3, cam:{p:[-12,72,255], t:[-12,0,105]}, lab:[-12,10,118] },
+  { id:'spa', lvl:0, front:true, name:'Spa & Recovery', sf:12000, rects:[[25,40.5,SX1,SZ1]], color:0xe9e2d4, cam:{p:[75,85,240], t:[75,0,98]}, lab:[78,20,100] },
+  { id:'founders', lvl:1, name:'Founders Club', sf:10000, rects:[[SX0,40.5,-42,SZ1]], color:0x3b302b, cam:{p:[-83,90,250], t:[-83,14,100]}, lab:[-83,30,100] },
+  { id:'lounge', lvl:1, name:'Courtside Viewing Lounge', sf:2000, rects:[[-42,40.5,45.5,63.4]], color:0x7a5c42, cam:{p:[-6,23,64], t:[44,2,-40]}, lab:[2,28,52] },
+];
+const ZINFO = {
+  cricket:{ p:'Twelve netted lanes laid out between the existing column lines, with a coaching and video-analysis zone at the batting end, overlooked by the Founders Club glass above.', b:['9 cricket lanes + 3 baseball/softball lanes, plus a warm-up turf bay','Bowling & pitching machines, video-analysis kiosks','Academy: ~140 students @ $230/mo (estimate)','Bleacher viewing for parents and teams'], r:'Stabilized revenue ≈ $1.54M / yr (model estimate)' },
+  pickleball:{ p:'Eight courts set between the existing ~40′ column lines so columns fall in the run-off (padded), with divider curtains on the column lines and LED sports lighting.', b:['8 courts (20′×44′ playing area)','Leagues, lessons, tournaments, youth clinics','~260 members @ $79/mo + court rental at ~42% utilization (estimate)','Overlooked by the courtside lounge on the existing second floor'], r:'Stabilized revenue ≈ $1.34M / yr (model estimate)' },
+  fitness:{ p:'Performance gym along the rear (dock) wall, away from the spa and restaurant. Existing roll-up doors can open to an outdoor turf area.', b:['Power-rack platforms, functional rig, turf sled lane','Cardio row, dumbbells, group-training studio','~550 members @ $99/mo + personal training (estimate)'], r:'Stabilized revenue ≈ $0.95M / yr (model estimate)' },
+  restaurant:{ p:'High-end Indian fusion dining at the front-west corner, with a show kitchen, private dining and a smoke-free, alcohol-free patio facing Sierra Ct.', b:['~110 dining seats + 12-seat private dining','Show kitchen with tandoor ovens','~115 covers/day @ $44 average check (estimate)','No alcohol service'], r:'Stabilized revenue ≈ $2.05M / yr (model estimate)' },
+  lobby:{ p:'The existing front-office entry becomes a double-height lobby with a grand stair to the upper floor. One controlled entry serves every program.', b:['Reception & valet hand-off','Café & juice bar (~150 tickets/day, estimate)','Members lounge with free Wi-Fi, pro shop','Men’s & women’s locker rooms opening onto the courts'], r:'Café & juice bar ≈ $0.47M / yr (model estimate)' },
+  spa:{ p:'Thermal suite, pools, treatment and recovery in the east-front bay, next to the existing plumbing core. Recovery rooms are free for every visitor.', b:['2 saunas, 2 steam rooms, cold room','Hot pool + 2 cold plunges','Recovery lounge (zero-gravity, compression, red light, cryo)','4 treatment rooms, changing rooms, spa reception'], r:'Stabilized revenue ≈ $1.22M / yr (model estimate)' },
+  founders:{ p:'The existing second floor becomes a private club where entrepreneurs and investors meet, with glass overlooking the cricket academy. Coffee and mocktail bar — no alcohol.', b:['100 Founder (@ $350/mo) + 220 Associate (@ $125/mo) members (estimate)','4 meeting rooms, boardroom, pitch theater','Podcast studio and phone booths'], r:'Stabilized revenue ≈ $1.57M / yr (model estimate)' },
+  lounge:{ p:'A tiered lounge on the north edge of the existing second floor, behind a glass guard, looking straight down onto the pickleball courts and across to the cricket lanes.', b:['Free for all visitors','Courtside viewing for leagues and tournaments','Coffee service; reached by the grand stair or elevator'], r:'Included amenity (part of the 22,000 SF pickleball program)' },
+};
+const pickPlates = [];
+function zoneFloors(lvl) { ZONES.filter(z => z.lvl === lvl).forEach(z => z.rects.forEach(r => { const m = floorRect(r[0], r[1], r[2], r[3], lvl ? L2Y + 0.02 : 0.03, z.color); m.userData.zone = z.id; m.userData.l2 = !!lvl; pickPlates.push(m); })); }
+
+// =====================================================================
+//  SITE (from A-004.1)
+// =====================================================================
+const SITE = { x0:-466, x1:401, z0:-307, z1:244 };
+floorRect(-1500, -1200, 1500, 1500, -0.08, 0x6d8a59);
+const STALLS = [];
+(function lot() {
+  const K = 2, X0 = SITE.x0, Z0 = SITE.z0; const c = document.createElement('canvas'); c.width = (SITE.x1 - SITE.x0) * K; c.height = (SITE.z1 - SITE.z0) * K;
+  const g = c.getContext('2d'); g.fillStyle = '#464d58'; g.fillRect(0, 0, c.width, c.height);
+  const P = (x, z) => [(x - X0) * K, (z - Z0) * K];
+  g.strokeStyle = '#eef2f7'; g.lineWidth = 2;
+  const line = (x1, z1, x2, z2) => { const a = P(x1, z1), b = P(x2, z2); g.beginPath(); g.moveTo(a[0], a[1]); g.lineTo(b[0], b[1]); g.stroke(); };
+  function rowX(z0, z1, xa, xb, skip) { for (let x = xa; x + 9 <= xb; x += 9) { if (skip && skip(x + 4.5)) continue; line(x, z0, x, z1); line(x + 9, z0, x + 9, z1); STALLS.push([x + 4.5, (z0 + z1) / 2, 0]); } line(xa, z1, xb, z1); }
+  function rowZ(x0, x1, za, zb) { for (let z = za; z + 9 <= zb; z += 9) { line(x0, z, x1, z); line(x0, z + 9, x1, z + 9); STALLS.push([(x0 + x1) / 2, z + 4.5, 1]); } }
+  rowX(170, 188, -414, 342, x => x > -126 && x < 27);
+  rowX(211, 229, -414, 342);
+  rowX(-298, -280, -440, 300);
+  rowX(-248, -230, -440, 380, x => x > -300 && x < -150);
+  rowZ(-418, -400, -270, 155); rowZ(-400, -382, -270, 155);
+  // valet / drop-off lane
+  g.fillStyle = '#facc15'; let a = P(-48, 172); g.fillRect(a[0], a[1], 70 * K, 16 * K);
+  g.fillStyle = '#1f2937'; g.font = 'bold 26px Segoe UI'; g.textAlign = 'center'; a = P(-13, 182); g.fillText('VALET  DROP-OFF', a[0], a[1]);
+  g.fillStyle = '#e2e8f0'; g.font = 'bold 22px Segoe UI'; a = P(-200, 202); g.fillText('→  TO VALET', a[0], a[1]); a = P(160, 202); g.fillText('EXIT  ←', a[0], a[1]);
+  a = P(-180, -205); g.fillText('TRUCK COURT / LOADING', a[0], a[1]);
+  const tex = new THREE.CanvasTexture(c); tex.encoding = THREE.sRGBEncoding; tex.anisotropy = 8;
+  floorRect(SITE.x0, SITE.z0, SITE.x1, SITE.z1, 0.01, new THREE.MeshStandardMaterial({ map:tex, roughness:0.95 }));
+})();
+BR(-330, 161.5, 250, 170, 0, 0.45, 0xd1d5db);                 // front sidewalk along building
+BR(SITE.x0, 236, SITE.x1, 244, 0, 0.6, 0x4f7a3f);              // planting strip
+BR(-150, 244, -120, 320, -0.03, 0.06, 0x464d58); BR(180, 244, 210, 320, -0.03, 0.06, 0x464d58);   // driveways
+BR(-1500, 320, 1500, 362, -0.03, 0.06, 0x2b3038);              // Sierra Ct
+for (let x = -1490; x < 1500; x += 30) BR(x, 340.5, x + 14, 341.5, 0.05, 0.03, 0xfacc15, { cast:false });
+BR(-1500, 314, 1500, 320, 0, 0.4, 0x9ca3af);
+sign(['SIERRA CT'], 330, 0.2, 341, 70, 9, 0, { bg:'#2b3038', fg:'#e5e7eb' }).rotation.x = -Math.PI/2;
+// monument sign
+BR(20, 296, 64, 300, 0, 7.5, 0x1e293b); sign(['DUBLIN', '6400 Sierra Ct · Sports · Spa · Founders Club · Dining'], 42, 3.8, 300.1, 42, 6.5, 0, { bg:'#1e293b', fg:'#ffffff', sub:'#67e8f9' });
+// valet canopy
+BR(-48, 162, 22, 188, 13, 1.4, 0xf8fafc); [[-46,186],[20,186]].forEach(([x, z]) => C(x, 0, z, 0.7, 13, 0x334155));
+B(-13, 14.4, 188.6, 50, 2.4, 0.2, M(0x0f172a)); sign(['DUBLIN · VALET'], -13, 15.6, 188.75, 30, 2.2, 0, { bg:'#0f172a', fg:'#67e8f9' });
+B(10, 0, 176, 3, 3.6, 2, 0x0f172a); person(10, 179, 0, 0x0f172a); person(4, 179, 0, 0x0f172a);
+
+// cars + trucks (instanced)
+(function cars() {
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const spots = STALLS.filter(() => rnd() < 0.5);
+  [[-30,180,1],[-5,180,1]].forEach(s => spots.push(s));
+  const pal = [0xf8fafc, 0x111827, 0x9ca3af, 0x1e3a8a, 0x991b1b, 0x374151, 0xe5e7eb, 0x0f766e, 0x78350f];
+  const body = new THREE.InstancedMesh(G.box, M(0xffffff, { roughness:0.35, metalness:0.4 }), spots.length);
+  const cab = new THREE.InstancedMesh(G.box, M(0x1f2937, { roughness:0.2, metalness:0.5 }), spots.length);
+  const d = new THREE.Object3D(); const col = new THREE.Color();
+  spots.forEach(([x, z, rot], i) => {
+    d.rotation.set(0, rot ? Math.PI/2 : 0, 0);
+    d.position.set(x, 1.9, z); d.scale.set(6, 2.6, 14.5); d.updateMatrix(); body.setMatrixAt(i, d.matrix);
+    d.position.set(x, 4.1, z); d.scale.set(5.4, 1.9, 7.5); d.updateMatrix(); cab.setMatrixAt(i, d.matrix);
+    body.setColorAt(i, col.setHex(pal[Math.floor(rnd() * pal.length)]));
+  });
+  body.castShadow = cab.castShadow = true; world.add(body); world.add(cab);
+  [[150,-215],[185,-215]].forEach(([x, z]) => { B(x, 1.2, z, 8.5, 12.5, 48, 0xe5e7eb); B(x, 0, z + 30, 8.2, 10, 10, 0x1e3a8a); });
+})();
+(function trees() {
+  const pts = [];
+  for (let x = -455; x <= 395; x += 34) pts.push([x, 240]);
+  for (let x = -440; x <= 390; x += 60) pts.push([x + ((x / 60) % 2) * 20, 275 + ((x / 20) % 3) * 8]);
+  for (let z = -260; z <= 150; z += 45) pts.push([-409, z + 20]);
+  for (let z = -290; z <= 230; z += 40) { pts.push([-458, z]); pts.push([394, z]); }
+  for (let x = -440; x <= 380; x += 48) pts.push([x, -304]);
+  const tr = new THREE.InstancedMesh(G.cyl, M(0x5b3a1e), pts.length), cr = new THREE.InstancedMesh(G.sph, M(0xffffff, { roughness:0.9 }), pts.length);
+  const d = new THREE.Object3D(); const col = new THREE.Color();
+  pts.forEach(([x, z], i) => { const s = 0.85 + ((i * 37) % 10) / 25; d.position.set(x, 4 * s, z); d.scale.set(1.2, 8 * s, 1.2); d.updateMatrix(); tr.setMatrixAt(i, d.matrix);
+    d.position.set(x, 12 * s, z); d.scale.set(13 * s, 11 * s, 13 * s); d.updateMatrix(); cr.setMatrixAt(i, d.matrix); cr.setColorAt(i, col.setHSL(0.28 + (i % 5) * 0.012, 0.42, 0.3 + (i % 3) * 0.04)); });
+  tr.castShadow = cr.castShadow = true; world.add(tr); world.add(cr);
+})();
+
+// =====================================================================
+//  NEIGHBORS (same building) — K1 Speed featured
+// =====================================================================
+const NBC = M(0xc9c5bd, { roughness:0.9 });
+BR(-321.5, -82.5, -125.2, SZ1, 0, H, M(0xc4bfb6, { roughness:0.9 }));            // K1 Speed (Suite B)
+BR(-321.5, SZ0, -125.2, -82.5, 0, H, NBC);                                        // CrossFit CSA (Suite A)
+BR(125.2, SZ0, 243.5, SZ1, 0, H, NBC);                                            // Pace Supply (Suite G)
+// K1 Speed frontage
+B(-223, 0, SZ1 + 0.3, 150, 11, 0.4, GLASS, { cast:false });
+B(-223, 11, SZ1 + 0.35, 196, 1.6, 0.4, M(0xdc2626, { emissive:0x7f1d1d, emissiveIntensity:0.3 }), { cast:false });
+sign(['K1 SPEED', 'Indoor Electric Go-Karting'], -223, 20, SZ1 + 0.6, 64, 10, 0, { bg:'#0b0b0b', fg:'#ef4444', sub:'#f8fafc' });
+sign(['K1 SPEED'], -321.9, 20, 40, 52, 8, -Math.PI/2, { bg:'#0b0b0b', fg:'#ef4444' });
+// checkered-flag roof graphic on K1
+(function () { const c = document.createElement('canvas'); c.width = 512; c.height = 128; const g = c.getContext('2d'); for (let i = 0; i < 32; i++) for (let j = 0; j < 8; j++) { g.fillStyle = (i + j) % 2 ? '#111' : '#f8fafc'; g.fillRect(i * 16, j * 16, 16, 16); }
+  const t = new THREE.CanvasTexture(c); const m = new THREE.Mesh(G.plane, new THREE.MeshStandardMaterial({ map:t })); m.rotation.x = -Math.PI/2; m.scale.set(120, 30, 1); m.position.set(-223, H + 0.06, 120); world.add(m); })();
+sign(['CROSSFIT CSA'], -321.9, 20, -122, 46, 7, -Math.PI/2, { bg:'#111827', fg:'#f8fafc' });
+B(-223, 0, SZ0 - 0.3, 60, 10, 0.4, GLASS, { cast:false });
+sign(['PACE SUPPLY'], 184, 21, SZ1 + 0.6, 56, 7, 0, { bg:'#1e3a8a', fg:'#ffffff' });
+B(184, 0, SZ1 + 0.3, 70, 10, 0.4, GLASS, { cast:false });
+for (let x = 140; x <= 230; x += 18) B(x, 0, SZ0 - 0.4, 10, 12, 0.5, 0x4b5563, { cast:false });
+for (let x = -310; x <= -140; x += 30) B(x, 0, SZ0 - 0.4, 10, 12, 0.5, 0x4b5563, { cast:false });
+// demising lines on the shared roof
+[[-321.5, -125.2, -82.5]].forEach(([a, b, z]) => B((a + b) / 2, H, z, b - a, 0.3, 0.6, 0x9ca3af, { cast:false }));
+
+// =====================================================================
+//  SUITE E SHELL
+// =====================================================================
+const SHELL = M(0xd8d4cc, { roughness:0.9 }), HEADER = M(0xd0cbc2, { roughness:0.9 }), PART = M(0xf1efe9), DEMISING = M(0xbfc4cc);
+wallLine(SX0, SZ0, SX1, SZ0, 0, H, SHELL, [], { ext:true, t:1.2 });
+wallLine(SX0, SZ0, SX0, SZ1, 0, H, SHELL, [], { ext:true, t:1.2 });
+wallLine(SX1, SZ0, SX1, SZ1, 0, H, SHELL, [], { ext:true, t:1.2 });
+// south facade: [x1, x2, [[y0, y1, type], ...]]  type s=solid g=glass d=door(open)
+[
+  [SX0, -120, [[0, H, 's']]],
+  [-120, -55, [[0, 11, 'g'], [11, 17, 's'], [17, 26, 'g'], [26, H, 's']]],
+  [-55, -50, [[0, H, 's']]],
+  [-50, -20, [[0, 26, 'g'], [26, H, 's']]],
+  [-20, -6, [[0, 10, 'd'], [10, 26, 'g'], [26, H, 's']]],
+  [-6, 25, [[0, 26, 'g'], [26, H, 's']]],
+  [25, 30, [[0, H, 's']]],
+  [30, 120, [[0, 17, 's'], [17, 23, 'g'], [23, H, 's']]],
+  [120, SX1, [[0, H, 's']]],
+].forEach(([a, b, bands]) => bands.forEach(([y0, y1, t]) => { if (t === 'd') return; wallBox(a, SZ1, b, SZ1, y0, y1 - y0, t === 'g' ? GLASS : (y0 > 0 ? HEADER : SHELL), { ext:true, t: t === 'g' ? 0.6 : 1.2 }); }));
+[[-120, -55], [-50, 25]].forEach(([a, b]) => { for (let x = a; x <= b; x += 6.5) B(x, 0, SZ1, 0.35, 26, 0.8, 0x334155, { cast:false }); });
+for (let x = 30; x <= 120; x += 7.5) B(x, 17, SZ1, 0.35, 6, 0.8, 0x334155, { cast:false });
+sign(['DUBLIN'], -13, 27.8, SZ1 + 0.7, 44, 3.6, 0, { bg:'#1e293b', fg:'#ffffff' });
+// rear dock doors (existing)
+[-100, -60, 10, 40, 70, 100].forEach(x => B(x, 0, SZ0 - 0.5, 10, 12, 0.4, 0x4b5563, { cast:false }));
+// roof
+const roof = new THREE.Group(); world.add(roof);
+B(0, H, 0, SX1 - SX0 + 2.4, 1.2, SZ1 - SZ0 + 2.4, M(0xb8bec7, { roughness:0.95 }), { parent:roof, cast:false });
+for (let x = -100; x <= 100; x += 50) for (let z = -130; z <= 130; z += 52) B(x, H + 1.2, z, 8, 0.6, 8, M(0xdbeafe, { roughness:0.1, metalness:0.3 }), { parent:roof, cast:false });
+[[-80,-60],[0,-120],[80,-40],[60,90],[-60,110]].forEach(([x, z]) => B(x, H + 1.2, z, 14, 6, 9, 0x9ca3af, { parent:roof }));
+roof.visible = false;
+// existing column grid in the high bay (~40' bays per A-101.1), padded where people play
+COLX.forEach(x => COLZ.forEach(z => { if (x === -35.7) return; B(x, 0, z, 1, H, 1, 0x6b7280); B(x, 0, z, 2.2, 7, 2.2, 0x1d4ed8, { cast:false }); }));
+
+// interior demising
+wallLine(-35.7, SZ0, -35.7, 40.5, 0, H, DEMISING, [[8,16], [-112,-104]]);   // cricket | courts & gym
+wallLine(-35.7, -99, SX1, -99, 0, H, DEMISING, [[38,48]]);                   // courts | gym
+wallLine(45.5, 40.5, SX1, 40.5, 0, H, DEMISING, []);                         // courts | spa (high bay)
+wallLine(25, 40.5, 45.5, 40.5, 0, 12.5, DEMISING, []);
+wallLine(SX0, 40.5, -50, 40.5, 0, 12.5, PART, []);                           // kitchen back
+wallLine(-50, 40.5, 25, 40.5, 0, 12.5, PART, [[-48,-40], [-30,-24], [8,14]]);   // lobby/locker back: doors to cricket + courts
+wallLine(-50, 40.5, -50, SZ1, 0, 12.5, PART, [[118,128]]);                   // restaurant | lobby
+wallLine(25, 40.5, 25, SZ1, 0, 12.5, PART, [[138,148]]);                     // lobby | spa
+function ledRow(x1, x2, z, step) { for (let x = x1; x <= x2; x += step) B(x, 27.5, z, 10, 0.35, 2.2, EM(0xfff7e6, 0.9), { cast:false }); }
+zoneFloors(0);
+
+// ---------- CRICKET & BASEBALL ----------
+(function cricket() {
+  const rows = [
+    { z0:-159, z1:-83, lanes:[...[0,1,2,3].map(k => [SX0 + k*12.3, SX0 + (k+1)*12.3, 'c']), ...[0,1,2].map(k => [-75.3 + k*13.2, -75.3 + (k+1)*13.2, 'c'])] },
+    { z0:-79, z1:-5, lanes:[...[0,1].map(k => [SX0 + k*12.3, SX0 + (k+1)*12.3, 'c']), ...[2,3].map(k => [SX0 + k*12.3, SX0 + (k+1)*12.3, 'b']), [-75.3, -62.1, 'b']] },
+  ];
+  rows.forEach((r, ri) => {
+    r.lanes.forEach(([a, b, t], li) => {
+      const xc = (a + b) / 2;
+      floorRect(xc - 4.3, r.z0 + 4, xc + 4.3, r.z1 - 2, 0.06, t === 'c' ? 0x86b06a : 0x5f8f4a);
+      if (t === 'c') { [r.z1 - 6, r.z0 + 9].forEach(z => B(xc, 0.05, z, 8.6, 0.04, 0.35, WHITE, { cast:false })); [-0.8, 0, 0.8].forEach(dx => C(xc + dx, 0, r.z1 - 5, 0.12, 2.3, 0xf5deb3, { cast:false })); B(xc, 0, r.z0 + 3, 2.2, 3.2, 2.6, 0x1f2937); C(xc, 3.2, r.z0 + 3, 0.9, 0.6, 0xfacc15); }
+      else { C(xc, 0, r.z1 - 5, 4, 0.08, 0x9a6b3f, { cast:false }); B(xc, 0.1, r.z1 - 5, 1.4, 0.05, 1.4, WHITE, { cast:false }); B(xc, 0, r.z0 + 14, 2.4, 3.6, 2.4, 0xb91c1c); }
+      if ((li + ri) % 2 === 0) person(xc, r.z1 - 7.5);
+      B(a, 0, (r.z0 + r.z1) / 2, 0.12, 13, r.z1 - r.z0, NET, { cast:false });
+      B(b, 0, (r.z0 + r.z1) / 2, 0.12, 13, r.z1 - r.z0, NET, { cast:false });
+    });
+    const xa = r.lanes[0][0], xb = r.lanes[r.lanes.length - 1][1];
+    B((xa + xb) / 2, 13, (r.z0 + r.z1) / 2, xb - xa, 0.1, r.z1 - r.z0, NET, { cast:false });
+    B((xa + xb) / 2, 0, r.z1, xb - xa, 13, 0.12, NET, { cast:false }); B((xa + xb) / 2, 0, r.z0, xb - xa, 13, 0.12, NET, { cast:false });
+  });
+  floorRect(-62.1, -79, -35.7, -5, 0.06, 0x3f7d3a);                                         // warm-up turf bay
+  person(-52, -40); person(-45, -30);
+  // coaching & viewing zone
+  floorRect(SX0, -3, -35.7, 40.5, 0.05, 0x1f2937);
+  for (let k = 0; k < 4; k++) { const x = -118 + k * 22; B(x, 0, 2, 0.4, 4.2, 0.4, 0x111827, { cast:false }); B(x, 4.2, 2, 4.5, 2.6, 0.25, EM(0x38bdf8, 0.5), { cast:false }); }
+  for (let t = 0; t < 3; t++) BR(-120, 24 + t * 3.5, -62, 27.5 + t * 3.5, 0, 1.4 * (t + 1), 0x64748b);
+  for (let k = 0; k < 6; k++) person(-114 + k * 9, 25.5 + (k % 3) * 3.5, 1.4 * (k % 3 + 1));
+  for (let k = 0; k < 3; k++) B(-110 + k * 22, 0, 13, 8, 1.6, 1.6, 0x334155, { cast:false });
+  sign(['CRICKET & BASEBALL ACADEMY'], -80, 21, SZ0 + 0.7, 70, 6, 0, { bg:'#14532d', fg:'#ffffff' });
+  ledRow(-118, -45, -130, 24); ledRow(-118, -45, -95, 24); ledRow(-118, -45, -55, 24); ledRow(-118, -45, -20, 24);
+})();
+
+// ---------- PICKLEBALL ----------
+(function pickleball() {
+  const XS = [-15.95, 23.55, 63.1, 103.7], ZS = [-64.1, 5.6];
+  XS.forEach((cx, i) => ZS.forEach((cz, j) => {
+    floorRect(cx - 15, cz - 29, cx + 15, cz + 29, 0.045, 0x2f7a57);
+    floorRect(cx - 10, cz - 22, cx + 10, cz + 22, 0.06, 0x2563a8);
+    floorRect(cx - 10, cz - 7, cx + 10, cz + 7, 0.065, 0x3b7fc4);
+    const ln = (x1, z1, x2, z2) => BR(x1, z1, x2, z2, 0.07, 0.03, WHITE, { cast:false });
+    ln(cx - 10.12, cz - 22, cx - 9.88, cz + 22); ln(cx + 9.88, cz - 22, cx + 10.12, cz + 22);
+    [-22, -7, 7, 22].forEach(dz => ln(cx - 10, cz + dz - 0.12, cx + 10, cz + dz + 0.12));
+    ln(cx - 0.12, cz + 7, cx + 0.12, cz + 22); ln(cx - 0.12, cz - 22, cx + 0.12, cz - 7);
+    C(cx - 11, 0, cz, 0.15, 3, 0x111827); C(cx + 11, 0, cz, 0.15, 3, 0x111827);
+    B(cx, 0.1, cz, 22, 2.8, 0.06, M(0x0b0f19, { transparent:true, opacity:0.6 }), { cast:false }); B(cx, 2.85, cz, 22, 0.18, 0.1, WHITE, { cast:false });
+    B(cx, 27.5, cz, 3, 0.35, 34, EM(0xffffff, 1.0), { cast:false });
+    if ((i + j) % 2 === 0) { person(cx - 4, cz - 14); person(cx + 4, cz + 15); }
+    if (i === 1 || (i === 3 && j === 0)) { person(cx + 5, cz - 12); person(cx - 5, cz + 12); }
+  }));
+  [3.8, 43.3, 82.9].forEach(x => B(x, 0, -29.25, 0.1, 12, 139, CURTAIN, { cast:false }));
+  B(44.4, 0, -29.25, 160, 12, 0.1, CURTAIN, { cast:false });
+  sign(['PICKLEBALL'], 44.4, 20, -98.4, 56, 6, 0, { bg:'#1e3a8a', fg:'#ffffff' });
+})();
+
+// ---------- STRENGTH & CONDITIONING ----------
+(function gym() {
+  floorRect(-30, -159, 120, -149, 0.06, 0x3f7d3a);
+  for (let x = -25; x <= 115; x += 10) BR(x - 0.2, -159, x + 0.2, -149, 0.07, 0.03, WHITE, { cast:false });
+  [-22, -8, 6, 20].forEach(x => [-136, -116].forEach(z => {
+    BR(x - 4, z - 4.5, x + 4, z + 4.5, 0.05, 0.25, 0x7c5a3a, { cast:false });
+    [[-2.2,-2.6],[2.2,-2.6],[-2.2,2.6],[2.2,2.6]].forEach(([dx, dz]) => B(x + dx, 0.3, z + dz, 0.35, 8, 0.35, 0x111827, { cast:false }));
+    B(x, 8.1, z - 2.6, 4.8, 0.3, 0.3, 0x111827, { cast:false }); B(x, 8.1, z + 2.6, 4.8, 0.3, 0.3, 0x111827, { cast:false });
+    const bar = C(x, 4.2, z - 1, 0.1, 7.5, 0x9ca3af, { cast:false }); bar.rotation.z = Math.PI/2; bar.position.y = 4.4;
+    [-3, 3].forEach(dx => { const p = C(x + dx, 3.3, z - 1, 1.1, 0.35, 0x111827, { cast:false }); p.rotation.z = Math.PI/2; p.position.y = 4.4; });
+  }));
+  B(68, 0, -132, 56, 0.3, 0.3, 0x111827); for (let x = 40; x <= 96; x += 8) B(x, 0, -132, 0.35, 9.5, 0.35, 0x111827); B(68, 9.5, -132, 56, 0.35, 0.35, 0x111827);
+  for (let k = 0; k < 8; k++) B(42 + k * 6.5, 0, -122, 2.4, 2 + (k % 3) * 0.6, 2.4, 0x334155, { cast:false });
+  BR(-34.5, -145, -31.5, -104, 0, 3, 0x1f2937);
+  for (let k = 0; k < 9; k++) { const x = 40 + k * 7; B(x, 0, -106, 3, 1, 6.5, 0x111827, { cast:false }); B(x, 1, -109, 3, 3.6, 0.5, 0x374151, { cast:false }); }
+  room(104, -148, SX1 - 0.6, -116, 10, PART, { glass:'w', door:'s', gap:[106, 112] });
+  for (let k = 0; k < 6; k++) person(108 + (k % 3) * 5, -140 + Math.floor(k / 3) * 9);
+  person(-8, -124); person(6, -132); person(20, -120); person(60, -154); person(68, -127); person(54, -106.5, 1);
+  sign(['STRENGTH & CONDITIONING'], 44, 21, SZ0 + 0.7, 64, 6, 0, { bg:'#111827', fg:'#f59e0b' });
+  ledRow(-25, 115, -150, 20); ledRow(-25, 115, -125, 20); ledRow(-25, 115, -105, 20);
+})();
+
+// ---------- RESTAURANT (ground, under Founders Club) ----------
+(function restaurant() {
+  const STEEL = M(0xcbd5e1, { metalness:0.75, roughness:0.25 });
+  floorRect(SX0, 40.5, -50, 72, 0.06, 0x9ca3af);
+  BR(-121, 43, -54, 46.5, 0, 3, STEEL); BR(-105, 54, -75, 58, 0, 3, STEEL); BR(-121, 43, -54, 46.5, 8, 2.5, STEEL, { cast:false });
+  [-115, -103].forEach(x => { C(x, 0, 64, 2.2, 3.6, 0x9a3412); C(x, 3.6, 64, 1.4, 0.15, EM(0xf97316, 1.0), { cast:false }); });
+  wallLine(SX0, 72, -50, 72, 0, 3.5, PART, [[-60,-54]]); wallLine(SX0, 72, -50, 72, 3.5, 5.5, GLASS, [[-60,-54]], { cast:false });
+  person(-95, 50); person(-85, 56); person(-110, 60);
+  sign(['TANDOOR · INDIAN FUSION'], -87, 9.8, 72.5, 36, 2.6, 0, { bg:'#431407', fg:'#fdba74' });
+  room(SX0, 76, -100, 100, 10, PART, { glass:'e', door:'e', gap:[93, 98] });
+  table(-112, 88, 16, 4.5, 0x3f2a1d); for (let k = 0; k < 5; k++) { chair(-119 + k * 3.4, 85, 0x7f1d1d); chair(-119 + k * 3.4, 91, 0x7f1d1d); }
+  [-92, -79, -66].forEach(x => [84, 98, 112, 126, 140].forEach(z => fourTop(x, z, 0x3f2a1d, 0x7f1d1d)));
+  [108, 120, 132, 144, 156].forEach(z => { table(-119, z, 4, 3.5, 0x3f2a1d); B(-122.5, 0, z, 2, 3.2, 6, 0x7f1d1d, { cast:false }); B(-115.5, 0, z, 2, 3.2, 6, 0x7f1d1d, { cast:false }); });
+  B(-57, 0, 152, 3, 3.8, 2.5, 0x1f2937);
+  [[-92,84],[-79,98],[-66,112],[-92,126],[-79,140],[-66,84]].forEach(([x, z]) => { person(x - 2.6, z, 0); person(x + 2.6, z, 0); });
+  for (let z = 84; z <= 140; z += 14) B(-72, 10.5, z, 1.5, 0.6, 1.5, EM(0xfbbf24, 0.8), { cast:false });
+  // patio (replaces front stalls — to confirm with landlord/City)
+  BR(-122, 162, -55, 194, 0, 0.5, 0xa47551);
+  wallLine(-122, 194, -55, 194, 0.5, 3.2, GLASS, [], { cast:false }); wallLine(-55, 170, -55, 194, 0.5, 3.2, GLASS, [], { cast:false }); wallLine(-122, 162, -122, 194, 0.5, 3.2, GLASS, [], { cast:false });
+  [[-112,172],[-98,172],[-84,172],[-70,172],[-112,185],[-98,185],[-84,185],[-70,185]].forEach(([x, z], i) => {
+    fourTop(x, z, 0x1f2937, 0xe7e5e4, 0.5); C(x, 0.5, z, 0.15, 9, 0x334155, { cast:false });
+    const u = new THREE.Mesh(G.cone, M(i % 2 ? 0xf8fafc : 0x0e7490)); u.scale.set(10, 2.2, 10); u.position.set(x, 9.6, z); u.castShadow = true; world.add(u);
+    if (i % 3 !== 2) { person(x - 2.6, z, 0.5); person(x + 2.6, z, 0.5); }
+  });
+  for (let x = -119; x <= -58; x += 8.5) { B(x, 0.5, 196.5, 3.5, 2, 3.5, 0x57534e); S(x, 3.6, 196.5, 2.1, 0x3f7a3a); }
+  sign(['PATIO', 'Non-alcoholic · Smoke-free'], -88, 4.4, 194.4, 18, 3, 0, { bg:'#0f172a', fg:'#ffffff', sub:'#67e8f9' });
+})();
+
+// ---------- LOBBY (ground; double-height atrium) ----------
+(function lobby() {
+  // locker rooms under the courtside lounge
+  room(-36, 41, -8, 72, 12.5, PART, { door:'n', gap:[-30, -24] }); room(-8, 41, 17, 72, 12.5, PART, { door:'n', gap:[8, 14] });
+  wallLine(-36, 72, -8, 72, 0, 12.5, PART, [[-26,-20]]); wallLine(-8, 72, 17, 72, 0, 12.5, PART, [[4,10]]);
+  for (let z = 46; z <= 66; z += 7) { BR(-33, z, -14, z + 2, 0, 7, 0x334155, { cast:false }); BR(-5, z, 12, z + 2, 0, 7, 0x334155, { cast:false }); }
+  sign(['LOCKERS · SHOWERS · RESTROOMS'], -9.5, 9.5, 72.5, 34, 2.4, 0, { bg:'#0f172a', fg:'#e2e8f0' });
+  BR(17, 64, 25, 75, 0, L2Y + 12, M(0x94a3b8, { metalness:0.5, roughness:0.3 }));        // elevator core
+  // grand stair to level 2 (rises northward)
+  for (let k = 0; k < 20; k++) { const z = 103 - (k + 1) * 1.4; BR(-42, z, -34, z + 1.4, 0, (k + 1) * 0.7, M(0x8b6b4a)); }
+  wallLine(-34, 75, -34, 103, 0, 17, GLASS, [], { cast:false });
+  // café & juice bar
+  BR(-49, 100, -45, 130, 0, 3.6, 0x14532d); BR(-49.6, 100, -49, 130, 0, 9, 0x1f2937, { cast:false });
+  for (let z = 102; z <= 128; z += 3.5) C(-42.5, 0, z, 0.8, 2.6, 0xd6d3d1, { cast:false });
+  sign(['CAFÉ · JUICE BAR'], -48.9, 6.4, 115, 18, 2.2, Math.PI/2, { bg:'#14532d', fg:'#bbf7d0' });
+  [[-28,110],[-28,122],[-18,116],[-28,134]].forEach(([x, z]) => { table(x, z, 3, 3, 0xe7e5e4); chair(x - 2.2, z, 0x14532d); chair(x + 2.2, z, 0x14532d); });
+  person(-47, 115, 0, 0x14532d); person(-42.5, 109); person(-42.5, 120); person(-28, 110);
+  // reception
+  B(-13, 0, 142, 20, 3.6, 4, 0xf8fafc); B(-13, 0, 139.9, 20, 3.6, 0.2, M(0x8b6b4a), { cast:false });
+  person(-17, 144.5, 0, 0x0f172a); person(-9, 144.5, 0, 0x0f172a); person(-13, 152); person(-20, 155);
+  // welcome media wall (east wall of lobby)
+  B(24.3, 2, 110, 0.4, 9.5, 30, 0x0f172a);
+  sign(['WELCOME TO DUBLIN', 'Sports · Spa · Founders Club · Dining'], 24, 6.8, 110, 28, 8, -Math.PI/2, { bg:'#0f172a', fg:'#ffffff', sub:'#67e8f9' });
+  // members lounge
+  sofa(8, 100, 12, 0x475569, 0, -1.1); sofa(8, 120, 12, 0x475569); B(8, 0, 110, 6, 1.3, 3, 0x8b6b4a, { cast:false });
+  person(5, 99.5, 1); person(11, 120.5, 1);
+  // pro shop + planters
+  for (let k = 0; k < 3; k++) BR(6 + k * 6, 146, 9 + k * 6, 158, 0, 5, 0x334155, { cast:false });
+  sign(['PRO SHOP'], 15, 7.5, 160.6, 14, 2, Math.PI, { bg:'#1e3a8a', fg:'#ffffff' });
+  [-44, -30, 0].forEach(x => { C(x, 0, 156, 1.6, 2.2, 0x57534e); S(x, 3.6, 156, 2, 0x3f7a3a); });
+  B(-4, 22, 118, 6, 0.4, 6, EM(0xfde68a, 0.9), { cast:false }); B(-25, 22, 140, 6, 0.4, 6, EM(0xfde68a, 0.9), { cast:false });
+})();
+
+// ---------- SPA & RECOVERY (east-front bay) ----------
+(function spa() {
+  const WOOD = M(0xb07a45), TILE = M(0xf1f5f9), STONE = M(0xd6cfc2);
+  [[28,44,'wood'],[47,63,'wood'],[67,83,'tile'],[86,102,'tile'],[105,121,'cold']].forEach(([a, b, k]) => {
+    const mat = k === 'wood' ? WOOD : k === 'tile' ? TILE : M(0xbfdbfe);
+    room(a, 44, b, 58, 9, mat, { glass:'s', door:'s', gap:[a + 1, a + 4] });
+    if (k === 'wood') { BR(a + 1, 45, b - 1, 48, 0, 1.6, 0x8b5a2b, { cast:false }); BR(a + 1, 45, b - 1, 47, 1.6, 1.6, 0x8b5a2b, { cast:false }); B((a+b)/2, 0, 54, 2.5, 2, 2.5, EM(0xf97316, 0.5), { cast:false }); }
+    if (k === 'tile') { BR(a + 1, 45, b - 1, 48.5, 0, 1.6, 0xe2e8f0, { cast:false }); B((a+b)/2, 6, 51, b - a - 2, 2.5, 12, M(0xffffff, { transparent:true, opacity:0.25, depthWrite:false }), { cast:false }); }
+  });
+  BR(47, 64, 79, 86, 0, 1.6, STONE); BR(48.5, 65.5, 77.5, 84.5, 0.05, 1.45, M(0x14b8a6, { roughness:0.08, metalness:0.2, emissive:0x0f766e, emissiveIntensity:0.25 }), { cast:false });
+  [[88,100],[106,118]].forEach(([a, b]) => { BR(a, 66, b, 80, 0, 1.6, STONE); BR(a + 1.2, 67.2, b - 1.2, 78.8, 0.05, 1.45, M(0x7dd3fc, { roughness:0.06, metalness:0.2, emissive:0x0284c7, emissiveIntensity:0.2 }), { cast:false }); });
+  for (let z = 65; z <= 84; z += 6.5) B(36, 0, z, 6, 1.1, 2.6, WHITE, { cast:false });
+  person(56, 74, -1); person(68, 79, -1); person(94, 72, -1);
+  for (let k = 0; k < 4; k++) { const a = 28 + k * 11; room(a, 100, a + 11, 122, 9, PART, { door:'s', gap:[a + 7, a + 10] }); B(a + 5.5, 0, 109, 3, 2.6, 7, WHITE, { cast:false }); B(a + 5.5, 0, 116, 2, 3, 2, 0x94a3b8, { cast:false }); }
+  floorRect(76, 100, 123, 122, 0.06, 0xd9cfbf);
+  for (let k = 0; k < 4; k++) for (let r = 0; r < 2; r++) { const ch = B(81 + k * 9, 0.8, 106 + r * 9, 3, 1.2, 6, 0x1e293b, { cast:false }); ch.rotation.x = -0.25; }
+  B(123, 0, 111, 0.6, 8, 14, EM(0xef4444, 0.55), { cast:false });
+  C(116, 0, 104, 2.4, 8, M(0xe2e8f0, { metalness:0.6, roughness:0.2 }));
+  person(86, 110, 1.2); person(104, 118, 1.2);
+  room(85, 126, 105, 160.5, 10, PART, { door:'w', gap:[150, 156] }); room(105, 126, 123.9, 160.5, 10, PART, { door:'n', gap:[108, 114] });
+  for (let z = 130; z <= 154; z += 7) { BR(87, z, 91, z + 4, 0, 7, 0x334155, { cast:false }); BR(118, z, 122, z + 4, 0, 7, 0x334155, { cast:false }); }
+  B(56, 0, 152, 16, 3.6, 3.5, 0xf5f0e6); B(56, 0, 160.2, 22, 9, 0.6, WOOD, { cast:false });
+  sign(['SPA & RECOVERY'], 56, 6.5, 159.8, 16, 2.2, Math.PI, { bg:'#3b2f22', fg:'#fde68a' });
+  for (let x = 32; x <= 76; x += 11) { B(x, 0, 133, 2.8, 1.2, 6, 0xf8fafc, { cast:false }); B(x, 1.2, 130.5, 2.8, 1.4, 1, 0xf8fafc, { cast:false }); }
+  B(80, 0, 145, 1, 6, 10, EM(0x38bdf8, 0.35), { cast:false });
+  person(56, 148); person(43, 136, 0.8);
+})();
+
+// =====================================================================
+//  LEVEL 2 (existing second floor ≈170' x 121', front-west)
+// =====================================================================
+PARENT = L2; WLIM = 99;
+(function level2() {
+  const SLAB = M(0xd6d3cd);
+  BR(SX0, 40.5, -42, SZ1, L2Y - 1.2, 1.2, SLAB); BR(-42, 40.5, 45.5, 75, L2Y - 1.2, 1.2, SLAB); BR(25, 75, 45.5, SZ1, L2Y - 1.2, 1.2, SLAB);
+  zoneFloors(1);
+  floorRect(-42, 63.4, 25, 75, L2Y + 0.02, 0xcfc8bb); floorRect(25, 63.4, 45.5, SZ1, L2Y + 0.02, 0xcfc8bb);
+  // edges & guards
+  wallLine(SX0, 40.8, -42, 40.8, L2Y, 12, GLASS, [], { cast:false });                 // founders glass over cricket
+  wallLine(-42, 40.8, 45.5, 40.8, L2Y, 3.6, GLASS, [], { cast:false });               // lounge guard over courts
+  wallLine(45.5, 40.5, 45.5, 63.4, L2Y, 3.6, GLASS, [], { cast:false });
+  wallLine(-34, 75, 25, 75, L2Y, 3.6, GLASS, [], { cast:false });                      // atrium guard (stair arrives at x -42..-34)
+  wallLine(-42, 40.5, -42, SZ1, L2Y, 11, PART, [[66,73]]);                             // founders | lounge/atrium
+  wallLine(25.4, 63.4, 25.4, SZ1, L2Y, 11, GLASS, [[66,72]]);                          // admin | atrium
+  wallLine(45.5, 63.4, 45.5, SZ1, L2Y, 12, PART, []);                                  // admin | spa high bay
+  // courtside viewing lounge (tiered)
+  BR(-42, 52, 45.5, 63.4, L2Y, 1.5, M(0x6f5238));
+  for (let x = -38; x <= 40; x += 7) { B(x, L2Y, 46, 4.5, 1.5, 3.2, 0x1e293b, { cast:false }); B(x, L2Y, 47.4, 4.5, 3, 0.6, 0x1e293b, { cast:false }); }
+  for (let x = -36; x <= 40; x += 9) { B(x, L2Y + 1.5, 56, 6, 1.5, 3.2, 0x334155, { cast:false }); B(x, L2Y + 1.5, 57.4, 6, 3, 0.6, 0x334155, { cast:false }); }
+  BR(28, 59, 44, 62.5, L2Y + 1.5, 3.6, 0x1f2937);
+  person(-30, 46.5, L2Y); person(-23, 46.5, L2Y); person(10, 46.5, L2Y); person(31, 46.5, L2Y); person(-18, 56.5, L2Y + 1.5); person(36, 61, L2Y + 1.5);
+  // FOUNDERS CLUB
+  floorRect(-120, 44, -46, 80, L2Y + 0.04, 0x3a3f5c);
+  [[-106,54],[-80,54],[-106,70],[-80,70]].forEach(([x, z]) => { sofa(x, z - 4.5, 9, 0x7c6f64, L2Y, -1.1); sofa(x, z + 4.5, 9, 0x7c6f64, L2Y); B(x, L2Y, z, 5, 1.3, 3, 0x6b4f3a, { cast:false }); });
+  BR(-123.5, 48, -120, 76, L2Y, 3.6, 0x1f2937); BR(-124, 48, -123.4, 76, L2Y, 9, 0x6b4f3a, { cast:false });
+  sign(['FOUNDERS CLUB', 'Coffee · Tea · Mocktails'], -123.3, L2Y + 6.6, 62, 20, 3, Math.PI/2, { bg:'#1c1917', fg:'#fbbf24', sub:'#e7e5e4' });
+  person(-110, 54.5, L2Y); person(-102, 49.5, L2Y); person(-84, 70.5, L2Y); person(-76, 65.5, L2Y); person(-118, 62, L2Y);
+  // meeting rooms
+  [[-124,-105],[-104,-85],[-84,-65],[-64,-45]].forEach(([a, b], i) => {
+    room(a, 84, b, 100, 9, PART, { y0:L2Y, glass:'n', door:'n', gap:[b - 4, b - 1] });
+    table((a+b)/2, 92, 10, 4, 0xe7e5e4, L2Y); [-3, 0, 3].forEach(dx => { chair((a+b)/2 + dx, 89.2, 0x111827, L2Y); chair((a+b)/2 + dx, 94.8, 0x111827, L2Y); });
+    B((a+b)/2, L2Y + 3, 99.4, 8, 4.5, 0.2, EM(0x0ea5e9, 0.35), { cast:false });
+    if (i % 2 === 0) { person((a+b)/2 - 3, 89.2, L2Y + 1.5); person((a+b)/2 + 3, 94.8, L2Y + 1.5); }
+  });
+  // boardroom
+  room(SX0, 104, -96, 130, 9.5, PART, { y0:L2Y, glass:'e', door:'e', gap:[124, 128] });
+  table(-110, 117, 5, 20, 0x3f2a1d, L2Y); for (let k = 0; k < 6; k++) { chair(-113.4, 108.5 + k * 3.4, 0x1f2937, L2Y); chair(-106.6, 108.5 + k * 3.4, 0x1f2937, L2Y); }
+  B(-110, L2Y + 3, 104.6, 10, 5, 0.2, EM(0x0ea5e9, 0.35), { cast:false });
+  // pitch theater
+  room(-92, 104, -46, 142, 11, M(0x1f2937), { y0:L2Y, door:'s', gap:[-90, -85] });
+  sign(['PITCH NIGHT', 'Founders Club · Demo Day'], -69, L2Y + 6, 104.6, 26, 7, 0, { bg:'#020617', fg:'#67e8f9', sub:'#e2e8f0' });
+  BR(-82, 106, -56, 108.5, L2Y, 1.2, 0x334155);
+  for (let r = 0; r < 4; r++) { const y = L2Y + r * 0.8; BR(-90, 114 + r * 6, -48, 120 + r * 6, L2Y, r * 0.8 + 0.05, 0x111827, { cast:false }); for (let x = -88; x <= -50; x += 3.2) chair(x, 117 + r * 6, 0x7f1d1d, y); }
+  person(-69, 107, L2Y + 1.2); for (let k = 0; k < 8; k++) person(-86 + k * 4.6, 117 + (k % 4) * 6, L2Y + (k % 4) * 0.8 + 0.6);
+  // podcast + phone booths
+  room(SX0, 134, -104, 152, 9, M(0x334155), { y0:L2Y, glass:'e', door:'e', gap:[136, 140] });
+  table(-114, 143, 7, 3.5, 0x111827, L2Y); chair(-114, 140.5, 0xb91c1c, L2Y); chair(-114, 145.5, 0xb91c1c, L2Y);
+  [[-90,-80],[-78,-68],[-66,-56]].forEach(([a, b]) => { room(a, 146, b, 160.5, 8.5, PART, { y0:L2Y, glass:'n', door:'n', gap:[a + 2, a + 5] }); table((a+b)/2, 154, 4, 3, 0xe7e5e4, L2Y); chair((a+b)/2, 151, 0x0f172a, L2Y); });
+  // admin & staff (east strip)
+  [[78,100],[100,122],[122,144]].forEach(([a, b]) => { room(26, a, 45.5, b, 10, PART, { y0:L2Y, door:'w', gap:[a + 2, a + 6] }); table(36, (a+b)/2, 7, 3.5, 0xe7e5e4, L2Y); chair(36, (a+b)/2 + 3, 0x111827, L2Y); });
+  sign(['FOUNDERS CLUB'], -42.5, L2Y + 8.5, 118, 24, 3.2, -Math.PI/2, { bg:'#1c1917', fg:'#fbbf24' });
+})();
+PARENT = world; WLIM = 14;
+
+// =====================================================================
+//  LABELS
+// =====================================================================
+const labels = [];
+function addLabel(html, x, y, z, cls, maxD, vis) { const el = document.createElement('div'); el.className = 'lbl ' + cls; el.innerHTML = html; document.body.appendChild(el); labels.push({ el, p:new THREE.Vector3(x, y, z), maxD: maxD || 99999, vis: vis || (() => true) }); }
+const isL2 = () => L2.visible, notL2 = () => !L2.visible;
+ZONES.forEach(z => addLabel(z.name + '<small>' + z.sf.toLocaleString() + ' SF' + (z.lvl ? ' · upper floor' : '') + '</small>', z.lab[0], z.lab[1], z.lab[2], 'zone', 99999, z.lvl ? isL2 : (z.front ? notL2 : null)));
+addLabel('K1 SPEED · next door<small>Indoor electric karting · cross-marketing partner</small>', -223, 44, 40, 'nb');
+addLabel('CrossFit CSA', -223, 36, -122, 'nb2'); addLabel('Pace Supply', 184, 36, 0, 'nb2');
+[
+  ['Lanes 1–7 · Cricket', -80, 15, -120, notL2 && null], ['Lanes 8–12 · Cricket & baseball', -95, 15, -42], ['Warm-up turf', -49, 4, -45], ['Coaching, video & bleachers', -90, 9, 18],
+  ['Turf sled lane', 44, 4, -154], ['Power racks', 0, 11, -126], ['Functional rig', 68, 12, -132], ['Cardio row', 68, 6, -106], ['Group studio', 114, 12, -132],
+  ['Saunas', 45, 12, 51, 'f'], ['Steam rooms', 85, 12, 51, 'f'], ['Cold room', 113, 12, 51, 'f'], ['Hot pool', 63, 5, 75, 'f'], ['Cold plunges', 103, 5, 73, 'f'],
+  ['Treatment rooms', 50, 12, 111, 'f'], ['Recovery lounge · free for all', 100, 10, 111, 'f'], ['Changing rooms', 105, 13, 143, 'f'], ['Spa reception', 56, 8, 140, 'f'],
+  ['Show kitchen · tandoor', -87, 11, 55, 'f'], ['Private dining', -112, 12, 88, 'f'], ['Dining room', -79, 7, 112, 'f'],
+  ['Locker rooms', -9, 14, 56, 'f'], ['Café & juice bar', -45, 9, 115, 'f'], ['Reception', -13, 8, 142, 'f'], ['Members lounge', 8, 6, 110, 'f'], ['Grand stair', -38, 16, 92], ['Elevator', 21, L2Y + 14, 70],
+  ['Meeting rooms', -84, L2Y + 12, 92, 'u'], ['Boardroom', -110, L2Y + 12, 117, 'u'], ['Pitch theater', -69, L2Y + 14, 124, 'u'], ['Podcast studio', -114, L2Y + 12, 143, 'u'], ['Phone booths', -73, L2Y + 11, 153, 'u'], ['Founders lounge · mocktail & coffee bar', -95, L2Y + 8, 62, 'u'], ['Admin & staff', 36, L2Y + 12, 111, 'u'],
+  ['Valet drop-off & canopy', -13, 18, 182], ['Patio · no alcohol · smoke-free', -88, 10, 178], ['Front parking', 200, 6, 200], ['West lot', -400, 6, -60], ['Truck court & docks (existing)', 0, 6, -200], ['Sierra Ct', -260, 4, 341]
+].forEach(([t, x, y, z, f]) => addLabel(t, x, y, z, 'sub', 300, f === 'f' ? notL2 : f === 'u' ? isL2 : null));
+
+let showLabels = true; const _v = new THREE.Vector3();
+function updateLabels() {
+  const w = innerWidth, h = innerHeight;
+  labels.forEach(L => {
+    if (!showLabels || !L.vis()) { L.el.style.display = 'none'; return; }
+    _v.copy(L.p).project(camera); const d = camera.position.distanceTo(L.p);
+    if (_v.z > 1 || _v.z < -1 || d > L.maxD || Math.abs(_v.x) > 1.1 || Math.abs(_v.y) > 1.1) { L.el.style.display = 'none'; return; }
+    L.el.style.display = 'block'; L.el.style.left = ((_v.x + 1) / 2 * w) + 'px'; L.el.style.top = ((1 - _v.y) / 2 * h) + 'px';
+    L.el.style.opacity = (mode === 'walk' && !L.el.classList.contains('sub')) ? 0 : 1;
+  });
+}
+
+// =====================================================================
+//  VIEW TOGGLES
+// =====================================================================
+let cut = true;
+function applyCut(on) {
+  cut = on; document.getElementById('bCut').classList.toggle('on', on);
+  walls.forEach(o => {
+    if (!on || o.y0 + o.h <= o.lim) { o.m.visible = true; o.m.scale.y = o.h; o.m.position.y = o.y0 + o.h/2; return; }
+    if (o.y0 >= o.lim) { o.m.visible = false; return; }
+    const nh = o.lim - o.y0; o.m.visible = true; o.m.scale.y = nh; o.m.position.y = o.y0 + nh/2;
+  });
+}
+function toggleCut() { applyCut(!cut); }
+function setRoof(on) { roof.visible = on; document.getElementById('bRoof').classList.toggle('on', on); }
+function toggleRoof() { setRoof(!roof.visible); if (roof.visible) applyCut(false); }
+function setL2(on) { L2.visible = on; document.getElementById('bL2').classList.toggle('on', on); }
+function toggleL2() { setL2(!L2.visible); }
+let night = false;
+function toggleNight() {
+  night = !night; document.getElementById('bNight').classList.toggle('on', night);
+  scene.background.copy(night ? SKY_NIGHT : SKY_DAY); scene.fog.color.copy(night ? SKY_NIGHT : SKY_DAY);
+  sun.intensity = night ? 0.12 : 1.05; hemi.intensity = night ? 0.28 : 0.75; amb.intensity = night ? 0.32 : 0.18;
+  emissives.forEach(m => m.emissiveIntensity = m.userData.base * (night ? 2.2 : 1));
+}
+function toggleLabels() { showLabels = !showLabels; document.getElementById('bLbl').classList.toggle('on', showLabels); }
+function toggleList() { const z = document.getElementById('zones'); z.classList.toggle('hide'); document.getElementById('bList').classList.toggle('on', !z.classList.contains('hide')); }
+function toggleFS() { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+
+// =====================================================================
+//  CAMERA FLIGHTS + CARDS
+// =====================================================================
+let flight = null;
+function flyTo(p, t, dur) { flight = { p0:camera.position.clone(), t0:controls.target.clone(), p1:new THREE.Vector3(...p), t1:new THREE.Vector3(...t), start:performance.now(), dur:dur || 1700 }; }
+function stepFlight(now) { if (!flight) return; const k = Math.min(1, (now - flight.start) / flight.dur); const e = k < 0.5 ? 4*k*k*k : 1 - Math.pow(-2*k + 2, 3)/2; camera.position.lerpVectors(flight.p0, flight.p1, e); controls.target.lerpVectors(flight.t0, flight.t1, e); if (k >= 1) flight = null; }
+const card = document.getElementById('card');
+function showCard(title, meta, p, bullets, rev, step, tourNav) {
+  document.getElementById('cT').textContent = title; document.getElementById('cM').textContent = meta || '';
+  document.getElementById('cS').textContent = step || ''; document.getElementById('cP').textContent = p || '';
+  document.getElementById('cB').innerHTML = (bullets || []).map(b => '<li>' + b + '</li>').join('');
+  document.getElementById('cR').textContent = rev || ''; document.getElementById('cNav').style.display = tourNav ? 'flex' : 'none'; card.style.display = 'block';
+}
+function closeCard() { card.style.display = 'none'; if (touring) endTour(); }
+function viewFor(z) { if (z.front) { setL2(false); } else setL2(true); applyCut(true); setRoof(false); }
+function focusZone(id) {
+  const z = ZONES.find(q => q.id === id); const i = ZINFO[id];
+  if (mode === 'walk') setMode('orbit'); if (touring) endTour();
+  viewFor(z); flyTo(z.cam.p, z.cam.t);
+  showCard(z.name, z.sf.toLocaleString() + ' SF' + (z.lvl ? ' · upper floor' : ''), i.p, i.b, i.r, '', false);
+}
+const K1 = { t:'Next door: K1 Speed', m:'Neighbor · Suite B', txt:'K1 Speed (indoor electric go-karting) shares our west wall and already draws groups, birthday parties and corporate events to this building. Proposed cross-marketing; no agreement has been discussed yet.', b:['“Race & Dine” and “Race & Recover” packages with the restaurant and spa','Corporate offsites: K1 group races + Founders Club meeting rooms + catering','Youth parties: karting + pickleball or cricket clinic','Shared evening/weekend foot traffic; coordinated valet and parking'] };
+function showK1(tourStepTxt) { if (mode === 'walk') setMode('orbit'); if (touring && !tourStepTxt) endTour(); setRoof(true); applyCut(false); setL2(true); flyTo([-360, 110, 360], [-210, 10, 110]); if (!tourStepTxt) showCard(K1.t, K1.m, K1.txt, K1.b, '', '', false); }
+function fillList() {
+  const add = (el, color, name, sf, fn, cls) => { const d = document.createElement('div'); d.className = 'zrow' + (cls ? ' ' + cls : ''); d.innerHTML = '<span class="sw" style="background:' + color + '"></span>' + name + '<span class="sf">' + sf + '</span>'; d.onclick = fn; document.getElementById(el).appendChild(d); };
+  const hx = c => '#' + c.toString(16).padStart(6, '0');
+  ZONES.forEach(z => add(z.lvl ? 'zl1' : 'zl0', hx(z.color), z.name, z.sf.toLocaleString(), () => focusZone(z.id)));
+  add('zl2', '#475569', 'Arrival · valet · parking', 'site', () => { if (mode === 'walk') setMode('orbit'); if (touring) endTour(); setRoof(true); applyCut(false); setL2(true); flyTo(TOUR[0].pos, TOUR[0].tgt); showCard(TOUR[0].t, TOUR[0].m, TOUR[0].txt, TOUR[0].b, '', '', false); });
+  add('zl2', '#dc2626', 'K1 Speed (next door)', 'Suite B', () => showK1(), 'nb');
+}
+fillList();
+
+const ray = new THREE.Raycaster(), mouse = new THREE.Vector2(); let downXY = null;
+renderer.domElement.addEventListener('pointerdown', e => { downXY = [e.clientX, e.clientY]; });
+renderer.domElement.addEventListener('pointerup', e => {
+  if (!downXY || mode === 'walk') return; const moved = Math.hypot(e.clientX - downXY[0], e.clientY - downXY[1]); downXY = null; if (moved > 5) return;
+  mouse.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(mouse, camera);
+  const hit = ray.intersectObjects(pickPlates.filter(m => !m.userData.l2 || L2.visible))[0]; if (hit) focusZone(hit.object.userData.zone);
+});
+
+// =====================================================================
+//  GUIDED TOUR
+// =====================================================================
+const TOUR = [
+  { t:'Arrival · valet & drop-off', m:'6400 Sierra Ct', pos:[90,70,360], tgt:[-15,10,165], view:'ext', txt:'Guests turn in from Sierra Ct to a covered valet drop-off at the existing front entry of Suite E. Valet staging and a traffic plan keep the shared lot (≈398 spaces per the 2016 site plan) moving at peak times.', b:['Covered entry canopy and valet podium','Drop-off lane replaces a short run of front stalls','Monument sign and landscaped frontage'] },
+  { t:K1.t, m:K1.m, k1:true, pos:[-360,110,360], tgt:[-210,10,110], view:'ext', txt:K1.txt, b:K1.b },
+  { t:'Lobby, atrium & café', z:'lobby', pos:[-12,72,255], tgt:[-12,0,105] },
+  { t:'Indian fusion restaurant', z:'restaurant', pos:[-87,72,250], tgt:[-87,0,100] },
+  { t:'Outdoor patio', m:'Restaurant', pos:[-30,32,265], tgt:[-88,2,178], view:'ext', txt:'A shaded patio in front of the restaurant, designated non-alcoholic and non-tobacco.', b:['~32 outdoor seats under umbrellas','Planters and glass wind screen','Uses front stalls — to confirm with landlord and City'] },
+  { t:'Cricket & Baseball Academy', z:'cricket', pos:[-80,100,95], tgt:[-80,0,-70] },
+  { t:'Pickleball · 8 courts', z:'pickleball', pos:[44,115,115], tgt:[44,0,-30] },
+  { t:'Courtside viewing lounge', z:'lounge', pos:[-6,23,64], tgt:[44,2,-40] },
+  { t:'Strength & Conditioning', z:'fitness', pos:[44,90,-30], tgt:[44,0,-132] },
+  { t:'Spa · thermal suite & pools', z:'spa', pos:[78,80,200], tgt:[78,0,70], txt:'Two saunas, two steam rooms and a cold room open onto a hot pool and two cold plunges.', b:['2 saunas · 2 steam rooms · cold room','Hot pool + 2 cold plunges with loungers','Spa memberships, day passes and treatments are paid'] },
+  { t:'Recovery & treatment', z:'spa', pos:[110,48,220], tgt:[80,0,118], txt:'The recovery lounge is free for every visitor. Treatment rooms offer massage, physio and corporate wellness sessions.', b:['Zero-gravity chairs, compression, red-light, cryo','4 treatment rooms','Changing rooms and spa reception'] },
+  { t:'Founders Club', z:'founders', pos:[-83,90,250], tgt:[-83,14,100] },
+  { t:'Meeting rooms, boardroom & pitch theater', z:'founders', pos:[-60,70,40], tgt:[-85,14,115], txt:'Where entrepreneurs and investors meet: bookable rooms by day, pitch nights and demo days in the evening — all on the existing second floor.', b:['4 meeting rooms + boardroom','Tiered pitch theater','Podcast studio & phone booths'] },
+  { t:'Whole-facility overview', m:'96,000 SF', pos:HOME.p, tgt:HOME.t, txt:'High-bay sports run along the rear and middle of Suite E; hospitality and wellness face Sierra Ct; the existing second floor becomes the Founders Club and courtside lounge.', b:['Cricket 18k · Pickleball 22k (incl. lounge) · Strength 10k · Spa 12k','Founders Club 10k · Restaurant 9k · Lobby/BOH 15k','No alcohol · recovery rooms, lounges and Wi-Fi free for all'] },
+];
+let touring = false, tourIdx = 0, playing = true, tourTimer = null;
+function renderStop() {
+  const s = TOUR[tourIdx]; const z = s.z ? ZONES.find(q => q.id === s.z) : null; const zi = s.z ? ZINFO[s.z] : null;
+  if (s.view === 'ext') { setRoof(true); applyCut(false); setL2(true); } else if (z) viewFor(z); else { setRoof(false); applyCut(true); setL2(true); }
+  flyTo(s.pos, s.tgt, 2200);
+  showCard(s.t, s.m || (z ? z.sf.toLocaleString() + ' SF' + (z.lvl ? ' · upper floor' : '') : ''), s.txt || (zi && zi.p), s.b || (zi && zi.b), s.txt ? '' : (zi ? zi.r : ''), 'Stop ' + (tourIdx + 1) + ' / ' + TOUR.length, true);
+  clearTimeout(tourTimer); if (playing) tourTimer = setTimeout(() => tourStep(1, true), 9500);
+}
+function startTour() { if (mode === 'walk') setMode('orbit'); touring = true; tourIdx = 0; playing = true; document.getElementById('bTour').classList.add('on'); document.getElementById('bPlay').textContent = '⏸ Pause'; renderStop(); }
+function tourStep(d, auto) { if (!touring) return; tourIdx += d; if (tourIdx >= TOUR.length) { if (auto) { playing = false; document.getElementById('bPlay').textContent = '▶ Play'; tourIdx = TOUR.length - 1; return; } tourIdx = 0; } if (tourIdx < 0) tourIdx = TOUR.length - 1; renderStop(); }
+function togglePlay() { playing = !playing; document.getElementById('bPlay').textContent = playing ? '⏸ Pause' : '▶ Play'; clearTimeout(tourTimer); if (playing) tourTimer = setTimeout(() => tourStep(1, true), 4000); }
+function endTour() { touring = false; clearTimeout(tourTimer); document.getElementById('bTour').classList.remove('on'); card.style.display = 'none'; }
+
+// =====================================================================
+//  WALK MODE (two levels, grand stair)
+// =====================================================================
+let mode = 'orbit';
+const walk = { yaw:0, pitch:-0.04, keys:{}, eye:5.6, drag:null, feet:0 };
+function setMode(m) {
+  if (touring) endTour();
+  mode = m; document.getElementById('bOrbit').classList.toggle('on', m === 'orbit'); document.getElementById('bWalk').classList.toggle('on', m === 'walk');
+  document.getElementById('walkhint').style.display = m === 'walk' ? 'block' : 'none'; document.getElementById('cross').style.display = m === 'walk' ? 'block' : 'none';
+  card.style.display = 'none';
+  if (m === 'walk') { controls.enabled = false; flight = null; applyCut(false); setRoof(true); setL2(true); walk.feet = 0; camera.position.set(-13, walk.eye, 205); walk.yaw = 0; walk.pitch = -0.04; camera.fov = 70; camera.updateProjectionMatrix(); }
+  else { controls.enabled = true; camera.fov = 50; camera.updateProjectionMatrix(); applyCut(true); setRoof(false); camera.rotation.order = 'XYZ'; flyTo(HOME.p, HOME.t, 1400); }
+}
+addEventListener('keydown', e => { walk.keys[e.code] = true; if (e.code === 'Escape' && mode === 'walk') setMode('orbit'); });
+addEventListener('keyup', e => { walk.keys[e.code] = false; });
+renderer.domElement.addEventListener('mousedown', e => { if (mode === 'walk') walk.drag = [e.clientX, e.clientY]; });
+addEventListener('mouseup', () => walk.drag = null);
+addEventListener('mousemove', e => { if (mode !== 'walk' || !walk.drag) return; walk.yaw -= (e.clientX - walk.drag[0]) * 0.0042; walk.pitch = Math.max(-1.2, Math.min(1.2, walk.pitch - (e.clientY - walk.drag[1]) * 0.0035)); walk.drag = [e.clientX, e.clientY]; });
+renderer.domElement.addEventListener('touchstart', e => { if (mode === 'walk') walk.drag = [e.touches[0].clientX, e.touches[0].clientY]; }, { passive:true });
+renderer.domElement.addEventListener('touchmove', e => { if (mode !== 'walk' || !walk.drag) return; const t = e.touches[0]; walk.yaw -= (t.clientX - walk.drag[0]) * 0.005; walk.pitch = Math.max(-1.2, Math.min(1.2, walk.pitch - (t.clientY - walk.drag[1]) * 0.004)); walk.drag = [t.clientX, t.clientY]; }, { passive:true });
+const onStair = (x, z) => x > -42 && x < -34 && z >= 75 && z <= 103;
+const slabAt = (x, z) => x >= SX0 && x <= 45.5 && z >= 40.5 && z <= SZ1 && !(x > -42 && x < 25 && z > 75);
+function floorAt(x, z, feet) {
+  if (onStair(x, z)) return L2Y * (103 - z) / 28;
+  if (feet > 7 && slabAt(x, z)) return (x > -42 && x < 45.5 && z > 52 && z < 63.4) ? L2Y + 1.5 : L2Y;
+  if (x > -122 && x < -55 && z > 162 && z < 194) return 0.5;
+  return 0;
+}
+function blocked(x, z, feet) {
+  const r = 1.1;
+  for (const o of walls) { if (!o.collide || (o.l2 && !L2.visible)) continue; if (o.y0 > feet + 5 || o.y0 + o.h < feet + 0.6) continue; if (Math.abs(x - o.cx) < o.w/2 + r && Math.abs(z - o.cz) < o.d/2 + r) return true; }
+  if (x > SX0 - 197 && x < SX0 - 0.7 && z > SZ0 && z < SZ1) return true;   // neighbor suites (closed)
+  if (x > SX1 + 0.7 && x < 243.5 && z > SZ0 && z < SZ1) return true;
+  return x < SITE.x0 - 60 || x > SITE.x1 + 60 || z < SITE.z0 - 60 || z > 420;
+}
+function stepWalk(dt) {
+  const k = walk.keys; const sp = 14 * (k.ShiftLeft || k.ShiftRight ? 2.3 : 1) * dt;
+  const f = (k.KeyW || k.ArrowUp ? 1 : 0) - (k.KeyS || k.ArrowDown ? 1 : 0), s = (k.KeyD ? 1 : 0) - (k.KeyA ? 1 : 0);
+  if (k.ArrowLeft) walk.yaw += 1.8 * dt; if (k.ArrowRight) walk.yaw -= 1.8 * dt;
+  const fx = -Math.sin(walk.yaw), fz = -Math.cos(walk.yaw), rx = Math.cos(walk.yaw), rz = -Math.sin(walk.yaw);
+  const dx = (fx * f + rx * s) * sp, dz = (fz * f + rz * s) * sp; const p = camera.position;
+  if (!blocked(p.x + dx, p.z, walk.feet)) p.x += dx; if (!blocked(p.x, p.z + dz, walk.feet)) p.z += dz;
+  const target = floorAt(p.x, p.z, walk.feet); walk.feet += (target - walk.feet) * Math.min(1, dt * 10); p.y = walk.feet + walk.eye;
+  camera.rotation.order = 'YXZ'; camera.rotation.set(walk.pitch, walk.yaw, 0);
+}
+
+// =====================================================================
+//  MINIMAP
+// =====================================================================
+const mapC = document.getElementById('map'), mg = mapC.getContext('2d');
+const MX0 = -480, MX1 = 420, MZ0 = -320, MZ1 = 370; const MS = Math.min(mapC.width / (MX1 - MX0), mapC.height / (MZ1 - MZ0));
+const mOX = (mapC.width - (MX1 - MX0) * MS) / 2, mOY = (mapC.height - (MZ1 - MZ0) * MS) / 2;
+const toMap = (x, z) => [mOX + (x - MX0) * MS, mOY + (z - MZ0) * MS];
+const rectM = (x1, z1, x2, z2, fill) => { const [a, b] = toMap(x1, z1), [c, d] = toMap(x2, z2); mg.fillStyle = fill; mg.fillRect(a, b, c - a, d - b); };
+function drawMap() {
+  mg.fillStyle = '#1b2a1f'; mg.fillRect(0, 0, mapC.width, mapC.height);
+  rectM(SITE.x0, SITE.z0, SITE.x1, SITE.z1, '#3c434e'); rectM(-480, 320, 420, 362, '#22262d');
+  rectM(-321.5, -82.5, SX0, SZ1, '#7f1d1d'); rectM(-321.5, SZ0, SX0, -82.5, '#57534e'); rectM(SX1, SZ0, 243.5, SZ1, '#57534e');
+  ZONES.filter(z => !z.lvl).forEach(z => z.rects.forEach(r => rectM(r[0], r[1], r[2], r[3], '#' + z.color.toString(16).padStart(6, '0'))));
+  rectM(-122, 162, -55, 194, '#a47551');
+  let [a, b] = toMap(SX0, SZ0), [c, d] = toMap(SX1, SZ1); mg.strokeStyle = '#67e8f9'; mg.lineWidth = 1.4; mg.strokeRect(a, b, c - a, d - b);
+  [a, b] = toMap(-321.5, SZ0); [c, d] = toMap(243.5, SZ1); mg.strokeStyle = '#e2e8f0'; mg.lineWidth = 0.8; mg.strokeRect(a, b, c - a, d - b);
+  mg.fillStyle = '#fecaca'; mg.font = 'bold 9px Segoe UI'; mg.textAlign = 'center'; [a, b] = toMap(-223, 45); mg.fillText('K1', a, b);
+  const p = mode === 'walk' ? camera.position : controls.target; const [px, py] = toMap(p.x, p.z);
+  const dir = new THREE.Vector3(); camera.getWorldDirection(dir); const ang = Math.atan2(dir.z, dir.x);
+  mg.save(); mg.translate(px, py); mg.rotate(ang); mg.fillStyle = 'rgba(103,232,249,.35)'; mg.beginPath(); mg.moveTo(0, 0); mg.arc(0, 0, 22, -0.5, 0.5); mg.closePath(); mg.fill(); mg.restore();
+  mg.fillStyle = '#22d3ee'; mg.beginPath(); mg.arc(px, py, 3.5, 0, Math.PI * 2); mg.fill(); mg.strokeStyle = '#fff'; mg.stroke();
+}
+mapC.addEventListener('click', e => {
+  const r = mapC.getBoundingClientRect(); const x = MX0 + ((e.clientX - r.left) - mOX) / MS, z = MZ0 + ((e.clientY - r.top) - mOY) / MS;
+  if (mode === 'walk') { if (!blocked(x, z, 0)) { camera.position.x = x; camera.position.z = z; walk.feet = 0; } return; }
+  if (touring) endTour();
+  const off = camera.position.clone().sub(controls.target); off.setLength(Math.min(off.length(), 170));
+  flyTo([x + off.x, Math.max(off.y, 40), z + off.z], [x, 0, z], 1200);
+});
+
+// =====================================================================
+//  LOOP
+// =====================================================================
+applyCut(true);
+let last = performance.now();
+function loop(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (mode === 'walk') stepWalk(dt); else { stepFlight(now); controls.update(); }
+  renderer.render(scene, camera); updateLabels(); drawMap(); requestAnimationFrame(loop);
+}
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+document.getElementById('loading').style.display = 'none';
+requestAnimationFrame(loop);
+if (location.hash === '#tour') startTour();
+</script>
+</body>
+</html>
