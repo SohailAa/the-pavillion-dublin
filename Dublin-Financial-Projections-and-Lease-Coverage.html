@@ -67,6 +67,10 @@
     break-after: page;
     overflow: hidden;
   }
+  .page:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
   @media print {
     body {
       background: #ffffff;
@@ -192,7 +196,7 @@
   }
   .visual-card img {
     width: 100%;
-    height: 148px;
+    height: 146px;
     object-fit: cover;
     display: block;
   }
@@ -234,6 +238,9 @@
     text-align: right;
     white-space: nowrap;
   }
+  table.simple-table.compact td {
+    padding: 4.5px 8px;
+  }
   table.simple-table td {
     padding: 4.5px 8px;
     border: 1px solid #cbd5e1;
@@ -272,10 +279,10 @@
     border-radius: 7px;
     padding: 8px 12px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 12px;
+    font-size: 11.8px;
     color: #1e293b;
     margin-bottom: 7px;
-    line-height: 1.38;
+    line-height: 1.36;
   }
   .info-box.highlight {
     background: #f0fdf4;
@@ -328,15 +335,20 @@
     padding-top: 5px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 10.5px;
     color: #475569;
     font-weight: 600;
   }
+  .page-footer span:last-child {
+    white-space: nowrap;
+    text-align: right;
+  }
 </style>
 </head>
 <body>
-
   <div class="web-toolbar">
     <div>
       <strong>THE PAVILLION · 6400 Sierra Ct, Suite E, Dublin, CA</strong> — Seller Business Plan, Build Timeline &amp; Simple Numbers
@@ -348,7 +360,7 @@
       <button onclick="window.print()">Print</button>
     </div>
   </div>
-
+  
   <!-- ==================== PAGE 1: VISION, VISUALS & THE 3 KEY ANSWERS ==================== -->
   <div class="page">
     <div>
@@ -363,8 +375,8 @@
       </div>
 
       <div class="info-box warm">
-        <strong>Executive Summary for the Building Owners:</strong>
-        Precision Developers is leasing <strong>6400 Sierra Court, Suite E (96,000 sq. ft.)</strong> on a <strong>10-year lease (+ 10-year option)</strong> to open <strong>The Pavillion</strong>—a family-friendly, <strong>100% alcohol-free and smoke-free</strong> indoor sports, wellness, Indian fusion dining, and business club destination. Below are the straightforward numbers showing <strong>how much it costs to build</strong>, <strong>how long construction takes</strong>, and <strong>when positive cash flow begins</strong>.
+        <strong>Executive Summary for the Building Owners (Dublin Sierra LLC):</strong>
+        Precision Developers / Precision Security is leasing <strong>6400 Sierra Court, Suite E (96,000 sq. ft. leased)</strong> on a <strong>10-year lease (+ 10-year option)</strong> to open <strong>The Pavillion</strong>—a family-friendly, <strong>100% alcohol-free and smoke-free</strong> indoor sports, wellness, Indian fusion dining, and business club destination. Below are the straightforward numbers showing <strong>how much it costs to build</strong>, <strong>how long construction takes</strong>, and <strong>when positive cash flow begins</strong>.
       </div>
 
       <div class="section-heading">1. The Three Core Questions — Answered Up Front</div>
@@ -373,14 +385,14 @@
           <div class="q-label">1. How Much to Build &amp; Open?</div>
           <div class="big-num">$6,500,000 Cash</div>
           <div class="desc">
-            <strong>$5,300,000</strong> for interior build-out &amp; equipment inside the existing shell, plus <strong>$1,200,000</strong> in cash reserve for pre-opening rent, deposit &amp; working cushion. <strong>100% cash—no bank loan.</strong>
+            <strong>$5,300,000</strong> for interior build-out &amp; equipment inside the existing shell, plus <strong>$1,200,000</strong> in cash reserve for build-period rent, deposit &amp; working cushion. <strong>100% cash—no bank loan.</strong>
           </div>
         </div>
         <div class="answer-card">
           <div class="q-label">2. How Long Will It Take to Build?</div>
           <div class="big-num">6 Months Total</div>
           <div class="desc">
-            <strong>Months 1–2:</strong> City of Dublin interior permits &amp; drawings.<br />
+            <strong>Months 1–2:</strong> City of Dublin interior permits, use clearance &amp; drawings.<br />
             <strong>Months 3–5:</strong> 90-day interior fit-out (no structural demo).<br />
             <strong>Month 6:</strong> Inspections, training &amp; <strong>Grand Opening</strong>.
           </div>
@@ -399,7 +411,7 @@
         <div class="visual-card">
           <img src="./assets/pavillion-hero-hd.jpg" alt="Architectural Cutaway of The Pavillion at 6400 Sierra Ct" />
           <div class="cap">
-            <strong>Two-Level Interior Vision:</strong> Ground-floor championship pickleball courts, batting lanes &amp; dining, overlooked by the existing 20,000 SF second-floor Founders Lounge &amp; viewing balcony.
+            <strong>Two-Level Interior Vision:</strong> Ground-floor championship pickleball courts, batting lanes &amp; zero-proof dining, overlooked by the existing second-floor Founders Lounge &amp; viewing balcony.
           </div>
         </div>
         <div class="visual-card">
@@ -422,13 +434,13 @@
         <tbody>
           <tr>
             <td><strong>Leased Premises</strong></td>
-            <td><strong>96,000 Sq. Ft. Total</strong> (~76,000 SF Ground Floor + ~20,000 SF Existing 2nd Floor)</td>
-            <td>Reuses the existing concrete shell, 30' clear ceiling, and existing 2nd-floor structure.</td>
+            <td><strong>96,000 Sq. Ft. Leased</strong> (~78,600 SF Ground Floor + ~19,400 SF Existing 2nd Floor per Suite E plans)</td>
+            <td>Reuses the existing concrete shell, 30' clear ceiling, sprinkler system &amp; 2nd-floor structure.</td>
           </tr>
           <tr>
             <td><strong>Monthly Building Rent + NNN</strong></td>
-            <td><strong>$1.25/SF Base ($120,000) + $0.29/SF NNN ($27,840) = $147,840 / month</strong> (~$1,775,000 / yr)</td>
-            <td>Pre-opening rent during the 6-month build-out is set aside up front in the $1,200,000 Cash Reserve.</td>
+            <td><strong>$1.25/SF Base ($120,000) + $0.29/SF NNN ($27,840) = $147,840/mo</strong> (shown as ~$148,000/mo)</td>
+            <td>All 6 months of build-period rent ($888,000) + security deposit ($150,000) are set aside Day 1 in cash.</td>
           </tr>
           <tr>
             <td><strong>Lease Term &amp; Renewal</strong></td>
@@ -438,7 +450,7 @@
           <tr>
             <td><strong>Tenant &amp; Financial Backing</strong></td>
             <td><strong>Precision Developers / Precision Security Principals</strong> (100% Cash Funded)</td>
-            <td>Actual historical company financials &amp; partner tax returns provided directly for verification.</td>
+            <td>Actual historical company P&amp;L, Balance Sheet &amp; last 2 years of partner tax returns provided directly.</td>
           </tr>
         </tbody>
       </table>
@@ -446,7 +458,7 @@
 
     <div class="page-footer">
       <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Precision Developers</span>
-      <span>Page 1 of 4 · Vision, Key Answers &amp; Lease Summary</span>
+      <span>Page 1 of 4 · Vision &amp; Lease Summary</span>
     </div>
   </div>
 
@@ -456,7 +468,7 @@
       <div class="doc-header">
         <div class="doc-title-block">
           <h1>SETUP COSTS &amp; 6-MONTH CONSTRUCTION TIMELINE</h1>
-          <div class="sub">Specific to 6400 Sierra Court, Suite E · Interior Fit-Out of Existing 96,000 Sq. Ft. Building</div>
+          <div class="sub">Specific to 6400 Sierra Court, Suite E · Interior Fit-Out of Existing 96,000 Sq. Ft. Premises</div>
         </div>
         <div class="doc-badge">
           $5,300,000 Build-Out<br />+ $1,200,000 Cash Reserve
@@ -475,12 +487,12 @@
         <tbody>
           <tr>
             <td><strong>1. Permits, Architecture &amp; Interior Prep</strong></td>
-            <td>City of Dublin building/health permits, architectural &amp; engineering drawings, floor prep (no structural demo)</td>
+            <td>City of Dublin building/use/health permits, MEP &amp; fire sprinkler drawings, interior slab prep (no structural demo)</td>
             <td class="num"><strong>$450,000</strong></td>
           </tr>
           <tr>
             <td><strong>2. HVAC, Electrical &amp; Sports LED Lighting</strong></td>
-            <td>High-bay LED court/lane lighting, climate-control zoning for courts &amp; upstairs, panel distribution</td>
+            <td>High-bay LED court/lane lighting, climate-control zoning for courts &amp; upstairs, electrical sub-panels</td>
             <td class="num"><strong>$850,000</strong></td>
           </tr>
           <tr>
@@ -495,12 +507,12 @@
           </tr>
           <tr>
             <td><strong>5. Indian Fusion Restaurant, Kitchen &amp; Patio</strong></td>
-            <td>9,000 SF commercial kitchen, Type-1 hoods, grease interceptor, tandoor ovens, dining room &amp; outdoor patio</td>
+            <td>9,000 SF commercial kitchen, Type-1 hoods, grease trap, tandoor ovens, dining room &amp; non-alcoholic patio</td>
             <td class="num"><strong>$950,000</strong></td>
           </tr>
           <tr>
             <td><strong>6. Thermal Spa, Saunas, Plunge &amp; Lockers</strong></td>
-            <td>12,000 SF cedar dry saunas, steam rooms, cold plunge pools, showers, lockers &amp; 4 massage rooms</td>
+            <td>12,000 SF cedar dry saunas, steam rooms, cold plunges, overhead water routing, lockers &amp; 4 massage rooms</td>
             <td class="num"><strong>$850,000</strong></td>
           </tr>
           <tr>
@@ -515,12 +527,12 @@
           </tr>
           <tr class="subtotal-row">
             <td><strong>TOTAL CONSTRUCTION &amp; EQUIPMENT</strong></td>
-            <td><strong>Turnkey Interior Fit-Out of Existing 96,000 SF Building (~$55 / Sq. Ft.)</strong></td>
+            <td><strong>Turnkey Interior Fit-Out of Existing 96,000 SF Premises (~$55 / Sq. Ft.)</strong></td>
             <td class="num"><strong>$5,300,000</strong></td>
           </tr>
           <tr>
             <td><strong>9. Pre-Opening Rent, Deposit &amp; Cash Reserve</strong></td>
-            <td>Dedicated cash set aside day one for lease security deposit, build-period rent &amp; opening working capital</td>
+            <td>Covers 6 months build-period rent ($888k), security deposit ($150k) &amp; opening cash cushion ($162k)</td>
             <td class="num"><strong>$1,200,000</strong></td>
           </tr>
           <tr class="total-row">
@@ -579,7 +591,7 @@
 
     <div class="page-footer">
       <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Precision Developers</span>
-      <span>Page 2 of 4 · Setup Costs &amp; 6-Month Construction Schedule</span>
+      <span>Page 2 of 4 · Setup Costs &amp; Build Schedule</span>
     </div>
   </div>
 
@@ -596,8 +608,8 @@
         </div>
       </div>
 
-      <div class="section-heading">1. Operating Costs (What It Costs Each Month &amp; Year to Run the Building)</div>
-      <table class="simple-table">
+      <div class="section-heading" style="margin-top:6px;">1. Operating Costs (What It Costs Each Month &amp; Year to Run the Building)</div>
+      <table class="simple-table compact" style="margin-bottom:6px;">
         <thead>
           <tr>
             <th style="width:30%;">Operating Expense Item</th>
@@ -609,7 +621,7 @@
         <tbody>
           <tr>
             <td><strong>1. Building Rent + NNN Charges</strong></td>
-            <td>96,000 SF @ $1.25/SF Base Rent ($120,000) + $0.29/SF NNN ($27,840)</td>
+            <td>96,000 SF @ $1.25 Base + $0.29 NNN ($147,840/mo exact; +3%/yr escalation on Page 4)</td>
             <td class="num"><strong>$148,000</strong></td>
             <td class="num"><strong>$1,776,000</strong></td>
           </tr>
@@ -646,8 +658,8 @@
         </tbody>
       </table>
 
-      <div class="section-heading">2. Expected Revenue (How the Facility Makes Money Across 5 Everyday Streams)</div>
-      <table class="simple-table">
+      <div class="section-heading" style="margin-top:6px;">2. Expected Revenue (How the Facility Makes Money Across 5 Everyday Streams)</div>
+      <table class="simple-table compact" style="margin-bottom:7px;">
         <thead>
           <tr>
             <th style="width:30%;">Facility Zone (96,000 SF Total)</th>
@@ -695,7 +707,7 @@
           </tr>
           <tr>
             <td><strong>Less: Total Operating Costs (Incl. Rent)</strong></td>
-            <td>Includes $148,000/mo ($1,776,000/yr) Building Rent + NNN and all payroll/expenses</td>
+            <td>Includes Building Rent + NNN and all payroll, food, utilities, insurance &amp; upkeep</td>
             <td class="num"><strong>($475,000 / mo)</strong></td>
             <td class="num"><strong>($5,700,000 / yr)</strong></td>
           </tr>
@@ -716,7 +728,7 @@
 
     <div class="page-footer">
       <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Precision Developers</span>
-      <span>Page 3 of 4 · Operating Costs &amp; Expected Revenue</span>
+      <span>Page 3 of 4 · Operating Costs &amp; Revenue</span>
     </div>
   </div>
 
@@ -772,7 +784,7 @@
           </tr>
           <tr class="positive-row">
             <td><strong>Year 3</strong><br /><span style="font-size:10.5px;">(Steady State)</span></td>
-            <td>Full steady-state operation ($740,000/mo revenue vs. $475,000/mo total costs incl. rent).</td>
+            <td>Full steady-state operation ($740,000/mo revenue vs. $475,000/mo total costs incl. escalated rent).</td>
             <td class="num"><strong>$8,880,000</strong></td>
             <td class="num"><strong>$1,880,000</strong></td>
             <td class="num"><strong>$3,820,000</strong></td>
@@ -800,30 +812,30 @@
       <div class="section-heading">2. Visuals of the Wellness Spa &amp; Upstairs Founders Club Sanctuary</div>
       <div class="visual-grid-2">
         <div class="visual-card">
-          <img src="./assets/tour_spa_clean.png" style="height:145px;" alt="Thermal Spa and Recovery Suite" />
+          <img src="./assets/tour_spa_clean.png" style="height:142px;" alt="Thermal Spa and Recovery Suite" />
           <div class="cap">
             <strong>Thermal Spa &amp; Recovery Sanctuary (12,000 SF · Ground SE):</strong> Cedar dry saunas, steam rooms, cold plunges, and recovery lounges positioned near the existing plumbing core.
           </div>
         </div>
         <div class="visual-card">
-          <img src="./assets/bluprnt-networking-hd.jpg" style="height:145px;" alt="Upstairs Founders Club and Dining" />
+          <img src="./assets/founders-lounge-clean.jpg" style="height:142px;" alt="Upstairs Founders Club Overlooking Indoor Courts" />
           <div class="cap">
-            <strong>Upstairs Founders Lounge &amp; Executive Dining (10,000 SF · Level 2):</strong> Uses the existing second floor overlooking the indoor courts for business meetings and alcohol-free dining.
+            <strong>Upstairs Founders Lounge &amp; Courtside Overlook (10,000 SF · Level 2):</strong> Uses the existing second floor overlooking the indoor courts for business meetings and 100% zero-proof hospitality.
           </div>
         </div>
       </div>
 
       <div class="section-heading">3. Direct Commitments to the Property Sellers</div>
       <div class="info-box" style="margin-bottom:0;">
-        <strong>1. Actual Historical Financials &amp; Tax Returns:</strong> In addition to this Dublin business plan and build-out budget, Precision Security / Precision Developers and its partners will provide <strong>actual historical financial statements (P&amp;L, Balance Sheet) and the last 2 years of tax returns</strong> directly to the sellers and listing broker for guaranty and credit verification.<br />
-        <strong>2. Respecting Your Building:</strong> Our layout works <em>with</em> 6400 Sierra Court, Suite E as it stands today—keeping the existing concrete shell, roof, slab, column grid, and 20,000 SF second-floor mezzanine intact while investing <strong>$5,300,000 in permanent interior improvements</strong>.<br />
-        <strong>3. Clean, Family-Safe Neighbor:</strong> 100% alcohol-free and smoke-free operation that complements neighboring tenants (K1 Speed &amp; Pace Supply) and brings high-income families, athletes, and business owners to 6400 Sierra Court.
+        <strong>1. Actual Historical Financials &amp; Tax Returns:</strong> Alongside this Dublin business plan and TI budget, <strong>Precision Security / Precision Developers</strong> and its partners are providing <strong>actual historical financial statements (P&amp;L, Balance Sheet) and the last 2 years of tax returns</strong> directly to the sellers and listing broker for guaranty and credit verification.<br />
+        <strong>2. Respecting Your Building:</strong> Our layout works <em>with</em> 6400 Sierra Court, Suite E as built—keeping the existing concrete shell, roof, slab, column grid, and ~19,400 SF second-floor mezzanine intact while investing <strong>$5,300,000 in permanent interior improvements</strong>.<br />
+        <strong>3. Clean, Family-Safe Neighbor:</strong> 100% alcohol-free and smoke-free operation complementing neighboring tenants (K1 Speed &amp; Pace Supply) and bringing families, athletes, and business owners to 6400 Sierra Court.
       </div>
     </div>
 
     <div class="page-footer">
       <span>Contact: Shaqib · Precision Developers · 415-225-7232 · Shaqib@PrecisionDevelopers.com</span>
-      <span>Page 4 of 4 · 5-Year Cash Flow &amp; Seller Commitments</span>
+      <span>Page 4 of 4 · 5-Year Cash Flow</span>
     </div>
   </div>
 

@@ -1,14 +1,14 @@
 Month,Phase,Expected Revenue ($),Building Rent + NNN ($),Other Operating Costs ($),Total Operating Costs ($),Monthly Net Cash Flow ($),Milestone
-Month 1,Permits & Drawings,0,148000,0,148000,0,Paid from $1.2M Cash Reserve; City of Dublin permit submittal
+Month 1,Permits & Drawings,0,148000,0,148000,0,Paid from $1.2M Cash Reserve; City of Dublin permit & use submittal
 Month 2,Permits & Prep,0,148000,0,148000,0,Paid from $1.2M Cash Reserve; Permit approval & contractor mobilization
-Month 3,Interior Build-Out,0,148000,0,148000,0,"Paid from $1.2M Cash Reserve; Courts, cages, kitchen & spa rough-in"
-Month 4,Interior Build-Out,0,148000,0,148000,0,"Paid from $1.2M Cash Reserve; Surfacing, saunas, HVAC & 2nd floor lounge"
-Month 5,Interior Build-Out,0,148000,0,148000,0,Paid from $1.2M Cash Reserve; Equipment installation & finishes
-Month 6,Inspections & Pre-Opening,0,148000,0,148000,0,"Paid from $1.2M Cash Reserve; Final City inspection, staff training & soft launch"
-Month 7 (Open M1),Grand Opening,350000,148000,282000,430000,-80000,Doors open; initial ramp covered by Cash Reserve
+Month 3,Interior Build-Out,0,148000,0,148000,0,"Paid from $1.2M Cash Reserve; Overhead MEP rough-in, courts & kitchen"
+Month 4,Interior Build-Out,0,148000,0,148000,0,"Paid from $1.2M Cash Reserve; Surfacing, batting cages, saunas & L2 glass"
+Month 5,Interior Build-Out,0,148000,0,148000,0,"Paid from $1.2M Cash Reserve; Equipment installation, finishes & presales"
+Month 6,Inspections & Opening,0,148000,0,148000,0,"Paid from $1.2M Cash Reserve; Final City inspection, staff training & Grand Opening"
+Month 7 (Open M1),Grand Opening,350000,148000,282000,430000,-80000,Doors open; initial -$80k ramp covered by $1.2M Cash Reserve
 Month 8 (Open M2),Early Ramp-Up,450000,148000,302000,450000,0,Break-even monthly cash flow reached
 Month 9 (Open M3),Positive Cash Flow Starts,500000,148000,312000,460000,40000,"POSITIVE MONTHLY CASH FLOW STARTS (+$40,000/mo)"
-Month 10 (Open M4),Growth,560000,148000,322000,470000,90000,"Leagues, academy & corporate events ramping"
+Month 10 (Open M4),Growth,560000,148000,322000,470000,90000,"Leagues, youth academy & corporate events ramping"
 Month 11 (Open M5),Growth,600000,148000,322000,470000,130000,Strong recurring membership cash flow
 Month 12 (Open M6),Growth,640000,148000,322000,470000,170000,"End of Year 1 (+$350,000 net cash flow across first 6 months open)"
 Months 13-24 Avg (Year 2),Full Year Open,625000,152000,306000,458000,167000,"+$2,000,000 annual positive net cash flow in Year 2"
