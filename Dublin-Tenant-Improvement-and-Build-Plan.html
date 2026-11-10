@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pavillion · 6400 Sierra Ct, Suite E, Dublin — Tenant Improvement Plan, Floor Layout & Build Schedule</title>
+  <style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #111827;
+    background: #e5e7eb;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  .web-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    border-bottom: 2px solid #b45309;
+  }
+  .web-toolbar a, .web-toolbar button {
+    display: inline-block;
+    background: #b45309;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+  .web-toolbar a.secondary {
+    background: #1e293b;
+    border: 1px solid #475569;
+  }
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 18px auto;
+    padding: 0.34in 0.44in;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+  }
+  @media print {
+    body {
+      background: #ffffff;
+    }
+    .web-toolbar {
+      display: none !important;
+    }
+    .page {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+  .doc-header {
+    border-bottom: 2.5px solid #1e3a8a;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .doc-title-block h1 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .doc-title-block .sub {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    color: #475569;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .doc-badge {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #fef3c7;
+    border: 1.5px solid #b45309;
+    color: #78350f;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: right;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .section-heading {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-left: 4px solid #b45309;
+    padding-left: 8px;
+    margin: 7px 0 6px 0;
+  }
+  .three-answers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .answer-card {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-top: 4px solid #1e3a8a;
+    border-radius: 7px;
+    padding: 9px 11px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .answer-card.gold {
+    border-top-color: #b45309;
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+  .answer-card.green {
+    border-top-color: #15803d;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .answer-card .q-label {
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #475569;
+    margin-bottom: 2px;
+  }
+  .answer-card .big-num {
+    font-size: 19.5px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 3px;
+  }
+  .answer-card.green .big-num {
+    color: #166534;
+  }
+  .answer-card.gold .big-num {
+    color: #92400e;
+  }
+  .answer-card .desc {
+    font-size: 11.5px;
+    color: #334155;
+    line-height: 1.32;
+  }
+  .visual-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .visual-card {
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #f8fafc;
+  }
+  .visual-card img {
+    width: 100%;
+    height: 148px;
+    object-fit: cover;
+    display: block;
+  }
+  .visual-card .cap {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 6px 9px;
+    font-size: 11px;
+    color: #1e293b;
+    background: #f1f5f9;
+    border-top: 1px solid #cbd5e1;
+    line-height: 1.3;
+  }
+  .visual-card .cap strong {
+    color: #0f172a;
+  }
+  table.simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  table.simple-table th {
+    background: #1e3a8a;
+    color: #ffffff;
+    text-align: left;
+    padding: 5.5px 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border: 1px solid #1e3a8a;
+    line-height: 1.2;
+  }
+  table.simple-table th.num {
+    text-align: right;
+  }
+  table.simple-table td.num {
+    text-align: right;
+    white-space: nowrap;
+  }
+  table.simple-table td {
+    padding: 4.5px 8px;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+    vertical-align: top;
+    line-height: 1.28;
+  }
+  table.simple-table tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  table.simple-table tr.subtotal-row td {
+    background: #eff6ff;
+    font-weight: 800;
+    color: #1e3a8a;
+    border-top: 2px solid #1e3a8a;
+  }
+  table.simple-table tr.total-row td {
+    background: #fef3c7;
+    font-weight: 900;
+    color: #78350f;
+    font-size: 12.8px;
+    border-top: 2px solid #b45309;
+    border-bottom: 2px solid #b45309;
+  }
+  table.simple-table tr.positive-row td {
+    background: #dcfce7;
+    font-weight: 900;
+    color: #166534;
+    font-size: 12.8px;
+    border-top: 2px solid #15803d;
+    border-bottom: 2px solid #15803d;
+  }
+  .info-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    color: #1e293b;
+    margin-bottom: 7px;
+    line-height: 1.38;
+  }
+  .info-box.highlight {
+    background: #f0fdf4;
+    border-color: #86efac;
+  }
+  .info-box.warm {
+    background: #fffbeb;
+    border-color: #fcd34d;
+  }
+  .timeline-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .t-step {
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 7px 8px;
+    background: #f8fafc;
+  }
+  .t-step.active {
+    background: #f0fdf4;
+    border-color: #15803d;
+    border-width: 2px;
+  }
+  .t-step .m-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .t-step.active .m-tag {
+    color: #15803d;
+  }
+  .t-step h4 {
+    font-size: 12px;
+    color: #0f172a;
+    margin-bottom: 2px;
+  }
+  .t-step p {
+    font-size: 10.8px;
+    color: #334155;
+    line-height: 1.28;
+  }
+  .page-footer {
+    border-top: 1.5px solid #cbd5e1;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 10.5px;
+    color: #475569;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+  <div class="web-toolbar">
+    <div>
+      <strong>THE PAVILLION · 6400 Sierra Ct, Suite E, Dublin, CA</strong> — Tenant Improvement (TI) Plan, Floor Layout &amp; Cost Estimates
+    </div>
+    <div>
+      <a href="./index.html" class="secondary">&larr; Back to Dublin Website</a>
+      <a href="./Dublin-Financial-Projections-and-Lease-Coverage.pdf" class="secondary">View Business Plan &amp; Financials (PDF)</a>
+      <a href="./Dublin-Tenant-Improvement-and-Build-Plan.pdf" download>Download This TI Plan PDF</a>
+      <button onclick="window.print()">Print</button>
+    </div>
+  </div>
+
+  <!-- ==================== TI PAGE 1: PROPERTY-SPECIFIC FLOOR PLAN & SCOPE ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="doc-title-block">
+          <h1>TENANT IMPROVEMENT PLAN &amp; FLOOR LAYOUT</h1>
+          <div class="sub">Prepared Specifically for 6400 Sierra Court, Suite E, Dublin, CA 94568 · 96,000 Sq. Ft.</div>
+        </div>
+        <div class="doc-badge">
+          6-Month Build-Out<br />$5,300,000 TI Budget (Cash)
+        </div>
+      </div>
+
+      <div class="info-box warm">
+        <strong>How Our Build-Out Fits 6400 Sierra Court, Suite E Without Structural Changes:</strong>
+        Suite E (~249' &times; 323' footprint) already features a <strong>~76,000 SF high-bay ground floor (30' clear height, ~40' column grid)</strong> and an <strong>existing ~20,000 SF second-floor mezzanine</strong> along the south frontage. Our Tenant Improvement plan keeps the exterior walls, roof, slab, structural columns, and second-floor mezzanine completely intact—allowing our general contractor to complete the interior build-out in <strong>6 months (2 months permits + 4 months construction &amp; commissioning)</strong>.
+      </div>
+
+      <div class="section-heading">1. Architectural Floor Plan — Ground Floor (76,000 SF) &amp; Existing 2nd Floor (20,000 SF)</div>
+
+      <!-- Clean Architectural Floor Plan Diagram in SVG -->
+      <div style="border:2px solid #cbd5e1;border-radius:8px;padding:10px;background:#f8fafc;margin-bottom:9px;">
+        <svg viewBox="0 0 780 300" style="width:100%;height:auto;display:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+          <!-- Left: Ground Floor Plan -->
+          <rect x="8" y="8" width="465" height="284" rx="6" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+          <text x="240" y="26" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">GROUND FLOOR PLAN (~76,000 SF SHELL · 6400 SIERRA CT, SUITE E)</text>
+          <text x="240" y="41" fill="#475569" font-size="9" font-weight="600" text-anchor="middle">NORTH REAR TRUCK COURT &amp; OVERFLOW PARKING</text>
+
+          <!-- West Neighbor K1 Speed -->
+          <rect x="18" y="50" width="64" height="205" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2"/>
+          <text x="50" y="145" fill="#991b1b" font-size="10" font-weight="800" text-anchor="middle">K1 SPEED</text>
+          <text x="50" y="159" fill="#b91c1c" font-size="8.5" text-anchor="middle">Suite B</text>
+          <text x="50" y="171" fill="#b91c1c" font-size="8" text-anchor="middle">(West Wall)</text>
+
+          <!-- Suite E Ground Shell -->
+          <rect x="88" y="50" width="310" height="205" rx="4" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+
+          <!-- Zone 1: Cricket & Baseball NW -->
+          <rect x="94" y="56" width="118" height="122" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+          <text x="153" y="103" fill="#14532d" font-size="10" font-weight="800" text-anchor="middle">CRICKET &amp; BASEBALL</text>
+          <text x="153" y="117" fill="#166534" font-size="9.5" font-weight="700" text-anchor="middle">18,000 Sq. Ft.</text>
+          <text x="153" y="131" fill="#15803d" font-size="8.5" text-anchor="middle">12 Netted Batting Lanes</text>
+
+          <!-- Zone 2: Strength Gym NE -->
+          <rect x="216" y="56" width="176" height="46" rx="3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+          <text x="304" y="76" fill="#1e3a8a" font-size="9.2" font-weight="800" text-anchor="middle">STRENGTH &amp; CONDITIONING (10,000 SF)</text>
+          <text x="304" y="90" fill="#1d4ed8" font-size="8" text-anchor="middle">Rubber Floor · 40-Yd Sprint Turf · Racks</text>
+
+          <!-- Zone 3: 8 Pickleball Courts Center-East -->
+          <rect x="216" y="106" width="176" height="72" rx="3" fill="#d1fae5" stroke="#047857" stroke-width="1.5"/>
+          <text x="304" y="136" fill="#064e3b" font-size="10" font-weight="800" text-anchor="middle">8 INDOOR PICKLEBALL COURTS</text>
+          <text x="304" y="150" fill="#047857" font-size="8.8" font-weight="700" text-anchor="middle">20,000 SF Ground (+ 2,000 SF L2 Balcony)</text>
+          <text x="304" y="164" fill="#065f46" font-size="8.2" text-anchor="middle">Fits Between Existing 40' Column Lines</text>
+
+          <!-- Zone 4: Indian Fusion Restaurant SW -->
+          <rect x="94" y="182" width="96" height="67" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+          <text x="142" y="207" fill="#78350f" font-size="9.2" font-weight="800" text-anchor="middle">INDIAN FUSION</text>
+          <text x="142" y="219" fill="#78350f" font-size="9.2" font-weight="800" text-anchor="middle">RESTAURANT</text>
+          <text x="142" y="232" fill="#92400e" font-size="8.5" font-weight="700" text-anchor="middle">9,000 Sq. Ft.</text>
+          <text x="142" y="243" fill="#b45309" font-size="8" text-anchor="middle">+ Outdoor Patio</text>
+
+          <!-- Zone 5: Grand Lobby, Cafe & Lockers South Center -->
+          <rect x="194" y="182" width="92" height="67" rx="3" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+          <text x="240" y="207" fill="#0f172a" font-size="9.2" font-weight="800" text-anchor="middle">GRAND ATRIUM</text>
+          <text x="240" y="220" fill="#334155" font-size="8.2" font-weight="700" text-anchor="middle">Lobby · Café · Lockers</text>
+          <text x="240" y="233" fill="#475569" font-size="8.5" text-anchor="middle">15,000 Sq. Ft.</text>
+
+          <!-- Zone 6: Thermal Spa SE -->
+          <rect x="290" y="182" width="102" height="67" rx="3" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.5"/>
+          <text x="341" y="207" fill="#134e4a" font-size="9.2" font-weight="800" text-anchor="middle">THERMAL SPA &amp;</text>
+          <text x="341" y="219" fill="#134e4a" font-size="9.2" font-weight="800" text-anchor="middle">RECOVERY</text>
+          <text x="341" y="232" fill="#0f766e" font-size="8.5" font-weight="700" text-anchor="middle">12,000 Sq. Ft.</text>
+          <text x="341" y="243" fill="#0f766e" font-size="8" text-anchor="middle">Sauna · Steam · Plunge</text>
+
+          <!-- East Neighbor Pace Supply -->
+          <rect x="404" y="50" width="58" height="205" rx="4" fill="#f1f5f9" stroke="#64748b" stroke-width="1.2"/>
+          <text x="433" y="145" fill="#334155" font-size="9.5" font-weight="800" text-anchor="middle">PACE</text>
+          <text x="433" y="157" fill="#334155" font-size="9.5" font-weight="800" text-anchor="middle">SUPPLY</text>
+          <text x="433" y="170" fill="#64748b" font-size="8" text-anchor="middle">Suite G</text>
+
+          <text x="240" y="274" fill="#0f172a" font-size="8.8" font-weight="700" text-anchor="middle">SOUTH FRONTAGE · SIERRA COURT ENTRY, NON-ALCOHOLIC PATIO &amp; 398 PARKING STALLS</text>
+
+          <!-- Right: Existing Second Floor Plan -->
+          <rect x="483" y="8" width="289" height="284" rx="6" fill="#ffffff" stroke="#b45309" stroke-width="2"/>
+          <text x="627" y="26" fill="#78350f" font-size="11" font-weight="800" text-anchor="middle">EXISTING 2ND FLOOR (~20,000 SF)</text>
+          <text x="627" y="41" fill="#475569" font-size="9" font-weight="600" text-anchor="middle">REUSES EXISTING UPPER FLOOR STRUCTURE</text>
+
+          <!-- Double height void -->
+          <rect x="497" y="52" width="260" height="92" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="4 4"/>
+          <text x="627" y="94" fill="#64748b" font-size="9.5" font-weight="700" text-anchor="middle">OPEN 30' HIGH-BAY CEILING BELOW</text>
+          <text x="627" y="109" fill="#64748b" font-size="8.5" text-anchor="middle">(Over Pickleball Courts, Batting Cages &amp; Gym)</text>
+
+          <!-- L2 Viewing Lounge -->
+          <rect x="497" y="150" width="260" height="32" rx="3" fill="#d1fae5" stroke="#047857" stroke-width="1.5"/>
+          <text x="627" y="170" fill="#064e3b" font-size="9.2" font-weight="800" text-anchor="middle">2ND-FLOOR COURTSIDE VIEWING BALCONY (2,000 SF)</text>
+
+          <!-- L2 Founders Club -->
+          <rect x="497" y="188" width="165" height="84" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+          <text x="579" y="216" fill="#78350f" font-size="10.2" font-weight="800" text-anchor="middle">THE FOUNDERS CLUB</text>
+          <text x="579" y="230" fill="#92400e" font-size="9.2" font-weight="700" text-anchor="middle">10,000 Sq. Ft. (Level 2)</text>
+          <text x="579" y="244" fill="#78350f" font-size="8.2" text-anchor="middle">Boardrooms · Pitch Room · Lounge</text>
+          <text x="579" y="257" fill="#78350f" font-size="8.2" text-anchor="middle">Podcast Studio · Glass Overlook</text>
+
+          <!-- L2 Atrium Void & Support -->
+          <rect x="666" y="188" width="91" height="84" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.2"/>
+          <text x="711" y="220" fill="#334155" font-size="9" font-weight="800" text-anchor="middle">ELEVATOR,</text>
+          <text x="711" y="232" fill="#334155" font-size="9" font-weight="800" text-anchor="middle">GRAND STAIR</text>
+          <text x="711" y="245" fill="#475569" font-size="8" text-anchor="middle">&amp; MEP Support</text>
+        </svg>
+      </div>
+
+      <div class="section-heading">2. 3D Facility Layout &amp; Architectural Renderings (6400 Sierra Court, Suite E)</div>
+      <div class="visual-grid-2" style="margin-bottom:0;">
+        <div class="visual-card">
+          <img src="./assets/tour_overview_clean.png" style="height:165px;" alt="3D Cutaway of 6400 Sierra Court Suite E" />
+          <div class="cap">
+            <strong>3D Cutaway Model of Suite E:</strong> Shows exact fit between K1 Speed (west) and Pace Supply (east), with front valet drop-off and smoke-free patio on Sierra Court.
+          </div>
+        </div>
+        <div class="visual-card">
+          <img src="./assets/pavillion-hero-hd.jpg" style="height:165px;" alt="Interior Perspective Render" />
+          <div class="cap">
+            <strong>Interior Finish Standard:</strong> Acoustic wall panels, indirect LED sports lighting, warm wood &amp; glass mezzanine railings, and resort-grade locker/spa finishes.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Tenant Improvement Plan</span>
+      <span>Page 1 of 3 · Floor Plan &amp; Property Fit</span>
+    </div>
+  </div>
+
+  <!-- ==================== TI PAGE 2: ZONE-BY-ZONE TI SCOPE & COST BREAKDOWN ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="doc-title-block">
+          <h1>ZONE-BY-ZONE TENANT IMPROVEMENT ESTIMATES</h1>
+          <div class="sub">Complete Breakdown of the $5,300,000 Build-Out + $1,200,000 Cash Reserve ($6,500,000 Total)</div>
+        </div>
+        <div class="doc-badge">
+          ~$55 / Sq. Ft. Interior Fit-Out<br />100% Cash Funded
+        </div>
+      </div>
+
+      <div class="section-heading">1. Detailed Tenant Improvement (TI) Cost Estimate by Building Zone</div>
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th style="width:31%;">Building Zone &amp; Square Footage</th>
+            <th style="width:52%;">Specific Construction &amp; Equipment Scope</th>
+            <th class="num" style="width:17%;">Estimated Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Permits, Architecture &amp; Site Prep</strong><br /><span style="font-size:10.5px;color:#475569;">All 96,000 Sq. Ft.</span></td>
+            <td>Architectural/structural/MEP drawings, City of Dublin building &amp; Alameda County health permits, interior slab cleaning &amp; layout marking</td>
+            <td class="num"><strong>$450,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2. HVAC, Electrical &amp; High-Bay Lighting</strong><br /><span style="font-size:10.5px;color:#475569;">Building-Wide Systems</span></td>
+            <td>Glare-free indirect LED sports fixtures, supplemental HVAC ducting/dehumidification for spa &amp; courts, electrical sub-panels &amp; fire-safety tie-ins</td>
+            <td class="num"><strong>$850,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3. 8 Indoor Pickleball Courts &amp; Balcony</strong><br /><span style="font-size:10.5px;color:#475569;">22,000 Sq. Ft. (Ground + L2)</span></td>
+            <td>Multi-layer cushioned acrylic tournament court surfacing, padded column wraps, acoustic wall panels, divider curtains &amp; 2,000 SF L2 viewing glass</td>
+            <td class="num"><strong>$550,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4. 12 Cricket &amp; Baseball Batting Lanes</strong><br /><span style="font-size:10.5px;color:#475569;">18,000 Sq. Ft. (Ground NW)</span></td>
+            <td>12 full-length retractable ceiling-hung netting tunnels, high-density turf, programmable bowling/pitching machines, video kiosks &amp; bleachers</td>
+            <td class="num"><strong>$600,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>5. Indian Fusion Restaurant &amp; Patio</strong><br /><span style="font-size:10.5px;color:#475569;">9,000 Sq. Ft. (Ground SW)</span></td>
+            <td>Commercial kitchen build-out, Type-1 exhaust hoods, grease trap, clay tandoor ovens, walk-in coolers, 110-seat dining room, private dining &amp; patio</td>
+            <td class="num"><strong>$950,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>6. Thermal Spa, Saunas, Plunge &amp; Lockers</strong><br /><span style="font-size:10.5px;color:#475569;">12,000 Sq. Ft. (Ground SE)</span></td>
+            <td>Waterproofed wet-area slab, 2 cedar dry saunas, 2 eucalyptus steam rooms, cold plunge pools, 4 treatment rooms, recovery lounge &amp; locker rooms</td>
+            <td class="num"><strong>$850,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>7. Strength &amp; Conditioning Gym</strong><br /><span style="font-size:10.5px;color:#475569;">10,000 Sq. Ft. (Ground NE)</span></td>
+            <td>Heavy-duty rubber athletic flooring, 40-yard sled sprint turf lane, Olympic lifting racks, dumbbells, functional rig &amp; commercial cardio row</td>
+            <td class="num"><strong>$450,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>8. Upstairs Founders Club, Lobby &amp; Café</strong><br /><span style="font-size:10.5px;color:#475569;">10,000 SF L2 + 15,000 SF Atrium</span></td>
+            <td>Remodel existing 2nd floor into executive lounge, 4 meeting rooms, boardroom, pitch theater &amp; podcast studio; ground reception &amp; zero-proof café</td>
+            <td class="num"><strong>$600,000</strong></td>
+          </tr>
+          <tr class="subtotal-row">
+            <td><strong>TOTAL TENANT IMPROVEMENT &amp; EQUIPMENT</strong></td>
+            <td><strong>Complete Turnkey Build-Out of 6400 Sierra Ct, Suite E (~$55 / Sq. Ft.)</strong></td>
+            <td class="num"><strong>$5,300,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>9. Pre-Opening Rent, Deposit &amp; Cash Cushion</strong></td>
+            <td>Covers security deposit, 6 months of build-period rent ($148,000/mo) &amp; opening working capital reserve</td>
+            <td class="num"><strong>$1,200,000</strong></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL CASH COMMITTED BY TENANT</strong></td>
+            <td><strong>100% Cash Funded by Precision Developers (No Bank Loan Contingency)</strong></td>
+            <td class="num"><strong>$6,500,000</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-heading">2. Visuals of Key Interior Build-Out Zones</div>
+      <div class="visual-grid-2" style="margin-bottom:0;">
+        <div class="visual-card">
+          <img src="./assets/tour_pickleball_clean.png" style="height:118px;" alt="Pickleball and Gym Build-Out" />
+          <div class="cap">
+            <strong>Ground-Floor Sports Zones (40,000 SF Combined):</strong> Pickleball courts, batting cages, and strength gym require zero structural floor cutting—installing directly over the existing slab.
+          </div>
+        </div>
+        <div class="visual-card">
+          <img src="./assets/tour_spa_clean.png" style="height:118px;" alt="Thermal Spa and Plumbing Core" />
+          <div class="cap">
+            <strong>Concentrated Plumbing Zones (21,000 SF Combined):</strong> Spa, locker rooms, and restaurant kitchen are grouped along the South frontage near existing water, sewer, and utility mains.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Tenant Improvement Plan</span>
+      <span>Page 2 of 3 · Zone-by-Zone Cost Estimates</span>
+    </div>
+  </div>
+
+  <!-- ==================== TI PAGE 3: 6-MONTH SCHEDULE & CASH FLOW RAMP ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="doc-title-block">
+          <h1>6-MONTH BUILD SCHEDULE &amp; OPENING CASH FLOW</h1>
+          <div class="sub">Month-by-Month Timeline from Lease Signing (Month 1) to Positive Cash Flow (Month 9)</div>
+        </div>
+        <div class="doc-badge">
+          6 Months to Open Doors<br />Month 9 Positive Cash Flow
+        </div>
+      </div>
+
+      <div class="section-heading">1. Month-by-Month Construction &amp; Opening Schedule (Months 1 to 12)</div>
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th style="width:12%;">Month</th>
+            <th style="width:22%;">Phase</th>
+            <th style="width:38%;">Key Activities at 6400 Sierra Court, Suite E</th>
+            <th class="num" style="width:14%;">Monthly Rent Paid</th>
+            <th class="num" style="width:14%;">Monthly Net Cash Flow</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Month 1</strong></td>
+            <td><strong>Permits &amp; Plans</strong></td>
+            <td>Lease signed; $6.5M cash committed; submit TI drawings to City of Dublin; order kitchen hoods, saunas &amp; court surfacing.</td>
+            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Month 2</strong></td>
+            <td><strong>Permit Approval</strong></td>
+            <td>City permit sign-off; contractor mobilizes; interior slab prep, layout marking &amp; upstairs framing begin.</td>
+            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Month 3</strong></td>
+            <td><strong>Rough-In Work</strong></td>
+            <td>Plumbing &amp; electrical rough-in for kitchen &amp; spa; high-bay LED lighting &amp; HVAC ducting installed in main bay.</td>
+            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Month 4</strong></td>
+            <td><strong>Courts &amp; Cages</strong></td>
+            <td>Pickleball cushion courts laid; 12 cricket/baseball netting tunnels hung; saunas, steam rooms, hoods &amp; L2 glass installed.</td>
+            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Month 5</strong></td>
+            <td><strong>Equipment &amp; Fit</strong></td>
+            <td>Gym racks/turf, bowling/pitching machines, tandoor/appliances, cold plunges, lounge furniture &amp; AV installed.</td>
+            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Month 6</strong></td>
+            <td><strong>Inspections &amp; Open</strong></td>
+            <td>Final City Building, Fire &amp; Health inspections; Certificate of Occupancy issued; staff training &amp; Grand Opening.</td>
+            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num"><strong>DOORS OPEN</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Month 7</strong></td>
+            <td><strong>Month 1 Open</strong></td>
+            <td>Grand Opening month ($350,000 revenue vs. $430,000 operating cost incl. rent; -$80k covered by Cash Reserve).</td>
+            <td class="num"><strong>$148,000</strong></td>
+            <td class="num">($80,000)<br /><span style="font-size:10px;color:#475569;">(From Reserve)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Month 8</strong></td>
+            <td><strong>Month 2 Open</strong></td>
+            <td>Memberships, youth academies &amp; restaurant covers ramp to $450,000/mo revenue vs. $450,000/mo total costs.</td>
+            <td class="num"><strong>$148,000</strong></td>
+            <td class="num"><strong>$0 (Break-Even)</strong></td>
+          </tr>
+          <tr class="positive-row">
+            <td><strong>Month 9</strong></td>
+            <td><strong>Month 3 Open — POSITIVE CASH FLOW</strong></td>
+            <td><strong>Monthly revenue reaches $500,000/mo vs. $460,000/mo total operating costs (including $148,000/mo rent).</strong></td>
+            <td class="num"><strong>$148,000</strong></td>
+            <td class="num"><strong>+$40,000 / mo</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Months 10–12</strong></td>
+            <td><strong>Months 4–6 Open</strong></td>
+            <td>Monthly revenue grows from $560,000/mo to $640,000/mo; first 6 months open produce <strong>+$350,000 positive net cash flow</strong>.</td>
+            <td class="num"><strong>$148,000 / mo</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$90k–$170k/mo</strong></td>
+          </tr>
+          <tr class="subtotal-row">
+            <td><strong>Year 2 &amp; Year 3+</strong></td>
+            <td><strong>Full Operation</strong></td>
+            <td><strong>Year 2:</strong> $7,500,000 revenue (+$2,000,000 net cash flow). <strong>Year 3+:</strong> $8,880,000 revenue (+$3,180,000/yr net cash flow).</td>
+            <td class="num"><strong>$148k–$157k/mo</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$265,000 / mo</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box highlight" style="margin-bottom:0;">
+        <strong>Summary for the Sellers &amp; Listing Broker:</strong><br />
+        • <strong>How Much to Build:</strong> <strong>$5,300,000</strong> interior build-out &amp; equipment + <strong>$1,200,000</strong> cash reserve = <strong>$6,500,000 Total Cash Committed (No Bank Loan)</strong>.<br />
+        • <strong>How Long to Build:</strong> <strong>6 Months</strong> from lease signing to opening doors (using the existing shell &amp; 20,000 SF second floor with no structural demolition).<br />
+        • <strong>When Positive Cash Flow Starts:</strong> <strong>Month 9 from lease signing (Month 3 after opening doors)</strong>, growing to <strong>+$2,000,000/yr in Year 2</strong> and <strong>+$3,180,000/yr in Year 3+</strong>.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contact: Shaqib · Precision Developers · 415-225-7232 · Shaqib@PrecisionDevelopers.com</span>
+      <span>Page 3 of 3 · 6-Month Construction Schedule &amp; Cash Flow Ramp</span>
+    </div>
+  </div>
+
+</body>
+</html>

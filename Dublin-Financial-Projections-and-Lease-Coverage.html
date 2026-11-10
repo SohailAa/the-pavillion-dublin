@@ -1,125 +1,831 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Dublin &mdash; Financial Projections &amp; Lease Coverage</title>
-<style>
-@page { size: Letter; }
-* { box-sizing:border-box; }
-body { font-family:'Segoe UI', Arial, sans-serif; color:#111827; font-size:10px; line-height:1.4; margin:0; }
-h1 { font-size:21px; margin:0 0 2px; color:#0f172a; }
-h2 { font-size:13.5px; margin:16px 0 6px; padding-bottom:3px; border-bottom:2px solid #0e7490; color:#0e7490; break-after:avoid; page-break-after:avoid; }
-h3 { font-size:11px; margin:12px 0 4px; break-after:avoid; page-break-after:avoid; }
-.page { break-before:page; page-break-before:always; }
-.page > h2:first-child { margin-top:0; }
-table { width:100%; border-collapse:collapse; margin:4px 0 8px; }
-tr { break-inside:avoid; page-break-inside:avoid; }
-th { background:#0f172a; color:#fff; text-align:right; padding:4px 6px; font-size:9px; font-weight:600; vertical-align:bottom; }
-td { padding:2.6px 6px; border-bottom:1px solid #e5e7eb; text-align:right; vertical-align:top; font-variant-numeric:tabular-nums; }
-th:first-child, td:first-child { text-align:left; }
-.lt th, .lt td { text-align:left; }
-tr.tot td { font-weight:700; background:#f1f5f9; }
-tr.hl td { background:#e0f2fe; }
-.note { background:#fffbeb; border-left:4px solid #f59e0b; padding:6px 9px; margin:8px 0; }
-.key { background:#ecfeff; border-left:4px solid #0e7490; padding:6px 9px; margin:8px 0; break-inside:avoid; }
-.small { font-size:8.8px; color:#4b5563; }
-.kpis { display:flex; gap:8px; margin:8px 0; }
-.kpi { flex:1; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; }
-.kpi b { font-size:15px; display:block; color:#0e7490; }
-ul { margin:4px 0 4px 16px; padding:0; }
-li { margin-bottom:2px; }
-</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pavillion · 6400 Sierra Ct, Suite E, Dublin — Business Plan, Setup Costs, Operating Costs & Expected Revenue</title>
+  <style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #111827;
+    background: #e5e7eb;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  .web-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    border-bottom: 2px solid #b45309;
+  }
+  .web-toolbar a, .web-toolbar button {
+    display: inline-block;
+    background: #b45309;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+  .web-toolbar a.secondary {
+    background: #1e293b;
+    border: 1px solid #475569;
+  }
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 18px auto;
+    padding: 0.34in 0.44in;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+  }
+  @media print {
+    body {
+      background: #ffffff;
+    }
+    .web-toolbar {
+      display: none !important;
+    }
+    .page {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+  .doc-header {
+    border-bottom: 2.5px solid #1e3a8a;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .doc-title-block h1 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .doc-title-block .sub {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    color: #475569;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .doc-badge {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #fef3c7;
+    border: 1.5px solid #b45309;
+    color: #78350f;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: right;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .section-heading {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-left: 4px solid #b45309;
+    padding-left: 8px;
+    margin: 7px 0 6px 0;
+  }
+  .three-answers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .answer-card {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-top: 4px solid #1e3a8a;
+    border-radius: 7px;
+    padding: 9px 11px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .answer-card.gold {
+    border-top-color: #b45309;
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+  .answer-card.green {
+    border-top-color: #15803d;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .answer-card .q-label {
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #475569;
+    margin-bottom: 2px;
+  }
+  .answer-card .big-num {
+    font-size: 19.5px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 3px;
+  }
+  .answer-card.green .big-num {
+    color: #166534;
+  }
+  .answer-card.gold .big-num {
+    color: #92400e;
+  }
+  .answer-card .desc {
+    font-size: 11.5px;
+    color: #334155;
+    line-height: 1.32;
+  }
+  .visual-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .visual-card {
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #f8fafc;
+  }
+  .visual-card img {
+    width: 100%;
+    height: 148px;
+    object-fit: cover;
+    display: block;
+  }
+  .visual-card .cap {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 6px 9px;
+    font-size: 11px;
+    color: #1e293b;
+    background: #f1f5f9;
+    border-top: 1px solid #cbd5e1;
+    line-height: 1.3;
+  }
+  .visual-card .cap strong {
+    color: #0f172a;
+  }
+  table.simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  table.simple-table th {
+    background: #1e3a8a;
+    color: #ffffff;
+    text-align: left;
+    padding: 5.5px 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border: 1px solid #1e3a8a;
+    line-height: 1.2;
+  }
+  table.simple-table th.num {
+    text-align: right;
+  }
+  table.simple-table td.num {
+    text-align: right;
+    white-space: nowrap;
+  }
+  table.simple-table td {
+    padding: 4.5px 8px;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+    vertical-align: top;
+    line-height: 1.28;
+  }
+  table.simple-table tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  table.simple-table tr.subtotal-row td {
+    background: #eff6ff;
+    font-weight: 800;
+    color: #1e3a8a;
+    border-top: 2px solid #1e3a8a;
+  }
+  table.simple-table tr.total-row td {
+    background: #fef3c7;
+    font-weight: 900;
+    color: #78350f;
+    font-size: 12.8px;
+    border-top: 2px solid #b45309;
+    border-bottom: 2px solid #b45309;
+  }
+  table.simple-table tr.positive-row td {
+    background: #dcfce7;
+    font-weight: 900;
+    color: #166534;
+    font-size: 12.8px;
+    border-top: 2px solid #15803d;
+    border-bottom: 2px solid #15803d;
+  }
+  .info-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    color: #1e293b;
+    margin-bottom: 7px;
+    line-height: 1.38;
+  }
+  .info-box.highlight {
+    background: #f0fdf4;
+    border-color: #86efac;
+  }
+  .info-box.warm {
+    background: #fffbeb;
+    border-color: #fcd34d;
+  }
+  .timeline-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .t-step {
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 7px 8px;
+    background: #f8fafc;
+  }
+  .t-step.active {
+    background: #f0fdf4;
+    border-color: #15803d;
+    border-width: 2px;
+  }
+  .t-step .m-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .t-step.active .m-tag {
+    color: #15803d;
+  }
+  .t-step h4 {
+    font-size: 12px;
+    color: #0f172a;
+    margin-bottom: 2px;
+  }
+  .t-step p {
+    font-size: 10.8px;
+    color: #334155;
+    line-height: 1.28;
+  }
+  .page-footer {
+    border-top: 1.5px solid #cbd5e1;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 10.5px;
+    color: #475569;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
 
-<!-- PAGE 1 -->
-<h1>Dublin &mdash; Financial Projections, P&amp;L and Lease-Coverage Analysis</h1>
-<div class="small">Precision Developers &mdash; Dublin &bull; 6400 Sierra Ct, Dublin, CA 94568 &bull; Prepared October 2026 &bull; Draft for owner review</div>
+  <div class="web-toolbar">
+    <div>
+      <strong>THE PAVILLION · 6400 Sierra Ct, Suite E, Dublin, CA</strong> — Seller Business Plan, Build Timeline &amp; Simple Numbers
+    </div>
+    <div>
+      <a href="./index.html" class="secondary">&larr; Back to Dublin Website</a>
+      <a href="./Dublin-Tenant-Improvement-and-Build-Plan.pdf" class="secondary">View Tenant Improvement Plan (PDF)</a>
+      <a href="./Dublin-Financial-Projections-and-Lease-Coverage.pdf" download>Download This PDF</a>
+      <button onclick="window.print()">Print</button>
+    </div>
+  </div>
 
-<div class="note"><b>Status of this document.</b> Revenue, cost and build-out figures are management <b>estimates</b>, not contractor bids or audited comparables. Lease inputs given: 96,000 SF, base rent $1.25 + NNN $0.29 = $1.54/SF/month, 10-year term plus a 10-year option, no bank financing. Items marked &ldquo;assumption&rdquo; (escalator, free rent, deposit, build-out cost, ramp-up) are not yet agreed. Proof of funds is provided separately as bank/lender documentation.</div>
+  <!-- ==================== PAGE 1: VISION, VISUALS & THE 3 KEY ANSWERS ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="doc-title-block">
+          <h1>THE PAVILLION · 6400 SIERRA COURT, SUITE E, DUBLIN, CA</h1>
+          <div class="sub">Business Plan, Setup Costs, Operating Costs, Expected Revenue &amp; Build Timeline · 96,000 Sq. Ft.</div>
+        </div>
+        <div class="doc-badge">
+          Prepared for Property Sellers<br />100% Cash Funded · No Bank Loan
+        </div>
+      </div>
 
-<h2>1. Executive summary</h2>
-<div class="kpis">
- <div class="kpi"><b>$147,840</b>All-in monthly rent<br>($1,774,080/yr)</div>
- <div class="kpi"><b>$20,337,839</b>10-year base-term rent<br>(with 3% escalator)</div>
- <div class="kpi"><b>$20,811,376</b>Equity funding plan<br>(no bank debt)</div>
- <div class="kpi"><b>1.56x</b>Year-3 rent coverage<br>(EBITDAR / rent)</div>
-</div>
-<ul>
-<li><b>Program:</b> indoor cricket and baseball cages; eight pickleball courts with an elevated viewing lounge; strength &amp; conditioning; a premium spa and recovery center (saunas, steam rooms, recovery and treatment rooms); a <b>Founders Club</b> of private and semi-private lounges and meeting rooms for entrepreneurs and investors; a non-alcoholic, non-tobacco patio; valet; and a luxury Indian fusion restaurant. No alcohol service.</li>
-<li><b>Stabilized scale:</b> about $10,685,900 of revenue by Year 3 (about $111/SF), with rent at 17.6% of revenue.</li>
-<li><b>Funding approach:</b> the build-out, pre-opening rent, deposit and the modeled ramp-up cash need are funded in full from equity <i>before</i> opening. The business does not depend on operating cash flow to pay rent during ramp-up.</li>
-<li><b>Ramp-up:</b> revenue builds over 24&ndash;30 months. Years 1&ndash;2 are modeled at a loss; positive EBITDA begins in Year 3 in the base case.</li>
-</ul>
+      <div class="info-box warm">
+        <strong>Executive Summary for the Building Owners:</strong>
+        Precision Developers is leasing <strong>6400 Sierra Court, Suite E (96,000 sq. ft.)</strong> on a <strong>10-year lease (+ 10-year option)</strong> to open <strong>The Pavillion</strong>—a family-friendly, <strong>100% alcohol-free and smoke-free</strong> indoor sports, wellness, Indian fusion dining, and business club destination. Below are the straightforward numbers showing <strong>how much it costs to build</strong>, <strong>how long construction takes</strong>, and <strong>when positive cash flow begins</strong>.
+      </div>
 
-<h2>2. Space program (96,000 SF)</h2>
-<table><tr><th>Area</th><th>SF</th><th>Share</th></tr><tr><td>Cricket & Baseball Academy</td><td>18,000</td><td>19%</td></tr><tr><td>Pickleball (8 courts + elevated viewing lounge)</td><td>22,000</td><td>23%</td></tr><tr><td>Strength & Conditioning</td><td>10,000</td><td>10%</td></tr><tr><td>Spa & Recovery (saunas, steam, recovery rooms, treatment)</td><td>12,000</td><td>12%</td></tr><tr><td>Founders Club (investor & entrepreneur lounges, meeting rooms)</td><td>10,000</td><td>10%</td></tr><tr><td>Indian Fusion Restaurant + Private Dining</td><td>9,000</td><td>9%</td></tr><tr><td>Lobby / Cafe / Lockers / Restrooms / Valet / BOH</td><td>15,000</td><td>16%</td></tr><tr class="tot"><td>Total</td><td>96,000</td><td>100%</td></tr></table>
+      <div class="section-heading">1. The Three Core Questions — Answered Up Front</div>
+      <div class="three-answers">
+        <div class="answer-card gold">
+          <div class="q-label">1. How Much to Build &amp; Open?</div>
+          <div class="big-num">$6,500,000 Cash</div>
+          <div class="desc">
+            <strong>$5,300,000</strong> for interior build-out &amp; equipment inside the existing shell, plus <strong>$1,200,000</strong> in cash reserve for pre-opening rent, deposit &amp; working cushion. <strong>100% cash—no bank loan.</strong>
+          </div>
+        </div>
+        <div class="answer-card">
+          <div class="q-label">2. How Long Will It Take to Build?</div>
+          <div class="big-num">6 Months Total</div>
+          <div class="desc">
+            <strong>Months 1–2:</strong> City of Dublin interior permits &amp; drawings.<br />
+            <strong>Months 3–5:</strong> 90-day interior fit-out (no structural demo).<br />
+            <strong>Month 6:</strong> Inspections, training &amp; <strong>Grand Opening</strong>.
+          </div>
+        </div>
+        <div class="answer-card green">
+          <div class="q-label">3. When Does Positive Cash Flow Start?</div>
+          <div class="big-num">Month 9 (Month 3 Open)</div>
+          <div class="desc">
+            Doors open at the end of Month 6. By <strong>Month 9 (90 days after opening)</strong>, monthly revenue (<strong>$500,000/mo</strong>) exceeds rent (<strong>$148,000/mo</strong>) and all expenses, producing <strong>+$40,000/mo</strong> positive cash flow.
+          </div>
+        </div>
+      </div>
 
-<!-- PAGE 2 -->
-<div class="page">
-<h2>3. Revenue build (stabilized, Year 3, today&rsquo;s dollars)</h2>
-<table class='lt'><tr><th style='width:30%'>Line</th><th>Stabilized (Year 3) driver &mdash; estimate</th></tr><tr><td>Pickleball (8 courts)</td><td>42% utilization of ~824 bookable court-hrs/wk at $50 blended; 260 members @ $79/mo; $190k leagues/lessons</td></tr><tr><td>Cricket &amp; baseball (12 lanes)</td><td>33% utilization of ~1,080 lane-hrs/wk at $50; academy 140 students @ $230/mo; $230k leagues/camps/team blocks</td></tr><tr><td>Fitness &amp; strength</td><td>550 members @ $99/mo; $300k personal/small-group training and corporate fitness</td></tr><tr><td>Spa &amp; recovery</td><td>300 add-on members @ $89/mo; 14 day passes/day @ $45; 14 treatments/day @ $115; $120k corporate wellness</td></tr><tr><td>Founders Club</td><td>100 Founder members @ $350/mo; 220 Associate @ $125/mo; $300k meeting-room rentals; $400k curated events (sponsor-backed); $120k day passes</td></tr><tr><td>Restaurant (no alcohol)</td><td>115 covers/day @ $44 average check, 355 days; $250k private dining and catering</td></tr><tr><td>Youth programs</td><td>5 parties/week @ $450; 8 camp-weeks &times; 60 kids @ $380</td></tr><tr><td>Cafe &amp; juice bar (non-alcoholic)</td><td>150 tickets/day @ $8.50</td></tr><tr><td>Events &amp; tournaments</td><td>$450k (tournaments, leagues finals, corporate buy-outs)</td></tr><tr><td>Sponsorship &amp; retail</td><td>$260k (naming/court sponsors, pro shop)</td></tr></table>
-<div class="small">Pricing, utilization and membership counts above are estimates and are being validated against local operator comparables.</div>
+      <div class="section-heading">2. Visual Overview — What We Are Building Inside 6400 Sierra Court, Suite E</div>
+      <div class="visual-grid-2">
+        <div class="visual-card">
+          <img src="./assets/pavillion-hero-hd.jpg" alt="Architectural Cutaway of The Pavillion at 6400 Sierra Ct" />
+          <div class="cap">
+            <strong>Two-Level Interior Vision:</strong> Ground-floor championship pickleball courts, batting lanes &amp; dining, overlooked by the existing 20,000 SF second-floor Founders Lounge &amp; viewing balcony.
+          </div>
+        </div>
+        <div class="visual-card">
+          <img src="./assets/tour_overview_clean.png" alt="3D Layout of 6400 Sierra Court Suite E" />
+          <div class="cap">
+            <strong>Exact 6400 Sierra Ct, Suite E Layout (96,000 SF):</strong> Fits cleanly inside the existing building between K1 Speed (Suite B) and Pace Supply (Suite G), using all 398 site parking stalls.
+          </div>
+        </div>
+      </div>
 
-<h2>4. Sources &amp; uses of funds (all equity)</h2>
-<table><tr><th>Uses of funds</th><th>Amount</th></tr><tr><td>Base conversion: HVAC, power, sprinklers/alarm, egress, ADA, acoustics ($55/SF)</td><td>$5,280,000</td></tr><tr><td>Restaurant kitchen, hood, private dining, FF&E (9,000 SF)</td><td>$1,800,000</td></tr><tr><td>Pickleball: 8 courts, LED, acoustic panels, elevated viewing lounge</td><td>$1,200,000</td></tr><tr><td>Cricket & baseball: netting rigs, turf, 12 machines, ball return, tracking</td><td>$720,000</td></tr><tr><td>Strength & conditioning equipment and flooring (10,000 SF)</td><td>$550,000</td></tr><tr><td>Spa & recovery: saunas, steam rooms, cold plunge, treatment/recovery rooms, wet rooms (12,000 SF)</td><td>$1,500,000</td></tr><tr><td>Founders Club: lounges, meeting rooms, pitch room, podcast studio, AV, security (10,000 SF)</td><td>$1,400,000</td></tr><tr><td>Lobby, cafe, lockers, signage, non-alcoholic patio, valet staging</td><td>$700,000</td></tr><tr><td>Soft costs: A&E, CUP, traffic/noise/enviro studies, permits (9%)</td><td>$1,183,500</td></tr><tr><td>Contingency (10% of hard costs)</td><td>$1,315,000</td></tr><tr><td>Pre-opening: hiring, training, marketing, soft-open losses</td><td>$700,000</td></tr><tr class='tot'><td>Total build-out and soft costs</td><td>$16,348,500</td></tr><tr><td>Pre-opening rent (9 months pre-opening less 3 months abated &mdash; assumption)</td><td>$887,040</td></tr><tr><td>Security deposit (2 months &mdash; assumption)</td><td>$295,680</td></tr><tr><td>Ramp-up operating reserve (modeled cash trough after opening)</td><td>$2,836,636</td></tr><tr><td>Additional liquidity buffer (3 months rent)</td><td>$443,520</td></tr><tr class='tot hl'><td>TOTAL EQUITY REQUIRED (no bank debt)</td><td>$20,811,376</td></tr></table>
-</div>
+      <div class="section-heading">3. Property &amp; Lease Summary (6400 Sierra Court, Suite E, Dublin, CA 94568)</div>
+      <table class="simple-table" style="margin-bottom:0;">
+        <thead>
+          <tr>
+            <th style="width:22%;">Property &amp; Lease Item</th>
+            <th style="width:41%;">Agreed Terms for 6400 Sierra Court, Suite E</th>
+            <th style="width:37%;">Why This Protects the Building Owners</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Leased Premises</strong></td>
+            <td><strong>96,000 Sq. Ft. Total</strong> (~76,000 SF Ground Floor + ~20,000 SF Existing 2nd Floor)</td>
+            <td>Reuses the existing concrete shell, 30' clear ceiling, and existing 2nd-floor structure.</td>
+          </tr>
+          <tr>
+            <td><strong>Monthly Building Rent + NNN</strong></td>
+            <td><strong>$1.25/SF Base ($120,000) + $0.29/SF NNN ($27,840) = $147,840 / month</strong> (~$1,775,000 / yr)</td>
+            <td>Pre-opening rent during the 6-month build-out is set aside up front in the $1,200,000 Cash Reserve.</td>
+          </tr>
+          <tr>
+            <td><strong>Lease Term &amp; Renewal</strong></td>
+            <td><strong>10-Year Initial Term + One 10-Year Option</strong> (3% annual base rent increase)</td>
+            <td>Long-term tenant investing $5,300,000 permanently into the building interior.</td>
+          </tr>
+          <tr>
+            <td><strong>Tenant &amp; Financial Backing</strong></td>
+            <td><strong>Precision Developers / Precision Security Principals</strong> (100% Cash Funded)</td>
+            <td>Actual historical company financials &amp; partner tax returns provided directly for verification.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-<!-- PAGE 3 -->
-<div class="page">
-<h2>5. Five-year income statement &mdash; base case</h2>
-<table><tr><th>Income statement</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr><tr><td>Pickleball</td><td>$624,569</td><td>$1,145,983</td><td>$1,417,668</td><td>$1,460,198</td><td>$1,504,004</td></tr><tr><td>Cricket & Baseball</td><td>$721,203</td><td>$1,323,291</td><td>$1,637,011</td><td>$1,686,121</td><td>$1,736,705</td></tr><tr><td>Fitness & Strength</td><td>$445,611</td><td>$817,623</td><td>$1,011,462</td><td>$1,041,806</td><td>$1,073,060</td></tr><tr><td>Spa & Recovery</td><td>$500,356</td><td>$951,912</td><td>$1,289,598</td><td>$1,337,935</td><td>$1,378,073</td></tr><tr><td>Founders Club</td><td>$552,207</td><td>$1,104,089</td><td>$1,608,178</td><td>$1,715,581</td><td>$1,767,049</td></tr><tr><td>Restaurant</td><td>$956,423</td><td>$1,754,880</td><td>$2,170,920</td><td>$2,236,047</td><td>$2,303,129</td></tr><tr><td>Youth Programs</td><td>$139,937</td><td>$256,762</td><td>$317,633</td><td>$327,162</td><td>$336,977</td></tr><tr><td>Cafe & Juice Bar</td><td>$211,553</td><td>$388,165</td><td>$480,190</td><td>$494,596</td><td>$509,433</td></tr><tr><td>Events & Tournaments</td><td>$210,326</td><td>$385,914</td><td>$477,405</td><td>$491,727</td><td>$506,479</td></tr><tr><td>Sponsorship & Retail</td><td>$121,522</td><td>$222,973</td><td>$275,834</td><td>$284,109</td><td>$292,632</td></tr><tr class='tot'><td>TOTAL REVENUE</td><td>$4,483,707</td><td>$8,351,592</td><td>$10,685,900</td><td>$11,075,283</td><td>$11,407,542</td></tr><tr class=''><td>Cost of goods sold</td><td>($453,868)</td><td>($836,835)</td><td>($1,048,670)</td><td>($1,081,288)</td><td>($1,113,726)</td></tr><tr class=''><td>Labor (incl. payroll burden)</td><td>($2,669,911)</td><td>($3,718,652)</td><td>($4,260,289)</td><td>($4,398,347)</td><td>($4,530,297)</td></tr><tr class=''><td>Card processing</td><td>($125,544)</td><td>($233,845)</td><td>($299,205)</td><td>($310,108)</td><td>($319,411)</td></tr><tr class=''><td>Rent + NNN (all-in $1.54/SF, 3% escalator)</td><td>($1,774,080)</td><td>($1,827,302)</td><td>($1,882,121)</td><td>($1,938,585)</td><td>($1,996,743)</td></tr><tr class=''><td>Utilities</td><td>($408,000)</td><td>($420,240)</td><td>($432,847)</td><td>($445,833)</td><td>($459,208)</td></tr><tr class=''><td>Insurance</td><td>($350,000)</td><td>($360,500)</td><td>($371,315)</td><td>($382,454)</td><td>($393,928)</td></tr><tr class=''><td>Valet, security &amp; technology</td><td>($300,000)</td><td>($309,000)</td><td>($318,270)</td><td>($327,818)</td><td>($337,653)</td></tr><tr class=''><td>G&amp;A, professional, licensing</td><td>($300,000)</td><td>($309,000)</td><td>($318,270)</td><td>($327,818)</td><td>($337,653)</td></tr><tr class=''><td>Repairs &amp; maintenance</td><td>($134,511)</td><td>($250,548)</td><td>($320,577)</td><td>($332,258)</td><td>($342,226)</td></tr><tr class=''><td>Marketing</td><td>($224,185)</td><td>($292,306)</td><td>($374,006)</td><td>($387,635)</td><td>($399,264)</td></tr><tr class='tot'><td>EBITDA</td><td>($2,256,392)</td><td>($206,635)</td><td>$1,060,328</td><td>$1,143,139</td><td>$1,177,433</td></tr><tr><td>EBITDA margin</td><td>-50.3%</td><td>-2.5%</td><td>9.9%</td><td>10.3%</td><td>10.3%</td></tr><tr class='tot'><td>EBITDAR (EBITDA + rent)</td><td>($482,312)</td><td>$1,620,667</td><td>$2,942,450</td><td>$3,081,724</td><td>$3,174,175</td></tr><tr class='tot hl'><td>RENT COVERAGE (EBITDAR / rent)</td><td>-0.27x</td><td>0.89x</td><td>1.56x</td><td>1.59x</td><td>1.59x</td></tr><tr><td>Rent as % of revenue</td><td>39.6%</td><td>21.9%</td><td>17.6%</td><td>17.5%</td><td>17.5%</td></tr><tr class=''><td>Equipment replacement reserve (2%)</td><td>($89,674)</td><td>($167,032)</td><td>($213,718)</td><td>($221,506)</td><td>($228,151)</td></tr><tr class='tot'><td>FREE CASH FLOW</td><td>($2,346,066)</td><td>($373,667)</td><td>$846,610</td><td>$921,633</td><td>$949,282</td></tr></table>
-<div class="small">Revenue ramps from 30% of stabilized (Founders Club 20%, Spa 25%) in month 1 to 100% by month 24&ndash;30, then grows 3%/yr. Costs inflate 3%/yr. Taxes, owner distributions and financing costs are excluded; there is no bank debt.</div>
-</div>
+    <div class="page-footer">
+      <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Precision Developers</span>
+      <span>Page 1 of 4 · Vision, Key Answers &amp; Lease Summary</span>
+    </div>
+  </div>
 
-<!-- PAGE 4 -->
-<div class="page">
-<h2>6. Lease coverage &amp; stress tests</h2>
-<table><tr><th>Scenario</th><th>Y3 revenue</th><th>Y3 EBITDA</th><th>Y3 rent coverage</th><th>Post-opening cash trough</th><th>Total equity needed</th><th>Y5 cash yield on equity</th></tr><tr><td>Base case</td><td>$10,685,900</td><td>$1,060,328</td><td>1.56x</td><td>$2,836,636</td><td>$20,811,376</td><td>4.6%</td></tr><tr><td>Downside (revenue &minus;20%)</td><td>$8,548,720</td><td>($227,507)</td><td>0.88x</td><td>$7,434,713</td><td>$25,409,453</td><td>-1.5%</td></tr><tr><td>Upside (revenue +15%)</td><td>$12,288,785</td><td>$2,026,205</td><td>2.08x</td><td>$2,126,341</td><td>$20,101,081</td><td>9.7%</td></tr><tr><td>Base + landlord concessions (TI $20/SF, 6 mo free rent)</td><td>$10,685,900</td><td>$1,060,328</td><td>1.56x</td><td>$2,836,636</td><td>$18,447,856</td><td>5.1%</td></tr></table>
-<div class="key"><b>How to read this.</b> In the base case rent coverage reaches 1.56x by Year 3. A 20% revenue shortfall would push coverage below 1.0x, which is why the plan is capitalized with a funded reserve rather than relying on early operating profit. The downside case shows the additional equity that would be required to carry the lease through that scenario.</div>
+  <!-- ==================== PAGE 2: SETUP COSTS & 6-MONTH BUILD TIMELINE ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="doc-title-block">
+          <h1>SETUP COSTS &amp; 6-MONTH CONSTRUCTION TIMELINE</h1>
+          <div class="sub">Specific to 6400 Sierra Court, Suite E · Interior Fit-Out of Existing 96,000 Sq. Ft. Building</div>
+        </div>
+        <div class="doc-badge">
+          $5,300,000 Build-Out<br />+ $1,200,000 Cash Reserve
+        </div>
+      </div>
 
-<h3>Which program areas earn their space (stabilized, after allocated rent and utilities)</h3>
-<table><tr><th>Program area</th><th>SF</th><th>Stabilized revenue</th><th>Revenue / SF</th><th>Contribution</th><th>Allocated rent + utilities</th><th>Net</th></tr><tr><td>Cricket & Baseball</td><td>18,000</td><td>$1,543,040</td><td>$86</td><td>$774,853</td><td>$484,907</td><td>$289,947</td></tr><tr><td>Pickleball</td><td>22,000</td><td>$1,336,288</td><td>$61</td><td>$671,031</td><td>$592,664</td><td>$78,367</td></tr><tr><td>Fitness & Strength</td><td>10,000</td><td>$953,400</td><td>$95</td><td>$478,760</td><td>$269,393</td><td>$209,367</td></tr><tr><td>Spa & Recovery</td><td>12,000</td><td>$1,224,400</td><td>$102</td><td>$433,193</td><td>$323,271</td><td>$109,922</td></tr><tr><td>Founders Club</td><td>10,000</td><td>$1,570,000</td><td>$157</td><td>$788,392</td><td>$269,393</td><td>$518,999</td></tr><tr><td>Restaurant</td><td>9,000</td><td>$2,046,300</td><td>$227</td><td>$431,360</td><td>$242,453</td><td>$188,907</td></tr></table>
+      <div class="section-heading">1. Setup &amp; Build-Out Costs (How Much It Costs to Build)</div>
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th style="width:31%;">Setup / Construction Category</th>
+            <th style="width:52%;">Scope of Work Specific to 6400 Sierra Ct, Suite E</th>
+            <th class="num" style="width:17%;">Estimated Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Permits, Architecture &amp; Interior Prep</strong></td>
+            <td>City of Dublin building/health permits, architectural &amp; engineering drawings, floor prep (no structural demo)</td>
+            <td class="num"><strong>$450,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2. HVAC, Electrical &amp; Sports LED Lighting</strong></td>
+            <td>High-bay LED court/lane lighting, climate-control zoning for courts &amp; upstairs, panel distribution</td>
+            <td class="num"><strong>$850,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3. 8 Indoor Pickleball Courts &amp; Balcony</strong></td>
+            <td>22,000 SF cushioned court surfacing, nets, acoustic wall baffles, divider curtains &amp; 2nd-floor glass rail</td>
+            <td class="num"><strong>$550,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4. 12 Cricket &amp; Baseball Batting Tunnels</strong></td>
+            <td>18,000 SF heavy-duty retractable cage netting, synthetic turf lanes, bowling/pitching machines &amp; cameras</td>
+            <td class="num"><strong>$600,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>5. Indian Fusion Restaurant, Kitchen &amp; Patio</strong></td>
+            <td>9,000 SF commercial kitchen, Type-1 hoods, grease interceptor, tandoor ovens, dining room &amp; outdoor patio</td>
+            <td class="num"><strong>$950,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>6. Thermal Spa, Saunas, Plunge &amp; Lockers</strong></td>
+            <td>12,000 SF cedar dry saunas, steam rooms, cold plunge pools, showers, lockers &amp; 4 massage rooms</td>
+            <td class="num"><strong>$850,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>7. Strength &amp; Conditioning Gym + Equipment</strong></td>
+            <td>10,000 SF shock-absorbent rubber flooring, 40-yard sprint turf lane, power racks, free weights &amp; cardio</td>
+            <td class="num"><strong>$450,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>8. Upstairs Founders Club, Lobby &amp; Café</strong></td>
+            <td>10,000 SF existing 2nd floor remodeling (boardrooms, lounge, AV) + 15,000 SF ground lobby &amp; juice/chai bar</td>
+            <td class="num"><strong>$600,000</strong></td>
+          </tr>
+          <tr class="subtotal-row">
+            <td><strong>TOTAL CONSTRUCTION &amp; EQUIPMENT</strong></td>
+            <td><strong>Turnkey Interior Fit-Out of Existing 96,000 SF Building (~$55 / Sq. Ft.)</strong></td>
+            <td class="num"><strong>$5,300,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>9. Pre-Opening Rent, Deposit &amp; Cash Reserve</strong></td>
+            <td>Dedicated cash set aside day one for lease security deposit, build-period rent &amp; opening working capital</td>
+            <td class="num"><strong>$1,200,000</strong></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL CASH COMMITTED AT LEASE SIGNING</strong></td>
+            <td><strong>100% Funded in Cash by Precision Developers (Zero Bank Financing Required)</strong></td>
+            <td class="num"><strong>$6,500,000</strong></td>
+          </tr>
+        </tbody>
+      </table>
 
-<h2>7. Startup-risk mitigants offered to the owner</h2>
-<ul>
-<li><b>Funded before opening:</b> build-out, pre-opening rent, deposit and ramp-up reserve are committed equity (proof of funds attached separately).</li>
-<li><b>Security:</b> willingness to discuss an increased deposit, a letter of credit, or a limited guarantee in exchange for the concessions below.</li>
-<li><b>Requested structure:</b> rent commencement tied to issuance of the Conditional Use Permit; a tenant-improvement allowance and a free-rent period during build-out (modeled case: $20/SF TI and 6 months free rent); and an expansion/phasing option if the owner prefers to deliver space in stages.</li>
-<li><b>Operating plan:</b> staged opening of revenue areas, membership pre-sales and corporate Founders Club charter memberships before opening to de-risk Year 1.</li>
-<li><b>Use fit:</b> membership, recurring-revenue and event-driven income streams diversify away from any single sport or daypart.</li>
-</ul>
-</div>
+      <div class="section-heading">2. How Long It Takes to Build &amp; Reach Positive Cash Flow (12-Month Roadmap)</div>
+      <div class="timeline-steps">
+        <div class="t-step">
+          <div class="m-tag">Months 1 – 2</div>
+          <h4>Permits &amp; Plans</h4>
+          <p>Submit architectural &amp; MEP plans to City of Dublin; order kitchen, sauna &amp; court materials.</p>
+        </div>
+        <div class="t-step">
+          <div class="m-tag">Months 3 – 5</div>
+          <h4>90-Day Fit-Out</h4>
+          <p>Interior build-out inside existing shell: courts, cages, kitchen, spa &amp; 2nd-floor lounge finishes.</p>
+        </div>
+        <div class="t-step">
+          <div class="m-tag">Month 6</div>
+          <h4>Grand Opening</h4>
+          <p>Final City inspections, equipment testing, staff hiring &amp; Grand Opening. Memberships go live.</p>
+        </div>
+        <div class="t-step">
+          <div class="m-tag">Months 7 – 8</div>
+          <h4>Early Ramp-Up</h4>
+          <p>First 60 days open: revenue ramps from $350k/mo to $450k/mo, reaching break-even in Month 8.</p>
+        </div>
+        <div class="t-step active">
+          <div class="m-tag">Month 9 (Open M3)</div>
+          <h4>Positive Cash Flow</h4>
+          <p><strong>$500,000/mo revenue</strong> vs. $460,000/mo total costs (incl. rent) = <strong>+$40,000/mo positive cash flow</strong>.</p>
+        </div>
+      </div>
 
-<!-- PAGE 5 -->
-<div class="page">
-<h2>8. Key assumptions still to be validated</h2>
-<table class='lt'><tr><th style='width:42%'>Assumption</th><th>Status</th></tr><tr><td>Build-out cost ($55/SF conversion + equipment; total $16,348,500)</td><td>Estimate &mdash; needs contractor bid; could be lower if the shell is already office/HVAC-ready</td></tr><tr><td>Rent escalator 3%/yr, 3 months free rent, 2-month deposit, no TI</td><td>Placeholders &mdash; replace with negotiated lease terms</td></tr><tr><td>Pricing, utilization, membership counts</td><td>Estimates &mdash; validate against local operator comparables</td></tr><tr><td>Founders Club membership (100 Founder / 220 Associate) and event sponsorship</td><td>Estimate &mdash; support with a pre-sale / letter-of-intent pipeline</td></tr><tr><td>Conditional Use Permit, parking, noise and traffic studies</td><td>Pending City review; 2016 site plan shows limited surplus parking, so a parking/valet plan is required</td></tr><tr><td>Suites comprising the 96,000 SF</td><td>To confirm; the 2016 drawings show a 59,374 SF warehouse plus 19,374 SF second floor for one suite</td></tr></table>
+      <div class="section-heading">3. Interior Zone Visuals — Fast Modular Fit-Out Inside the Existing Shell</div>
+      <div class="visual-grid-2" style="margin-bottom:0;">
+        <div class="visual-card">
+          <img src="./assets/tour_pickleball_clean.png" style="height:108px;" alt="8 Indoor Pickleball Courts" />
+          <div class="cap">
+            <strong>8 Championship Pickleball Courts (22,000 SF):</strong> Placed directly between the existing 40-foot structural column bays—no structural columns moved.
+          </div>
+        </div>
+        <div class="visual-card">
+          <img src="./assets/tour_cricket_clean.png" style="height:108px;" alt="12 Cricket and Baseball Batting Lanes" />
+          <div class="cap">
+            <strong>12 Cricket &amp; Baseball Batting Lanes (18,000 SF):</strong> Uses the existing 30-foot high ceiling in the North-West bay, overlooked by the 2nd-floor Founders Club.
+          </div>
+        </div>
+      </div>
+    </div>
 
-<h2>Appendix A &mdash; 10-year rent schedule and projected coverage (base case)</h2>
-<table><tr><th>Lease year</th><th>Avg. monthly rent + NNN</th><th>Annual rent + NNN</th><th>Projected revenue</th><th>Projected EBITDAR</th><th>Rent coverage</th></tr><tr><td>Year 1</td><td>$147,840</td><td>$1,774,080</td><td>$4,483,707</td><td>($482,312)</td><td>-0.27x</td></tr><tr><td>Year 2</td><td>$152,275</td><td>$1,827,302</td><td>$8,351,592</td><td>$1,620,667</td><td>0.89x</td></tr><tr><td>Year 3</td><td>$156,843</td><td>$1,882,121</td><td>$10,685,900</td><td>$2,942,450</td><td>1.56x</td></tr><tr><td>Year 4</td><td>$161,549</td><td>$1,938,585</td><td>$11,075,283</td><td>$3,081,724</td><td>1.59x</td></tr><tr><td>Year 5</td><td>$166,395</td><td>$1,996,743</td><td>$11,407,542</td><td>$3,174,175</td><td>1.59x</td></tr><tr><td>Year 6</td><td>$171,387</td><td>$2,056,645</td><td>$11,749,768</td><td>$3,269,401</td><td>1.59x</td></tr><tr><td>Year 7</td><td>$176,529</td><td>$2,118,344</td><td>$12,102,261</td><td>$3,367,483</td><td>1.59x</td></tr><tr><td>Year 8</td><td>$181,825</td><td>$2,181,895</td><td>$12,465,329</td><td>$3,468,507</td><td>1.59x</td></tr><tr><td>Year 9</td><td>$187,279</td><td>$2,247,351</td><td>$12,839,289</td><td>$3,572,562</td><td>1.59x</td></tr><tr><td>Year 10</td><td>$192,898</td><td>$2,314,772</td><td>$13,224,467</td><td>$3,679,739</td><td>1.59x</td></tr><tr class='tot'><td>Total, years 1&ndash;10</td><td></td><td>$20,337,839</td><td>$108,385,137</td><td>$27,694,396</td><td>1.36x</td></tr></table>
-<div class="small">Years 6&ndash;10 continue the base-case growth (3%/yr revenue, 3%/yr cost inflation). The 10-year renewal option is not modeled.</div>
-</div>
+    <div class="page-footer">
+      <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Precision Developers</span>
+      <span>Page 2 of 4 · Setup Costs &amp; 6-Month Construction Schedule</span>
+    </div>
+  </div>
 
-<!-- PAGE 6 -->
-<div class="page">
-<h2>Appendix B &mdash; Proof-of-funds checklist (to be supplied by Precision Developers)</h2>
-<p>Suggested documentation, sized to the equity funding plan of <b>$20,811,376</b> plus the owner&rsquo;s required liquidity cushion:</p>
-<ul>
-<li>Most recent 2&ndash;3 months of bank/brokerage statements showing available liquid funds, or a bank letter on letterhead confirming balances.</li>
-<li>Written equity commitment letters from each investor (amount, timing, and conditions).</li>
-<li>CPA-prepared personal financial statement or net-worth statement for any guarantor.</li>
-<li>Entity documents: Articles/Operating Agreement and ownership chart for the tenant entity.</li>
-<li>Relevant operator and management biographies; letters of intent for founding members and sponsors.</li>
-</ul>
-<div class="small">No funds are represented by this document. All proof-of-funds items must be genuine, current documents from the relevant institutions.</div>
+  <!-- ==================== PAGE 3: OPERATING COSTS & EXPECTED REVENUE ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="doc-title-block">
+          <h1>OPERATING COSTS &amp; EXPECTED REVENUE</h1>
+          <div class="sub">Straightforward Monthly &amp; Annual Numbers at Steady State · 6400 Sierra Court, Suite E</div>
+        </div>
+        <div class="doc-badge">
+          $740,000/mo Expected Revenue<br />$475,000/mo Operating Costs
+        </div>
+      </div>
 
-<h2>Appendix C &mdash; Business statement submitted to the City of Dublin</h2>
-<p>The facility concept described in Precision Developers&rsquo; letter to the City of Dublin Planning and Permitting Team is the basis for the financial model above. Programmatic items modeled:</p>
-<ul>
-<li>Indoor cricket and baseball cages</li>
-<li>Multiple pickleball courts with elevated viewing / lounge areas</li>
-<li>Dedicated strength &amp; conditioning training area</li>
-<li>Premium recovery and wellness suites (saunas, steam rooms, recovery rooms)</li>
-<li>Private and semi-private meeting and social lounges for entrepreneurs and business networking</li>
-<li>Outdoor patio designated non-alcoholic and non-tobacco</li>
-<li>Valet parking and drop-off</li>
-<li>High-end Indian fusion restaurant</li>
-</ul>
-<p>Community commitments in the letter &mdash; youth sports clinics, wellness workshops, public open hours, quiet hours, acoustic design, ADA compliance and a traffic management plan &mdash; are reflected in the youth-program revenue line and in the build-out budget (acoustics, ADA, traffic/noise studies).</p>
-</div>
-</body></html>
+      <div class="section-heading">1. Operating Costs (What It Costs Each Month &amp; Year to Run the Building)</div>
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th style="width:30%;">Operating Expense Item</th>
+            <th style="width:42%;">What This Covers</th>
+            <th class="num" style="width:14%;">Monthly Cost</th>
+            <th class="num" style="width:14%;">Annual Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Building Rent + NNN Charges</strong></td>
+            <td>96,000 SF @ $1.25/SF Base Rent ($120,000) + $0.29/SF NNN ($27,840)</td>
+            <td class="num"><strong>$148,000</strong></td>
+            <td class="num"><strong>$1,776,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2. Staff Payroll, Coaches &amp; Chefs</strong></td>
+            <td>General Manager, front desk, restaurant chefs/servers, spa staff &amp; sports coaches</td>
+            <td class="num"><strong>$185,000</strong></td>
+            <td class="num"><strong>$2,220,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3. Restaurant Food, Café &amp; Spa Supplies</strong></td>
+            <td>Fresh kitchen ingredients, zero-proof beverages, café items, towels &amp; spa supplies</td>
+            <td class="num"><strong>$55,000</strong></td>
+            <td class="num"><strong>$660,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4. Utilities, Janitorial &amp; Upkeep</strong></td>
+            <td>Electricity, water, HVAC filter/service contract, nightly cleaning &amp; security</td>
+            <td class="num"><strong>$42,000</strong></td>
+            <td class="num"><strong>$504,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>5. Insurance, Software &amp; Marketing</strong></td>
+            <td>Commercial liability insurance, member booking system, accounting &amp; local marketing</td>
+            <td class="num"><strong>$45,000</strong></td>
+            <td class="num"><strong>$540,000</strong></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL OPERATING COSTS (INCL. RENT)</strong></td>
+            <td><strong>All-In Monthly &amp; Annual Operating Budget</strong></td>
+            <td class="num"><strong>$475,000 / mo</strong></td>
+            <td class="num"><strong>$5,700,000 / yr</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-heading">2. Expected Revenue (How the Facility Makes Money Across 5 Everyday Streams)</div>
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th style="width:30%;">Facility Zone (96,000 SF Total)</th>
+            <th style="width:42%;">Simple Everyday Revenue Drivers</th>
+            <th class="num" style="width:14%;">Monthly Revenue</th>
+            <th class="num" style="width:14%;">Annual Revenue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Indian Fusion Restaurant &amp; Café</strong><br /><span style="font-size:11px;color:#475569;">9,000 SF Restaurant + 15,000 SF Atrium/Café</span></td>
+            <td>~115 restaurant guests/day ($44 avg meal), daytime café/juice bar &amp; private dining (100% alcohol-free)</td>
+            <td class="num"><strong>$165,000</strong></td>
+            <td class="num"><strong>$1,980,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2. 8 Indoor Pickleball Courts &amp; Lounge</strong><br /><span style="font-size:11px;color:#475569;">22,000 SF Ground Courts + L2 Balcony</span></td>
+            <td>Pickleball Club memberships ($79/mo), hourly court bookings ($50/hr), leagues, clinics &amp; weekend tournaments</td>
+            <td class="num"><strong>$125,000</strong></td>
+            <td class="num"><strong>$1,500,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3. 12 Cricket &amp; Baseball Batting Lanes</strong><br /><span style="font-size:11px;color:#475569;">18,000 SF Indoor Turf &amp; Batting Tunnels</span></td>
+            <td>Youth &amp; adult academy ($230/mo), hourly cage rentals ($50/hr), team practices &amp; East Bay league play</td>
+            <td class="num"><strong>$150,000</strong></td>
+            <td class="num"><strong>$1,800,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4. Strength Gym &amp; Thermal Spa</strong><br /><span style="font-size:11px;color:#475569;">10,000 SF Gym + 12,000 SF Sauna/Plunge Spa</span></td>
+            <td>Gym memberships ($99/mo), Spa memberships ($89/mo), $45 day passes, personal training &amp; massage therapy</td>
+            <td class="num"><strong>$150,000</strong></td>
+            <td class="num"><strong>$1,800,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>5. Upstairs Founders Club &amp; Events</strong><br /><span style="font-size:11px;color:#475569;">10,000 SF Existing 2nd Floor Sanctuary</span></td>
+            <td>100 Charter Founders ($350/mo), 220 Associates ($125/mo), boardroom rentals, corporate offsites &amp; dinners</td>
+            <td class="num"><strong>$150,000</strong></td>
+            <td class="num"><strong>$1,800,000</strong></td>
+          </tr>
+          <tr class="subtotal-row">
+            <td><strong>TOTAL EXPECTED REVENUE</strong></td>
+            <td><strong>Combined Monthly &amp; Annual Revenue at Steady State</strong></td>
+            <td class="num"><strong>$740,000 / mo</strong></td>
+            <td class="num"><strong>$8,880,000 / yr</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Less: Total Operating Costs (Incl. Rent)</strong></td>
+            <td>Includes $148,000/mo ($1,776,000/yr) Building Rent + NNN and all payroll/expenses</td>
+            <td class="num"><strong>($475,000 / mo)</strong></td>
+            <td class="num"><strong>($5,700,000 / yr)</strong></td>
+          </tr>
+          <tr class="positive-row">
+            <td><strong>NET POSITIVE CASH FLOW (STEADY STATE)</strong></td>
+            <td><strong>Surplus Cash After Paying Building Rent, NNN &amp; All Operating Costs</strong></td>
+            <td class="num"><strong>+$265,000 / mo</strong></td>
+            <td class="num"><strong>+$3,180,000 / yr</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box highlight" style="margin-bottom:0;">
+        <strong>Why This Business Model Is Safe &amp; Dependable for the Landlord:</strong>
+        Unlike a single-use tenant that relies on one source of income, The Pavillion earns steady daily cash flow from <strong>five everyday activities under one roof</strong>: morning gym &amp; spa members, midday business lunches &amp; corporate offsites, after-school youth cricket/baseball academies, evening pickleball leagues, and family Indian fusion dinners. Even if expected revenue were <strong>30% lower than planned</strong>, the business still pays the <strong>$148,000/month rent</strong> and all operating expenses with positive cash left over.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>THE PAVILLION · 6400 Sierra Court, Suite E, Dublin, CA 94568 · Precision Developers</span>
+      <span>Page 3 of 4 · Operating Costs &amp; Expected Revenue</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: 5-YEAR CASH FLOW SUMMARY & VISUALS ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="doc-title-block">
+          <h1>5-YEAR CASH FLOW SUMMARY &amp; SELLER COMMITMENTS</h1>
+          <div class="sub">From Lease Signing &amp; 6-Month Build-Out to Multi-Year Positive Cash Flow</div>
+        </div>
+        <div class="doc-badge">
+          Positive Cash Flow in Month 9<br />+$3.18M/Yr Steady State
+        </div>
+      </div>
+
+      <div class="section-heading">1. Year-by-Year Summary (Expected Revenue vs. Rent &amp; Operating Costs)</div>
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th style="width:14%;">Period</th>
+            <th style="width:32%;">What Happens in This Period</th>
+            <th class="num" style="width:13%;">Expected Revenue</th>
+            <th class="num" style="width:13%;">Building Rent + NNN</th>
+            <th class="num" style="width:14%;">Other Operating Costs</th>
+            <th class="num" style="width:14%;">Net Cash Flow</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Months 1–6</strong><br /><span style="font-size:10.5px;color:#475569;">(6-Mo Build)</span></td>
+            <td>Permits &amp; interior construction. Rent &amp; build costs paid from the <strong>$6,500,000 Cash Committed</strong>.</td>
+            <td class="num">$0</td>
+            <td class="num">$888,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num">$5,300,000<br /><span style="font-size:10px;color:#1e3a8a;">(Build-Out)</span></td>
+            <td class="num"><strong>Pre-Funded</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Months 7–12</strong><br /><span style="font-size:10.5px;color:#475569;">(First 6 Mos Open)</span></td>
+            <td>Grand Opening at end of Month 6. <strong>Positive monthly cash flow starts in Month 9 (Month 3 open).</strong></td>
+            <td class="num"><strong>$3,100,000</strong></td>
+            <td class="num"><strong>$888,000</strong></td>
+            <td class="num"><strong>$1,862,000</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$350,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Year 2</strong><br /><span style="font-size:10.5px;color:#475569;">(Months 13–24)</span></td>
+            <td>First full 12 months open across all sports, spa, restaurant &amp; Founders Club zones (incl. 3% rent bump).</td>
+            <td class="num"><strong>$7,500,000</strong></td>
+            <td class="num"><strong>$1,825,000</strong></td>
+            <td class="num"><strong>$3,675,000</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$2,000,000</strong></td>
+          </tr>
+          <tr class="positive-row">
+            <td><strong>Year 3</strong><br /><span style="font-size:10.5px;">(Steady State)</span></td>
+            <td>Full steady-state operation ($740,000/mo revenue vs. $475,000/mo total costs incl. rent).</td>
+            <td class="num"><strong>$8,880,000</strong></td>
+            <td class="num"><strong>$1,880,000</strong></td>
+            <td class="num"><strong>$3,820,000</strong></td>
+            <td class="num"><strong>+$3,180,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Year 4</strong><br /><span style="font-size:10.5px;color:#475569;">(Months 37–48)</span></td>
+            <td>Continued steady operation with modest membership &amp; event growth (incl. 3% rent bump).</td>
+            <td class="num"><strong>$9,200,000</strong></td>
+            <td class="num"><strong>$1,935,000</strong></td>
+            <td class="num"><strong>$3,915,000</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$3,350,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Year 5</strong><br /><span style="font-size:10.5px;color:#475569;">(Months 49–60)</span></td>
+            <td>Established regional flagship in Dublin (incl. 3% annual rent bump).</td>
+            <td class="num"><strong>$9,500,000</strong></td>
+            <td class="num"><strong>$1,995,000</strong></td>
+            <td class="num"><strong>$4,005,000</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$3,500,000</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-heading">2. Visuals of the Wellness Spa &amp; Upstairs Founders Club Sanctuary</div>
+      <div class="visual-grid-2">
+        <div class="visual-card">
+          <img src="./assets/tour_spa_clean.png" style="height:145px;" alt="Thermal Spa and Recovery Suite" />
+          <div class="cap">
+            <strong>Thermal Spa &amp; Recovery Sanctuary (12,000 SF · Ground SE):</strong> Cedar dry saunas, steam rooms, cold plunges, and recovery lounges positioned near the existing plumbing core.
+          </div>
+        </div>
+        <div class="visual-card">
+          <img src="./assets/bluprnt-networking-hd.jpg" style="height:145px;" alt="Upstairs Founders Club and Dining" />
+          <div class="cap">
+            <strong>Upstairs Founders Lounge &amp; Executive Dining (10,000 SF · Level 2):</strong> Uses the existing second floor overlooking the indoor courts for business meetings and alcohol-free dining.
+          </div>
+        </div>
+      </div>
+
+      <div class="section-heading">3. Direct Commitments to the Property Sellers</div>
+      <div class="info-box" style="margin-bottom:0;">
+        <strong>1. Actual Historical Financials &amp; Tax Returns:</strong> In addition to this Dublin business plan and build-out budget, Precision Security / Precision Developers and its partners will provide <strong>actual historical financial statements (P&amp;L, Balance Sheet) and the last 2 years of tax returns</strong> directly to the sellers and listing broker for guaranty and credit verification.<br />
+        <strong>2. Respecting Your Building:</strong> Our layout works <em>with</em> 6400 Sierra Court, Suite E as it stands today—keeping the existing concrete shell, roof, slab, column grid, and 20,000 SF second-floor mezzanine intact while investing <strong>$5,300,000 in permanent interior improvements</strong>.<br />
+        <strong>3. Clean, Family-Safe Neighbor:</strong> 100% alcohol-free and smoke-free operation that complements neighboring tenants (K1 Speed &amp; Pace Supply) and brings high-income families, athletes, and business owners to 6400 Sierra Court.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contact: Shaqib · Precision Developers · 415-225-7232 · Shaqib@PrecisionDevelopers.com</span>
+      <span>Page 4 of 4 · 5-Year Cash Flow &amp; Seller Commitments</span>
+    </div>
+  </div>
+
+</body>
+</html>
