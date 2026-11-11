@@ -1,7 +1,7 @@
-Period,Description,Expected Revenue ($),Building Rent + NNN ($),Other Operating Costs ($),Total Operating Costs ($),Net Cash Flow ($),Notes
-Months 1-6 (Build-Out),6-Month Interior Build-Out & Permitting,0,888000,0,888000,0,"Covered 100% by $6,500,000 Cash Committed ($5,300,000 Build-Out + $1,200,000 Pre-Opening Rent, Deposit & Cash Reserve)"
-Year 1 Operating (Months 7-12),First 6 Months Open After Grand Opening,3100000,888000,1862000,2750000,350000,Positive monthly cash flow starts in Month 9 (Month 3 after opening doors)
-Year 2,First Full 12 Months Open,7500000,1825000,3675000,5500000,2000000,All facility zones operating full year (includes 3% base rent escalation)
-Year 3 (Steady State),Stabilized Full Operation,8880000,1880000,3820000,5700000,3180000,"$740,000/mo revenue vs $475,000/mo total operating costs (includes 3% base rent escalation)"
-Year 4,Stabilized Full Operation,9200000,1935000,3915000,5850000,3350000,Includes 3% annual base rent escalation
-Year 5,Stabilized Full Operation,9500000,1995000,4005000,6000000,3500000,Includes 3% annual base rent escalation
+Period,Description,Expected Revenue ($),Building Rent + NNN ($),Other Operating / Build Costs ($),Total Costs ($),Net Cash Flow ($),Notes
+Months 1-6 (Build-Out),6-Month Permitting & Modular Interior Fit-Out,0,Per Lease Terms,2400000,2400000,Pre-Funded ($3.0M Cash),"$2,400,000 Total Construction Cost + $600,000 Deposit, Launch & Working Reserve = $3,000,000 Cash Setup Budget (build-period lease obligations funded directly by Precision corporate cash)"
+Year 1 Operating (Months 7-12),First 6 Months Open After Grand Opening,2700000,888000,1562000,2450000,250000,"Positive monthly cash flow starts in Month 9 (Month 3 after opening doors at +$40,000/mo)"
+Year 2,First Full 12 Months Open,6400000,1825000,3175000,5000000,1400000,All facility zones operating full year (includes 3% base rent escalation)
+Year 3 (Steady State),Stabilized Full Operation,7200000,1880000,3220000,5100000,2100000,"$600,000/mo revenue vs $425,000/mo total operating costs (includes 3% base rent escalation)"
+Year 4,Stabilized Full Operation,7500000,1935000,3315000,5250000,2250000,Includes 3% annual base rent escalation
+Year 5,Stabilized Full Operation,7800000,1995000,3405000,5400000,2400000,Includes 3% annual base rent escalation

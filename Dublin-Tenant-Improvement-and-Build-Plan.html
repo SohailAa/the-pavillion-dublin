@@ -239,70 +239,74 @@
     white-space: nowrap;
   }
   table.simple-table.compact td {
-    padding: 4.5px 8px;
+    padding: 4.2px 8px;
+  }
+  table.simple-table.tight td {
+    padding: 3.8px 8px;
+    font-size: 11.6px;
   }
   table.simple-table td {
-    padding: 4.5px 8px;
+    padding: 5.5px 8px;
     border: 1px solid #cbd5e1;
     color: #1e293b;
     vertical-align: top;
-    line-height: 1.28;
+    line-height: 1.26;
   }
-  table.simple-table tr:nth-child(even) td {
+  table.simple-table tbody tr:nth-child(even) {
     background: #f8fafc;
   }
   table.simple-table tr.subtotal-row td {
-    background: #eff6ff;
+    background: #eff6ff !important;
     font-weight: 800;
     color: #1e3a8a;
     border-top: 2px solid #1e3a8a;
   }
   table.simple-table tr.total-row td {
-    background: #fef3c7;
+    background: #fef3c7 !important;
     font-weight: 900;
     color: #78350f;
-    font-size: 12.8px;
     border-top: 2px solid #b45309;
     border-bottom: 2px solid #b45309;
+    font-size: 12.5px;
   }
   table.simple-table tr.positive-row td {
-    background: #dcfce7;
+    background: #dcfce7 !important;
     font-weight: 900;
-    color: #166534;
-    font-size: 12.8px;
+    color: #14532d;
     border-top: 2px solid #15803d;
     border-bottom: 2px solid #15803d;
+    font-size: 12.5px;
   }
   .info-box {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #f8fafc;
     border: 1.5px solid #cbd5e1;
     border-radius: 7px;
-    padding: 8px 12px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 11.8px;
+    padding: 8px 11px;
+    font-size: 11.5px;
     color: #1e293b;
-    margin-bottom: 7px;
-    line-height: 1.36;
-  }
-  .info-box.highlight {
-    background: #f0fdf4;
-    border-color: #86efac;
+    line-height: 1.35;
+    margin-bottom: 8px;
   }
   .info-box.warm {
     background: #fffbeb;
     border-color: #fcd34d;
   }
+  .info-box.highlight {
+    background: #f0fdf4;
+    border-color: #86efac;
+  }
   .timeline-steps {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
+    gap: 7px;
     margin-bottom: 8px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
   .t-step {
     border: 1.5px solid #cbd5e1;
     border-radius: 7px;
-    padding: 7px 8px;
+    padding: 6px 8px;
     background: #f8fafc;
   }
   .t-step.active {
@@ -321,14 +325,14 @@
     color: #15803d;
   }
   .t-step h4 {
-    font-size: 12px;
+    font-size: 11.8px;
     color: #0f172a;
     margin-bottom: 2px;
   }
   .t-step p {
-    font-size: 10.8px;
+    font-size: 10.6px;
     color: #334155;
-    line-height: 1.28;
+    line-height: 1.26;
   }
   .page-footer {
     border-top: 1.5px solid #cbd5e1;
@@ -370,13 +374,13 @@
           <div class="sub">Prepared Specifically for 6400 Sierra Court, Suite E, Dublin, CA 94568 · 96,000 Sq. Ft. Leased</div>
         </div>
         <div class="doc-badge">
-          6-Month Build-Out<br />$5,300,000 TI Budget (Cash)
+          6-Month Build-Out<br />$2,400,000 Construction ($3.0M Setup)
         </div>
       </div>
 
       <div class="info-box warm">
         <strong>Aligned to the 6400 Sierra Court, Suite E Architectural Drawings (Dublin Sierra LLC):</strong>
-        Per the existing Suite E plans, the premises feature a <strong>high-bay ground floor (~78,600 SF architectural; 30' clear height, ~40' column grid)</strong> and an <strong>existing unoccupied second-floor mezzanine (~19,400 SF)</strong> along the south frontage (<strong>96,000 SF leased</strong>). Our TI plan keeps the exterior walls, roof, slab, columns, and 2nd-floor structure intact, uses <strong>overhead water supply piping (no water lines installed in or under the concrete slab)</strong>, and modifies the existing automatic sprinkler system per City of Dublin &amp; Alameda County Fire codes.
+        Per the existing Suite E plans, the premises feature a <strong>high-bay ground floor (~78,600 SF architectural; 30' clear height, ~40' column grid)</strong> and an <strong>existing unoccupied second-floor mezzanine (~19,400 SF)</strong> along the south frontage (<strong>96,000 SF leased</strong>). Because we reuse the shell, slab, plumbing core, and 2nd floor with <strong>modular, non-structural construction</strong> and <strong>overhead water piping (no under-slab lines)</strong>, total construction cost is a practical <strong>$2,400,000 ($25/SF)</strong>.
       </div>
 
       <div class="section-heading">1. Architectural Floor Plan — Ground Floor &amp; Existing 2nd-Floor Mezzanine (96,000 SF Leased)</div>
@@ -400,40 +404,41 @@
 
           <!-- Zone 1: Cricket & Baseball NW -->
           <rect x="86" y="52" width="124" height="124" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
-          <text x="148" y="100" fill="#14532d" font-size="9.6" font-weight="800" text-anchor="middle">CRICKET &amp; BASEBALL</text>
-          <text x="148" y="114" fill="#166534" font-size="9" font-weight="700" text-anchor="middle">18,000 Sq. Ft.</text>
-          <text x="148" y="128" fill="#15803d" font-size="8" text-anchor="middle">12 Netted Batting Lanes</text>
+          <text x="148" y="96" fill="#14532d" font-size="9.5" font-weight="800" text-anchor="middle">CRICKET &amp; BASEBALL</text>
+          <text x="148" y="110" fill="#166534" font-size="8.8" font-weight="700" text-anchor="middle">18,000 SF · $250K</text>
+          <text x="148" y="124" fill="#15803d" font-size="8" text-anchor="middle">12 Netted Batting Lanes</text>
 
           <!-- Zone 2: Strength Gym NE -->
           <rect x="214" y="52" width="192" height="48" rx="3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
-          <text x="310" y="73" fill="#1e3a8a" font-size="9" font-weight="800" text-anchor="middle">STRENGTH &amp; CONDITIONING GYM</text>
-          <text x="310" y="87" fill="#1d4ed8" font-size="8" font-weight="600" text-anchor="middle">10,000 SF · Rubber Floor · 40-Yd Turf · Racks</text>
+          <text x="310" y="72" fill="#1e3a8a" font-size="9" font-weight="800" text-anchor="middle">STRENGTH &amp; CONDITIONING GYM</text>
+          <text x="310" y="86" fill="#1d4ed8" font-size="8" font-weight="600" text-anchor="middle">10,000 SF · $350K · Rubber Floor &amp; Racks</text>
 
           <!-- Zone 3: 8 Pickleball Courts Center-East -->
           <rect x="214" y="104" width="192" height="72" rx="3" fill="#d1fae5" stroke="#047857" stroke-width="1.5"/>
-          <text x="310" y="132" fill="#064e3b" font-size="9.6" font-weight="800" text-anchor="middle">8 INDOOR PICKLEBALL COURTS</text>
-          <text x="310" y="146" fill="#047857" font-size="8.4" font-weight="700" text-anchor="middle">20,000 SF Ground + 2,000 SF L2 Balcony</text>
-          <text x="310" y="160" fill="#065f46" font-size="8" text-anchor="middle">Fits Cleanly Between 40' Column Lines</text>
+          <text x="310" y="131" fill="#064e3b" font-size="9.5" font-weight="800" text-anchor="middle">8 INDOOR PICKLEBALL COURTS</text>
+          <text x="310" y="145" fill="#047857" font-size="8.3" font-weight="700" text-anchor="middle">22,000 SF (incl. Lounge) · $450K</text>
+          <text x="310" y="159" fill="#065f46" font-size="8" text-anchor="middle">Fits Cleanly Between 40' Column Lines</text>
 
           <!-- Zone 4: Indian Fusion Restaurant SW -->
           <rect x="86" y="180" width="102" height="68" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
-          <text x="137" y="204" fill="#78350f" font-size="9" font-weight="800" text-anchor="middle">INDIAN FUSION</text>
-          <text x="137" y="216" fill="#78350f" font-size="9" font-weight="800" text-anchor="middle">RESTAURANT</text>
-          <text x="137" y="229" fill="#92400e" font-size="8.2" font-weight="700" text-anchor="middle">9,000 Sq. Ft.</text>
-          <text x="137" y="240" fill="#b45309" font-size="7.8" text-anchor="middle">+ Smoke-Free Patio</text>
+          <text x="137" y="203" fill="#78350f" font-size="8.8" font-weight="800" text-anchor="middle">INDIAN FUSION</text>
+          <text x="137" y="215" fill="#78350f" font-size="8.8" font-weight="800" text-anchor="middle">RESTAURANT</text>
+          <text x="137" y="228" fill="#92400e" font-size="8" font-weight="700" text-anchor="middle">9,000 SF · $300K</text>
+          <text x="137" y="240" fill="#b45309" font-size="7.6" text-anchor="middle">+ Smoke-Free Patio</text>
 
           <!-- Zone 5: Grand Lobby, Cafe & Lockers South Center -->
           <rect x="192" y="180" width="102" height="68" rx="3" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
-          <text x="243" y="204" fill="#0f172a" font-size="9" font-weight="800" text-anchor="middle">GRAND ATRIUM</text>
-          <text x="243" y="217" fill="#334155" font-size="8" font-weight="700" text-anchor="middle">Lobby · Café · Lockers</text>
-          <text x="243" y="230" fill="#475569" font-size="8.2" font-weight="600" text-anchor="middle">15,000 Sq. Ft.</text>
+          <text x="243" y="203" fill="#0f172a" font-size="8.8" font-weight="800" text-anchor="middle">LOBBY, CAFÉ</text>
+          <text x="243" y="215" fill="#0f172a" font-size="8.8" font-weight="800" text-anchor="middle">&amp; LOCKERS</text>
+          <text x="243" y="228" fill="#334155" font-size="8" font-weight="700" text-anchor="middle">15,000 SF · $125K</text>
+          <text x="243" y="240" fill="#475569" font-size="7.6" text-anchor="middle">Existing Entry Core</text>
 
           <!-- Zone 6: Thermal Spa SE -->
           <rect x="298" y="180" width="108" height="68" rx="3" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.5"/>
-          <text x="352" y="204" fill="#134e4a" font-size="9" font-weight="800" text-anchor="middle">THERMAL SPA &amp;</text>
-          <text x="352" y="216" fill="#134e4a" font-size="9" font-weight="800" text-anchor="middle">RECOVERY</text>
-          <text x="352" y="229" fill="#0f766e" font-size="8.2" font-weight="700" text-anchor="middle">12,000 Sq. Ft.</text>
-          <text x="352" y="240" fill="#0f766e" font-size="7.8" text-anchor="middle">Sauna · Steam · Plunge</text>
+          <text x="352" y="203" fill="#134e4a" font-size="8.8" font-weight="800" text-anchor="middle">SPA &amp;</text>
+          <text x="352" y="215" fill="#134e4a" font-size="8.8" font-weight="800" text-anchor="middle">RECOVERY</text>
+          <text x="352" y="228" fill="#0f766e" font-size="8" font-weight="700" text-anchor="middle">12,000 SF · $75K</text>
+          <text x="352" y="240" fill="#0f766e" font-size="7.6" text-anchor="middle">Modular Saunas/Plunge</text>
 
           <!-- East Neighbor Pace Supply -->
           <rect x="418" y="46" width="50" height="208" rx="4" fill="#f1f5f9" stroke="#64748b" stroke-width="1.2"/>
@@ -455,19 +460,19 @@
 
           <!-- L2 Viewing Lounge -->
           <rect x="500" y="148" width="258" height="32" rx="3" fill="#d1fae5" stroke="#047857" stroke-width="1.5"/>
-          <text x="629" y="168" fill="#064e3b" font-size="8.8" font-weight="800" text-anchor="middle">2ND-FLOOR COURTSIDE VIEWING BALCONY (2,000 SF)</text>
+          <text x="629" y="168" fill="#064e3b" font-size="8.8" font-weight="800" text-anchor="middle">2ND-FLOOR COURTSIDE VIEWING LOUNGE (2,000 SF)</text>
 
           <!-- L2 Founders Club -->
           <rect x="500" y="186" width="164" height="86" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
-          <text x="582" y="214" fill="#78350f" font-size="9.8" font-weight="800" text-anchor="middle">THE FOUNDERS CLUB</text>
-          <text x="582" y="228" fill="#92400e" font-size="8.8" font-weight="700" text-anchor="middle">10,000 Sq. Ft. (Level 2)</text>
-          <text x="582" y="242" fill="#78350f" font-size="8" text-anchor="middle">Boardrooms · Pitch Room · Lounge</text>
-          <text x="582" y="255" fill="#78350f" font-size="8" text-anchor="middle">Podcast Studio · Glass Overlook</text>
+          <text x="582" y="213" fill="#78350f" font-size="9.6" font-weight="800" text-anchor="middle">THE FOUNDERS CLUB</text>
+          <text x="582" y="227" fill="#92400e" font-size="8.5" font-weight="700" text-anchor="middle">10,000 SF (Level 2) · $100K</text>
+          <text x="582" y="241" fill="#78350f" font-size="8" text-anchor="middle">Conference Rooms · Lounge</text>
+          <text x="582" y="254" fill="#78350f" font-size="8" text-anchor="middle">AV Upgrades · Glass Overlook</text>
 
           <!-- L2 Atrium Void & Support -->
           <rect x="668" y="186" width="90" height="86" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.2"/>
-          <text x="713" y="218" fill="#334155" font-size="8.8" font-weight="800" text-anchor="middle">ELEVATOR,</text>
-          <text x="713" y="230" fill="#334155" font-size="8.8" font-weight="800" text-anchor="middle">GRAND STAIR</text>
+          <text x="713" y="218" fill="#334155" font-size="8.8" font-weight="800" text-anchor="middle">EXISTING STAIR,</text>
+          <text x="713" y="230" fill="#334155" font-size="8.8" font-weight="800" text-anchor="middle">ELEVATOR</text>
           <text x="713" y="243" fill="#475569" font-size="7.8" text-anchor="middle">&amp; MEP Support</text>
         </svg>
       </div>
@@ -477,13 +482,13 @@
         <div class="visual-card">
           <img src="./assets/tour_overview_clean.png" style="height:158px;" alt="3D Cutaway of 6400 Sierra Court Suite E" />
           <div class="cap">
-            <strong>3D Cutaway Model of Suite E:</strong> Shows exact fit between K1 Speed (west) and Pace Supply (east), with front valet drop-off and smoke-free patio on Sierra Court.
+            <strong>3D Cutaway Model of Suite E:</strong> Shows exact fit between K1 Speed (west) and Pace Supply (east), with front drop-off and smoke-free patio on Sierra Court.
           </div>
         </div>
         <div class="visual-card">
           <img src="./assets/pavillion-hero-hd.jpg" style="height:158px;" alt="Interior Perspective Render" />
           <div class="cap">
-            <strong>Interior Finish Standard:</strong> Acoustic wall panels, indirect LED sports lighting, warm wood &amp; glass mezzanine railings, and resort-grade locker/spa finishes.
+            <strong>Clean Modular Finish Standard:</strong> Indirect LED sports lighting, cushioned court &amp; turf surfaces over existing slab, and clean 2nd-floor lounge finishes.
           </div>
         </div>
       </div>
@@ -501,15 +506,15 @@
       <div class="doc-header">
         <div class="doc-title-block">
           <h1>ZONE-BY-ZONE TENANT IMPROVEMENT ESTIMATES</h1>
-          <div class="sub">Complete Breakdown of the $5,300,000 Build-Out + $1,200,000 Cash Reserve ($6,500,000 Total)</div>
+          <div class="sub">Complete Breakdown of the $2,400,000 Construction Budget + $600,000 Reserve ($3,000,000 Total)</div>
         </div>
         <div class="doc-badge">
-          ~$55 / Sq. Ft. Interior Fit-Out<br />100% Cash Funded
+          $25 / Sq. Ft. Interior Fit-Out<br />100% Cash Funded
         </div>
       </div>
 
-      <div class="section-heading">1. Detailed Tenant Improvement (TI) Cost Estimate by Building Zone</div>
-      <table class="simple-table">
+      <div class="section-heading" style="margin-top:4px;">1. Detailed Tenant Improvement (TI) Cost Estimate by Building Zone</div>
+      <table class="simple-table tight" style="margin-bottom:7px;">
         <thead>
           <tr>
             <th style="width:31%;">Building Zone &amp; Square Footage</th>
@@ -519,75 +524,80 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>1. Permits, Architecture &amp; Site Prep</strong><br /><span style="font-size:10.5px;color:#475569;">All 96,000 Sq. Ft.</span></td>
-            <td>Architectural/MEP/sprinkler drawings, City of Dublin building/use &amp; Alameda County health permits, ADA path/signage &amp; interior slab prep</td>
+            <td><strong>1. Pickleball Courts &amp; Lounge</strong><br /><span style="font-size:10px;color:#475569;">22,000 Sq. Ft. (Ground + L2)</span></td>
+            <td>8 cushioned acrylic courts installed over existing slab, nets, column padding, divider curtains &amp; courtside viewing lounge</td>
             <td class="num"><strong>$450,000</strong></td>
           </tr>
           <tr>
-            <td><strong>2. HVAC, Electrical &amp; High-Bay Lighting</strong><br /><span style="font-size:10.5px;color:#475569;">Building-Wide Systems</span></td>
-            <td>Glare-free indirect LED sports fixtures, HVAC zoning/dehumidification, electrical sub-panels &amp; fire sprinkler head adjustments per code</td>
-            <td class="num"><strong>$850,000</strong></td>
+            <td><strong>2. Cricket &amp; Baseball Academy</strong><br /><span style="font-size:10px;color:#475569;">18,000 Sq. Ft. (Ground NW)</span></td>
+            <td>12 ceiling-hung retractable netting lanes, rolled high-density turf over slab, bowling/pitching machines &amp; coaching zone</td>
+            <td class="num"><strong>$250,000</strong></td>
           </tr>
           <tr>
-            <td><strong>3. 8 Indoor Pickleball Courts &amp; Balcony</strong><br /><span style="font-size:10.5px;color:#475569;">22,000 Sq. Ft. (Ground + L2)</span></td>
-            <td>Multi-layer cushioned acrylic tournament court surfacing over existing slab, padded column wraps, acoustic panels, curtains &amp; L2 viewing glass</td>
-            <td class="num"><strong>$550,000</strong></td>
+            <td><strong>3. Lobby, Café &amp; Locker Rooms</strong><br /><span style="font-size:10px;color:#475569;">15,000 Sq. Ft. (Ground South)</span></td>
+            <td>Refresh existing front-office entry, reception desk, zero-proof chai/smoothie café counter &amp; locker rooms next to plumbing core</td>
+            <td class="num"><strong>$125,000</strong></td>
           </tr>
           <tr>
-            <td><strong>4. 12 Cricket &amp; Baseball Batting Lanes</strong><br /><span style="font-size:10.5px;color:#475569;">18,000 Sq. Ft. (Ground NW)</span></td>
-            <td>12 full-length retractable ceiling-hung netting tunnels, high-density turf, programmable bowling/pitching machines, video kiosks &amp; bleachers</td>
-            <td class="num"><strong>$600,000</strong></td>
+            <td><strong>4. Spa &amp; Recovery</strong><br /><span style="font-size:10px;color:#475569;">12,000 Sq. Ft. (Ground SE)</span></td>
+            <td>Self-contained prefabricated cedar dry saunas, commercial cold plunges, compression recovery chairs &amp; bodywork suites</td>
+            <td class="num"><strong>$75,000</strong></td>
           </tr>
           <tr>
-            <td><strong>5. Indian Fusion Restaurant &amp; Patio</strong><br /><span style="font-size:10.5px;color:#475569;">9,000 Sq. Ft. (Ground SW)</span></td>
-            <td>Commercial kitchen, Type-1 exhaust hoods, grease trap, clay tandoor ovens, overhead water supply piping, 110-seat dining room &amp; patio</td>
-            <td class="num"><strong>$950,000</strong></td>
+            <td><strong>5. Strength &amp; Conditioning Gym</strong><br /><span style="font-size:10px;color:#475569;">10,000 Sq. Ft. (Ground NE)</span></td>
+            <td>Shock-absorbent rubber athletic flooring, 40-yard sprint turf strip, commercial power racks, free weights &amp; cardio machines</td>
+            <td class="num"><strong>$350,000</strong></td>
           </tr>
           <tr>
-            <td><strong>6. Thermal Spa, Saunas, Plunge &amp; Lockers</strong><br /><span style="font-size:10.5px;color:#475569;">12,000 Sq. Ft. (Ground SE)</span></td>
-            <td>Above-slab waterproofed wet-zone build, overhead water supply lines, 2 cedar saunas, 2 steam rooms, cold plunges, 4 treatment rooms &amp; lockers</td>
-            <td class="num"><strong>$850,000</strong></td>
+            <td><strong>6. Upstairs Founders Club</strong><br /><span style="font-size:10px;color:#475569;">10,000 Sq. Ft. (Existing Level 2)</span></td>
+            <td>Paint, flooring, glass conference partitions, AV displays &amp; executive lounge furniture inside the already-built 2nd floor</td>
+            <td class="num"><strong>$100,000</strong></td>
           </tr>
           <tr>
-            <td><strong>7. Strength &amp; Conditioning Gym</strong><br /><span style="font-size:10.5px;color:#475569;">10,000 Sq. Ft. (Ground NE)</span></td>
-            <td>Heavy-duty rubber athletic flooring, 40-yard sled sprint turf lane, Olympic lifting racks, dumbbells, functional rig &amp; commercial cardio row</td>
-            <td class="num"><strong>$450,000</strong></td>
+            <td><strong>7. Indian Fusion Restaurant</strong><br /><span style="font-size:10px;color:#475569;">9,000 Sq. Ft. (Ground SW)</span></td>
+            <td>Streamlined commercial kitchen &amp; hood/tandoor line, overhead water supply routing, dining seating &amp; smoke-free patio</td>
+            <td class="num"><strong>$300,000</strong></td>
           </tr>
           <tr>
-            <td><strong>8. Upstairs Founders Club, Lobby &amp; Café</strong><br /><span style="font-size:10.5px;color:#475569;">10,000 SF L2 + 15,000 SF Atrium</span></td>
-            <td>Finish existing unoccupied 2nd floor into executive lounge, 4 meeting rooms, boardroom, pitch theater &amp; podcast studio; ground lobby &amp; café</td>
-            <td class="num"><strong>$600,000</strong></td>
+            <td><strong>8. Misc (Permits, Plans &amp; Contingency)</strong><br /><span style="font-size:10px;color:#475569;">All 96,000 Sq. Ft.</span></td>
+            <td>Architectural/MEP/fire sprinkler drawings, City of Dublin building &amp; health permits, ADA signage &amp; project contingency</td>
+            <td class="num"><strong>$250,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>9. HVAC &amp; Electrical</strong><br /><span style="font-size:10px;color:#475569;">Building-Wide Systems</span></td>
+            <td>Glare-free high-bay LED sports lighting, electrical sub-panel drops &amp; supplemental HVAC zoning across courts &amp; upstairs</td>
+            <td class="num"><strong>$500,000</strong></td>
           </tr>
           <tr class="subtotal-row">
-            <td><strong>TOTAL TENANT IMPROVEMENT &amp; EQUIPMENT</strong></td>
-            <td><strong>Complete Turnkey Build-Out of 6400 Sierra Ct, Suite E (~$55 / Sq. Ft.)</strong></td>
-            <td class="num"><strong>$5,300,000</strong></td>
+            <td><strong>TOTAL CONSTRUCTION COST</strong></td>
+            <td><strong>Complete Interior Fit-Out of 6400 Sierra Ct, Suite E ($25 / Sq. Ft.)</strong></td>
+            <td class="num"><strong>$2,400,000</strong></td>
           </tr>
           <tr>
-            <td><strong>9. Pre-Opening Rent, Deposit &amp; Cash Cushion</strong></td>
-            <td>Covers 6 months build-period rent ($888,000), security deposit ($150,000) &amp; opening cash cushion ($162,000)</td>
-            <td class="num"><strong>$1,200,000</strong></td>
+            <td><strong>10. Deposit, Launch &amp; Working Reserve</strong></td>
+            <td>Security deposit ($150,000), pre-opening staffing/supplies ($150,000) &amp; opening cash cushion ($300,000)</td>
+            <td class="num"><strong>$600,000</strong></td>
           </tr>
           <tr class="total-row">
-            <td><strong>TOTAL CASH COMMITTED BY TENANT</strong></td>
+            <td><strong>TOTAL SETUP &amp; OPENING BUDGET</strong></td>
             <td><strong>100% Cash Funded by Precision Developers (No Bank Loan Contingency)</strong></td>
-            <td class="num"><strong>$6,500,000</strong></td>
+            <td class="num"><strong>$3,000,000</strong></td>
           </tr>
         </tbody>
       </table>
 
-      <div class="section-heading">2. Visuals of Key Interior Build-Out Zones</div>
+      <div class="section-heading" style="margin-top:5px;">2. Why This $2.4M Construction Scope Builds Cleanly &amp; Quickly</div>
       <div class="visual-grid-2" style="margin-bottom:0;">
         <div class="visual-card">
-          <img src="./assets/tour_pickleball_clean.png" style="height:116px;" alt="Pickleball and Gym Build-Out" />
+          <img src="./assets/tour_pickleball_clean.png" style="height:102px;" alt="Pickleball and Gym Build-Out" />
           <div class="cap">
-            <strong>Ground-Floor Sports Zones (40,000 SF Combined):</strong> Pickleball courts, batting cages, and strength gym install directly over the existing concrete slab with zero structural cutting.
+            <strong>Zero Structural Demolition (50,000 SF Sports &amp; Gym):</strong> Court surfacing, turf lanes, netting, and gym rubber flooring install directly over the existing concrete slab.
           </div>
         </div>
         <div class="visual-card">
-          <img src="./assets/tour_spa_clean.png" style="height:116px;" alt="Thermal Spa and Plumbing Core" />
+          <img src="./assets/tour_spa_clean.png" style="height:102px;" alt="Modular Recovery and Existing Core" />
           <div class="cap">
-            <strong>Concentrated Wet Zones (21,000 SF Combined):</strong> Spa, locker rooms, and kitchen are grouped along the South frontage with overhead water piping per Suite E building standards.
+            <strong>Modular Saunas &amp; Overhead Plumbing:</strong> Self-contained saunas/cold plunges and overhead water supply lines avoid under-slab trenching per Suite E building rules.
           </div>
         </div>
       </div>
@@ -619,7 +629,7 @@
             <th style="width:12%;">Month</th>
             <th style="width:22%;">Phase</th>
             <th style="width:38%;">Key Activities at 6400 Sierra Court, Suite E</th>
-            <th class="num" style="width:14%;">Monthly Rent Paid</th>
+            <th class="num" style="width:14%;">Building Rent + NNN</th>
             <th class="num" style="width:14%;">Monthly Net Cash Flow</th>
           </tr>
         </thead>
@@ -627,88 +637,88 @@
           <tr>
             <td><strong>Month 1</strong></td>
             <td><strong>Permits &amp; Plans</strong></td>
-            <td>Lease signed; $6.5M cash committed; submit TI &amp; sprinkler drawings to City of Dublin; order hoods, saunas &amp; court surfacing.</td>
-            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td>Lease signed; $3.0M cash committed ($2.4M build + $600k reserve); submit TI plans to City of Dublin; order equipment.</td>
+            <td class="num">Per Lease<br /><span style="font-size:10px;color:#15803d;">(Precision Cash)</span></td>
             <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
           </tr>
           <tr>
             <td><strong>Month 2</strong></td>
             <td><strong>Permit Approval</strong></td>
-            <td>City permit &amp; use sign-off; contractor mobilizes; interior slab prep, layout marking &amp; 2nd-floor partition framing begin.</td>
-            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td>City permit &amp; use sign-off; contractor mobilizes; interior slab prep, layout marking &amp; 2nd-floor partition work begin.</td>
+            <td class="num">Per Lease<br /><span style="font-size:10px;color:#15803d;">(Precision Cash)</span></td>
             <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
           </tr>
           <tr>
             <td><strong>Month 3</strong></td>
-            <td><strong>Rough-In Work</strong></td>
-            <td>Overhead water supply &amp; electrical rough-in for kitchen &amp; spa; high-bay LED lighting &amp; HVAC ducting installed in main bay.</td>
-            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td><strong>HVAC &amp; Electrical</strong></td>
+            <td>High-bay LED sports lighting, electrical sub-panels &amp; HVAC zoning installed; overhead water lines routed for kitchen.</td>
+            <td class="num">Per Lease<br /><span style="font-size:10px;color:#15803d;">(Precision Cash)</span></td>
             <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
           </tr>
           <tr>
             <td><strong>Month 4</strong></td>
             <td><strong>Courts &amp; Cages</strong></td>
-            <td>Pickleball cushion courts laid; 12 cricket/baseball netting tunnels hung; saunas, steam rooms, hoods &amp; L2 glass installed.</td>
-            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td>8 pickleball cushion courts surfaced; 12 cricket/baseball netting tunnels &amp; turf laid; kitchen equipment set in place.</td>
+            <td class="num">Per Lease<br /><span style="font-size:10px;color:#15803d;">(Precision Cash)</span></td>
             <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
           </tr>
           <tr>
             <td><strong>Month 5</strong></td>
-            <td><strong>Equipment &amp; Fit</strong></td>
-            <td>Gym racks/turf, bowling/pitching machines, tandoor/appliances, cold plunges, lounge furniture &amp; AV installed.</td>
-            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td><strong>Gym, Spa &amp; Finish</strong></td>
+            <td>Gym rubber floor/racks, modular saunas &amp; cold plunges, lobby café counter &amp; 2nd-floor Founders Club furniture installed.</td>
+            <td class="num">Per Lease<br /><span style="font-size:10px;color:#15803d;">(Precision Cash)</span></td>
             <td class="num">Build Phase<br /><span style="font-size:10px;color:#475569;">(Pre-Funded)</span></td>
           </tr>
           <tr>
             <td><strong>Month 6</strong></td>
             <td><strong>Inspections &amp; Open</strong></td>
             <td>Final City Building, Fire &amp; Health inspections; Certificate of Occupancy issued; staff training &amp; Grand Opening.</td>
-            <td class="num">$148,000<br /><span style="font-size:10px;color:#15803d;">(From Reserve)</span></td>
+            <td class="num">Per Lease<br /><span style="font-size:10px;color:#15803d;">(Precision Cash)</span></td>
             <td class="num"><strong>DOORS OPEN</strong></td>
           </tr>
           <tr>
             <td><strong>Month 7</strong></td>
             <td><strong>Month 1 Open</strong></td>
-            <td>Grand Opening month ($350,000 revenue vs. $430,000 operating cost incl. rent; -$80k covered by Cash Reserve).</td>
+            <td>Grand Opening month ($320,000 revenue vs. $390,000 operating cost incl. rent; -$70k covered by $600k Reserve).</td>
             <td class="num"><strong>$148,000</strong></td>
-            <td class="num">($80,000)<br /><span style="font-size:10px;color:#475569;">(From Reserve)</span></td>
+            <td class="num">($70,000)<br /><span style="font-size:10px;color:#475569;">(From Reserve)</span></td>
           </tr>
           <tr>
             <td><strong>Month 8</strong></td>
             <td><strong>Month 2 Open</strong></td>
-            <td>Memberships, youth academies &amp; restaurant covers ramp to $450,000/mo revenue vs. $450,000/mo total costs.</td>
+            <td>Memberships, youth academies &amp; restaurant covers ramp to $400,000/mo revenue vs. $400,000/mo total costs.</td>
             <td class="num"><strong>$148,000</strong></td>
             <td class="num"><strong>$0 (Break-Even)</strong></td>
           </tr>
           <tr class="positive-row">
             <td><strong>Month 9</strong></td>
             <td><strong>Month 3 Open — POSITIVE CASH FLOW</strong></td>
-            <td><strong>Monthly revenue reaches $500,000/mo vs. $460,000/mo total operating costs (including $148,000/mo rent).</strong></td>
+            <td><strong>Monthly revenue reaches $450,000/mo vs. $410,000/mo total operating costs (including $148,000/mo rent).</strong></td>
             <td class="num"><strong>$148,000</strong></td>
             <td class="num"><strong>+$40,000 / mo</strong></td>
           </tr>
           <tr>
             <td><strong>Months 10–12</strong></td>
             <td><strong>Months 4–6 Open</strong></td>
-            <td>Monthly revenue grows from $560,000/mo to $640,000/mo; first 6 months open produce <strong>+$350,000 positive net cash flow</strong>.</td>
+            <td>Monthly revenue grows from $480,000/mo to $540,000/mo; first 6 months open produce <strong>+$250,000 positive net cash flow</strong>.</td>
             <td class="num"><strong>$148,000 / mo</strong></td>
-            <td class="num" style="color:#166534;"><strong>+$90k–$170k/mo</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$65k–$120k/mo</strong></td>
           </tr>
           <tr class="subtotal-row">
             <td><strong>Year 2 &amp; Year 3+</strong></td>
             <td><strong>Full Operation</strong></td>
-            <td><strong>Year 2:</strong> $7,500,000 revenue (+$2,000,000 net cash flow). <strong>Year 3+:</strong> $8,880,000 revenue (+$3,180,000/yr net cash flow).</td>
+            <td><strong>Year 2:</strong> $6,400,000 revenue (+$1,400,000 net cash flow). <strong>Year 3+:</strong> $7,200,000 revenue (+$2,100,000/yr net cash flow).</td>
             <td class="num"><strong>$152k–$157k/mo</strong></td>
-            <td class="num" style="color:#166534;"><strong>+$265,000 / mo</strong></td>
+            <td class="num" style="color:#166534;"><strong>+$175,000 / mo</strong></td>
           </tr>
         </tbody>
       </table>
 
       <div class="info-box highlight" style="margin-bottom:0;">
         <strong>Summary for the Sellers &amp; Listing Broker:</strong><br />
-        • <strong>How Much to Build:</strong> <strong>$5,300,000</strong> interior build-out &amp; equipment + <strong>$1,200,000</strong> cash reserve = <strong>$6,500,000 Total Cash Committed (No Bank Loan)</strong>.<br />
+        • <strong>How Much to Build:</strong> <strong>$2,400,000</strong> total construction &amp; equipment ($25/SF) + <strong>$600,000</strong> deposit &amp; working reserve = <strong>$3,000,000 Total Setup Budget (100% Cash, No Bank Loan)</strong>.<br />
         • <strong>How Long to Build:</strong> <strong>6 Months</strong> from lease signing to opening doors (using the existing shell &amp; second floor with no structural demolition).<br />
-        • <strong>When Positive Cash Flow Starts:</strong> <strong>Month 9 from lease signing (Month 3 after opening doors)</strong>, growing to <strong>+$2,000,000/yr in Year 2</strong> and <strong>+$3,180,000/yr in Year 3+</strong>.
+        • <strong>When Positive Cash Flow Starts:</strong> <strong>Month 9 from lease signing (Month 3 after opening doors)</strong>, growing to <strong>+$1,400,000/yr in Year 2</strong> and <strong>+$2,100,000/yr in Year 3+</strong>.
       </div>
     </div>
 
